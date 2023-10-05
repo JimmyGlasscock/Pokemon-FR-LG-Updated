@@ -214,7 +214,7 @@ VermilionCity_EventScript_CheckSeagallopPresentTrigger::
 	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 1, VermilionCity_EventScript_ChooseSeagallopDestTriPass
 	msgbox VermilionCity_Text_TheShipSetSail
 	closemessage
-	goto VermilionCity_EventScript_WalkUpPier
+	goto VermilionCity_EventScript_WalkUpPier_NoWalkUp
 	end
 
 VermilionCity_EventScript_Sailor::
@@ -231,6 +231,33 @@ VermilionCity_EventScript_OaksAide::
 
 VermilionCity_EventScript_OldMan2::
 	msgbox VermilionCity_Text_BuildingOnThisLand, MSGBOX_NPC
+	end
+
+VermilionCity_EventScript_StrangeOldMan::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOT_TICKETS_FROM_OLD_MAN, VermilionCity_EventScript_StrangeOldManTicketsGiven
+	goto_if_unset FLAG_SYS_NATIONAL_DEX, VermilionCity_EventScript_StrangeOldManNoGive
+	msgbox VermilionCity_Text_StrangeOldMan
+	setflag FLAG_RECEIVED_MYSTIC_TICKET
+	setflag FLAG_RECEIVED_AURORA_TICKET
+	giveitem ITEM_AURORA_TICKET
+	giveitem ITEM_MYSTIC_TICKET
+	setflag FLAG_ENABLE_SHIP_BIRTH_ISLAND
+	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
+	setflag FLAG_GOT_TICKETS_FROM_OLD_MAN
+	msgbox VermilionCity_Text_StrangeOldMan2
+	release
+	end
+
+VermilionCity_EventScript_StrangeOldManNoGive::
+	msgbox VermilionCity_Text_StrangeOldManNoGift
+	release
+	end
+
+VermilionCity_EventScript_StrangeOldManTicketsGiven::
+	msgbox VermilionCity_Text_StrangeOldMan2
+	release
 	end
 
 VermilionCity_EventScript_Machop::

@@ -21,6 +21,32 @@ VermilionCity_Text_BuildingOnThisLand::
 VermilionCity_Text_Machop::
     .string "MACHOP: Guoh! Gogogoh!$"
 
+VermilionCity_Text_StrangeOldMan::
+    .string "I used to be a sailor who sailed\n"
+    .string "far and wide.\p"
+    .string "You seem like an ambitious trainer.\n"
+    .string "I'd like you to have these.$"
+
+VermilionCity_Text_StrangeOldManNoGift::
+    .string "I used to be a sailor who sailed\n"
+    .string "far and wide.$"
+
+VermilionCity_Text_RecievedMysticTicket::
+    .string "{PLAYER} received the\n"
+    .string "MYSTIC TICKET from the OLD MAN.$"
+
+VermilionCity_Text_RecievedAuroraTicket::
+    .string "{PLAYER} received the\n"
+    .string "AURORA TICKET from the OLD MAN.$"
+
+VermilionCity_Text_RecievedOldSeaMap::
+    .string "{PLAYER} received the\n"
+    .string "OLD SEA MAP from the OLD MAN.$"
+
+VermilionCity_Text_StrangeOldMan2::
+    .string "Go see the world. Feel the wind\n"
+    .string "at your sails.$"
+
 VermilionCity_Text_MachopStompingLandFlat::
     .string "A MACHOP is stomping the land flat.$"
 

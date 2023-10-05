@@ -65,3 +65,27 @@ SSAnne_Exterior_Movement_WalkDown::
 	walk_down
 	walk_down
 	step_end
+
+SSAnne_EventScript_Mew::
+	lock
+	faceplayer
+	msgbox SSAnne_Exterior_Text_Something_Under
+	setwildbattle SPECIES_MEW, 30
+	waitse
+	playmoncry SPECIES_MEW, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setvar VAR_SEEN_TRUCK_MEW, 1
+	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
+	dowildbattle
+	clearflag FLAG_SYS_SPECIAL_WILD_BATTLE
+	specialvar VAR_RESULT, GetBattleOutcome
+	release
+	end
+
+SSAnne_Exterior_Already_Seen_Mew::
+	release
+	end
+
+SSAnne_Exterior_Text_Something_Under::
+    .string "There's something under the truck!$"

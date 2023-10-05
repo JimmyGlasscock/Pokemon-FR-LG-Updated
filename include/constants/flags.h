@@ -189,8 +189,9 @@
 #define FLAG_HIDE_MISC_KANTO_ROCKETS                       0x0AD
 #define FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS 0x0AE
 
+#define FLAG_HIDE_TRUCK_MEW                                0x0AF
+
 // Unused?
-#define FLAG_0x0AF               0x0AF
 #define FLAG_0x0B0               0x0B0
 #define FLAG_0x0B1               0x0B1
 #define FLAG_0x0B2               0x0B2
@@ -793,8 +794,10 @@
 #define FLAG_NO_ROOM_FOR_JOYFUL_GAME_CORNER_MOON_STONE   0x2FE
 #define FLAG_OAKS_RATING_IS_VIA_PC                       0x2FF
 
+#define FLAG_GOT_TICKETS_FROM_OLD_MAN                    0x300
+
 // Unused?
-#define FLAG_0x300               0x300
+//#define FLAG_0x300               0x300
 #define FLAG_0x301               0x301
 #define FLAG_0x302               0x302
 #define FLAG_0x303               0x303

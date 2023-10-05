@@ -67,7 +67,62 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 2,
+      "elevation": 3,
+      "var": "VAR_SEEN_TRUCK_MEW",
+      "var_value": 0,
+      "script": "SSAnne_EventScript_Mew"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 3,
+      "elevation": 3,
+      "var": "VAR_SEEN_TRUCK_MEW",
+      "var_value": 0,
+      "script": "SSAnne_EventScript_Mew"
+    },
+    {
+      "type": "trigger",
+      "x": 58,
+      "y": 3,
+      "elevation": 3,
+      "var": "VAR_SEEN_TRUCK_MEW",
+      "var_value": 0,
+      "script": "SSAnne_EventScript_Mew"
+    },
+    {
+      "type": "trigger",
+      "x": 55,
+      "y": 4,
+      "elevation": 3,
+      "var": "VAR_SEEN_TRUCK_MEW",
+      "var_value": 0,
+      "script": "SSAnne_EventScript_Mew"
+    },
+    {
+      "type": "trigger",
+      "x": 56,
+      "y": 4,
+      "elevation": 3,
+      "var": "VAR_SEEN_TRUCK_MEW",
+      "var_value": 0,
+      "script": "SSAnne_EventScript_Mew"
+    },
+    {
+      "type": "trigger",
+      "x": 57,
+      "y": 4,
+      "elevation": 3,
+      "var": "VAR_SEEN_TRUCK_MEW",
+      "var_value": 0,
+      "script": "SSAnne_EventScript_Mew"
+    }
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

@@ -1,5 +1,20 @@
 # Pokémon FireRed and LeafGreen
 
+## My Updates to the Game
+* Start with running shoes
+* Can run everywhere
+* Start with national dex
+* No national dex evolution block
+* No help system
+* No previously on your quest
+* can evolve eevee to espeon/umbreon w sun/moon stone
+* sun & moon stone sold at celadon
+* all Johto pokemon are at the Sevii islands (not starters and not Celebi)
+* old guy gives you navel rock & birth island tix after e4
+* Added mew under the truck (Pier guy lets you walk past)
+* Cerulean cave guy disappears after elite four, just like in RBY - before Celio quest
+
+
 [![Build Status][travis-badge]][travis]
 
 [travis]: https://travis-ci.org/pret/pokefirered

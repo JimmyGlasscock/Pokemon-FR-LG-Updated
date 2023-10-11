@@ -23,6 +23,7 @@ It builds the following ROMs:
 * old guy gives you navel rock & birth island tix after e4
 * Added mew under the truck (Pier guy lets you walk past)
 * Cerulean cave guy disappears after elite four, just like in RBY - before Celio quest
+* The pokemon catching tutorial is now skipable
 
 
 [![Build Status][travis-badge]][travis]

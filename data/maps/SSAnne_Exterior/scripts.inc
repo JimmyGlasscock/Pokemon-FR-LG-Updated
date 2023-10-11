@@ -76,10 +76,10 @@ SSAnne_EventScript_Mew_Face_Right::
 	playmoncry SPECIES_MEW, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setvar VAR_SEEN_TRUCK_MEW, 1
 	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
 	dowildbattle
 	clearflag FLAG_SYS_SPECIAL_WILD_BATTLE
+	setvar VAR_SEEN_TRUCK_MEW, 1
 	specialvar VAR_RESULT, GetBattleOutcome
 	release
 	end
@@ -94,10 +94,10 @@ SSAnne_EventScript_Mew_Face_Left::
 	playmoncry SPECIES_MEW, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setvar VAR_SEEN_TRUCK_MEW, 1
 	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
 	dowildbattle
 	clearflag FLAG_SYS_SPECIAL_WILD_BATTLE
+	setvar VAR_SEEN_TRUCK_MEW, 1
 	specialvar VAR_RESULT, GetBattleOutcome
 	release
 	end
@@ -112,10 +112,10 @@ SSAnne_EventScript_Mew_Face_Up::
 	playmoncry SPECIES_MEW, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setvar VAR_SEEN_TRUCK_MEW, 1
 	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
 	dowildbattle
 	clearflag FLAG_SYS_SPECIAL_WILD_BATTLE
+	setvar VAR_SEEN_TRUCK_MEW, 1
 	specialvar VAR_RESULT, GetBattleOutcome
 	release
 	end

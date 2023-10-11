@@ -75,7 +75,7 @@
       "elevation": 3,
       "var": "VAR_SEEN_TRUCK_MEW",
       "var_value": 0,
-      "script": "SSAnne_EventScript_Mew"
+      "script": "SSAnne_EventScript_Mew_Face_Right"
     },
     {
       "type": "trigger",
@@ -84,7 +84,7 @@
       "elevation": 3,
       "var": "VAR_SEEN_TRUCK_MEW",
       "var_value": 0,
-      "script": "SSAnne_EventScript_Mew"
+      "script": "SSAnne_EventScript_Mew_Face_Right"
     },
     {
       "type": "trigger",
@@ -93,7 +93,7 @@
       "elevation": 3,
       "var": "VAR_SEEN_TRUCK_MEW",
       "var_value": 0,
-      "script": "SSAnne_EventScript_Mew"
+      "script": "SSAnne_EventScript_Mew_Face_Left"
     },
     {
       "type": "trigger",
@@ -102,7 +102,7 @@
       "elevation": 3,
       "var": "VAR_SEEN_TRUCK_MEW",
       "var_value": 0,
-      "script": "SSAnne_EventScript_Mew"
+      "script": "SSAnne_EventScript_Mew_Face_Up"
     },
     {
       "type": "trigger",
@@ -111,7 +111,7 @@
       "elevation": 3,
       "var": "VAR_SEEN_TRUCK_MEW",
       "var_value": 0,
-      "script": "SSAnne_EventScript_Mew"
+      "script": "SSAnne_EventScript_Mew_Face_Up"
     },
     {
       "type": "trigger",
@@ -120,7 +120,7 @@
       "elevation": 3,
       "var": "VAR_SEEN_TRUCK_MEW",
       "var_value": 0,
-      "script": "SSAnne_EventScript_Mew"
+      "script": "SSAnne_EventScript_Mew_Face_Up"
     }
   ],
   "bg_events": [

@@ -66,9 +66,46 @@ SSAnne_Exterior_Movement_WalkDown::
 	walk_down
 	step_end
 
-SSAnne_EventScript_Mew::
+SSAnne_EventScript_Mew_Face_Right::
 	lock
 	faceplayer
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	msgbox SSAnne_Exterior_Text_Something_Under
+	setwildbattle SPECIES_MEW, 30
+	waitse
+	playmoncry SPECIES_MEW, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setvar VAR_SEEN_TRUCK_MEW, 1
+	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
+	dowildbattle
+	clearflag FLAG_SYS_SPECIAL_WILD_BATTLE
+	specialvar VAR_RESULT, GetBattleOutcome
+	release
+	end
+
+SSAnne_EventScript_Mew_Face_Left::
+	lock
+	faceplayer
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	msgbox SSAnne_Exterior_Text_Something_Under
+	setwildbattle SPECIES_MEW, 30
+	waitse
+	playmoncry SPECIES_MEW, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setvar VAR_SEEN_TRUCK_MEW, 1
+	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
+	dowildbattle
+	clearflag FLAG_SYS_SPECIAL_WILD_BATTLE
+	specialvar VAR_RESULT, GetBattleOutcome
+	release
+	end
+
+SSAnne_EventScript_Mew_Face_Up::
+	lock
+	faceplayer
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	msgbox SSAnne_Exterior_Text_Something_Under
 	setwildbattle SPECIES_MEW, 30
 	waitse

@@ -226,7 +226,9 @@ ViridianCity_EventScript_TutorialTriggerRight::
 	end
 
 ViridianCity_EventScript_DoTutorialBattle::
-	msgbox ViridianCity_Text_ShowYouHowToCatchMons
+	msgbox ViridianCity_Text_DoYouKnowHowToCatchMons, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, ViridianCity_EventScript_SkipTutorialBattle
+	msgbox ViridianCity_Text_IdBetterShowYou
 	closemessage
 	goto_if_questlog EventScript_ReleaseEnd
 	special QuestLog_CutRecording
@@ -235,6 +237,15 @@ ViridianCity_EventScript_DoTutorialBattle::
 	lock
 	faceplayer
 	msgbox ViridianCity_Text_ThatWasEducationalTakeThis
+	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2
+	giveitem ITEM_TEACHY_TV
+	msgbox ViridianCity_Text_WatchThatToLearnBasics
+	return
+
+ViridianCity_EventScript_SkipTutorialBattle::
+	lock
+	faceplayer
+	msgbox ViridianCity_Text_YoureEducated
 	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2
 	giveitem ITEM_TEACHY_TV
 	msgbox ViridianCity_Text_WatchThatToLearnBasics

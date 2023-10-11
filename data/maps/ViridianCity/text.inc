@@ -58,10 +58,33 @@ ViridianCity_Text_ShowYouHowToCatchMons::
     .string "I suppose I had better show you\n"
     .string "then!$"
 
+ViridianCity_Text_DoYouKnowHowToCatchMons::
+    .string "Well, now, I've had my coffee, and\n"
+    .string "that's what I need to get going!\p"
+    .string "Hm?\n"
+    .string "What is that red box you have?\p"
+    .string "Ah, so you're working on your\n"
+    .string "POKéDEX.\p"
+    .string "Then let me give you a word of\n"
+    .string "advice.\p"
+    .string "Whenever you catch a POKéMON,\n"
+    .string "the POKéDEX automatically updates\l"
+    .string "its data.\p"
+    .string "Do you know how to catch\n"
+    .string "a POKéMON?$"
+
+ViridianCity_Text_IdBetterShowYou::
+    .string "I suppose I had better show you\n"
+    .string "then!$"
+
 ViridianCity_Text_ThatWasEducationalTakeThis::
     .string "There! Now tell me, that was\n"
     .string "educational, was it not?\p"
     .string "And here, take this, too.$"
+
+ViridianCity_Text_YoureEducated::
+    .string "Wow! You must be a pro.\n"
+    .string "At least take this.$"
 
 ViridianCity_Text_WatchThatToLearnBasics::
     .string "If there's something you don't\n"

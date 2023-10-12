@@ -632,6 +632,9 @@ static void PrintOakText_ForPetesSake(void)
     case 0:
         if (!gPaletteFade.active)
         {
+            gBattleStruct->simulatedInputState[0] = 8;
+
+            /*
             DoLoadHealthboxPalsForLevelUp(&gBattleStruct->simulatedInputState[1], &gBattleStruct->simulatedInputState[3], GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT));
             BeginNormalPaletteFade(0xFFFFFF7E,
                                    4,
@@ -639,6 +642,7 @@ static void PrintOakText_ForPetesSake(void)
                                    8,
                                    RGB_BLACK);
             ++gBattleStruct->simulatedInputState[0];
+            */
         }
         break;
     case 1:
@@ -749,8 +753,11 @@ static void PrintOakTextWithMainBgDarkened(const u8 *text, u8 delay)
     case 0:
         if (!IsTextPrinterActive(0))
         {
+            gBattleStruct->simulatedInputState[0] = 5;
+            /*
             gBattleStruct->simulatedInputState[3] = delay;
             ++gBattleStruct->simulatedInputState[0];
+            */
         }
         break;
     case 1:

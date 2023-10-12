@@ -4899,7 +4899,7 @@ static void CB2_ReturnToPartyMenuWhileLearningMove(void)
     if (learnMethod == LEARN_VIA_TMHM && moveIdx != MAX_MON_MOVES)
     {
         move = GetMonData(&gPlayerParty[gPartyMenu.slotId], moveIdx + MON_DATA_MOVE1);
-        StartUseItemAnim_ForgetMoveAndLearnTMorHM(gPartyMenu.slotId, gSpecialVar_ItemId, move, CB2_UseTMHMAfterForgettingMove);
+        InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, TRUE, PARTY_MSG_NONE, Task_ReturnToPartyMenuWhileLearningMove, gPartyMenu.exitCallback);
         gItemUseCB = ItemUseCB_ReplaceMoveWithTMHM;
         gPartyMenu.action = PARTY_ACTION_CHOOSE_MON;
     }

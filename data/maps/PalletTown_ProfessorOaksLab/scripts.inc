@@ -339,6 +339,7 @@ PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleSquirtleRight::
 
 PalletTown_ProfessorOaksLab_EventScript_RivalBattleSquirtle::
 	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, RIVAL_BATTLE_TUTORIAL, PalletTown_ProfessorOaksLab_Text_RivalDefeat, Text_RivalVictory
+
 	goto PalletTown_ProfessorOaksLab_EventScript_EndRivalBattle
 	end
 

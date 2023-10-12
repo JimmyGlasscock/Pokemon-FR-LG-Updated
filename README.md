@@ -24,6 +24,7 @@ It builds the following ROMs:
 * Added mew under the truck (Pier guy lets you walk past)
 * Cerulean cave guy disappears after elite four, just like in RBY - before Celio quest
 * The pokemon catching tutorial is now skipable
+* Deleted oak first battle tutorial
 
 
 [![Build Status][travis-badge]][travis]

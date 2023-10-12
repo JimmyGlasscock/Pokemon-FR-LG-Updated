@@ -161,6 +161,7 @@ static void SetUpUseItemAnim_CantEvolve(struct PokemonSpecialAnim * ptr)
 static void Task_UseItem_Normal(u8 taskId)
 {
     struct PokemonSpecialAnim * ptr = (void *)GetWordTaskArg(taskId, 0);
+
     if (!ptr->cancelDisabled && JOY_HELD(A_BUTTON | B_BUTTON))
     {
         PSA_UseItem_CleanUpForCancel();

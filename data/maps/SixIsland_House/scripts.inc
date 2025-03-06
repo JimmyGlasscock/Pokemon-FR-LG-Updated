@@ -4,3 +4,267 @@ SixIsland_House_MapScripts::
 SixIsland_House_EventScript_OldMan::
 	msgbox SixIsland_House_Text_GoodPlaceForNatureAndHistory, MSGBOX_NPC
 	end
+
+SixIsland_House_EventScript_StarterGuy::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOT_OTHER_STARTER_1, SixIsland_House_EventScript_StarterGuyGivenPokemonAlready
+	msgbox SixIsland_House_Text_StarterGuy, MSGBOX_NPC
+	goto_if_eq VAR_STARTER_MON, 2, SixIsland_House_EventScript_StarterGuy_GiveSquirtle
+	goto_if_eq VAR_STARTER_MON, 1, SixIsland_House_EventScript_StarterGuy_GiveBulbasaur
+	goto_if_eq VAR_STARTER_MON, 0, SixIsland_House_EventScript_StarterGuy_GiveCharmander
+
+SixIsland_House_EventScript_StarterGuy2::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOT_OTHER_STARTER_2, SixIsland_House_EventScript_StarterGuy2GivenPokemonAlready
+	msgbox SixIsland_House_Text_StarterGuy2, MSGBOX_NPC
+	goto_if_eq VAR_STARTER_MON, 2, SixIsland_House_EventScript_StarterGuy2_GiveBulbasaur
+	goto_if_eq VAR_STARTER_MON, 1, SixIsland_House_EventScript_StarterGuy2_GiveCharmander
+	goto_if_eq VAR_STARTER_MON, 0, SixIsland_House_EventScript_StarterGuy2_GiveSquirtle
+
+SixIsland_House_EventScript_StarterGuy_GiveBulbasaur::
+	setvar VAR_TEMP_1, SPECIES_BULBASAUR
+	givemon SPECIES_BULBASAUR, 10
+	goto_if_eq VAR_RESULT, 0, SixIsland_House_EventScript_ReceiveBulbasaurParty
+	goto_if_eq VAR_RESULT, 1, SixIsland_House_EventScript_ReceiveBulbasaurPC
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	release
+	end
+
+SixIsland_House_EventScript_StarterGuy_GiveCharmander::
+	setvar VAR_TEMP_1, SPECIES_CHARMANDER
+	givemon SPECIES_CHARMANDER, 10
+	goto_if_eq VAR_RESULT, 0, SixIsland_House_EventScript_ReceiveCharmanderParty
+	goto_if_eq VAR_RESULT, 1, SixIsland_House_EventScript_ReceiveCharmanderPC
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	release
+	end
+
+SixIsland_House_EventScript_StarterGuy_GiveSquirtle::
+	setvar VAR_TEMP_1, SPECIES_SQUIRTLE
+	givemon SPECIES_SQUIRTLE, 10
+	goto_if_eq VAR_RESULT, 0, SixIsland_House_EventScript_ReceiveSquirtleParty
+	goto_if_eq VAR_RESULT, 1, SixIsland_House_EventScript_ReceiveSquirtlePC
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	release
+	end
+
+SixIsland_House_EventScript_ReceiveBulbasaurParty::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedBulbasaurFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_BULBASAUR
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_EventScript_EndReceivePokemon
+	call EventScript_GetGiftMonPartySlot
+	call EventScript_ChangePokemonNickname
+	goto SixIsland_House_EventScript_EndReceivePokemon
+	end
+
+SixIsland_House_EventScript_ReceiveBulbasaurPC::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedBulbasaurFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_BULBASAUR
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_PokemonTransferredToPC
+	call EventScript_NameReceivedBoxMon
+	goto SixIsland_House_PokemonTransferredToPC
+	end
+
+SixIsland_House_EventScript_ReceiveCharmanderParty::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedCharmanderFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_CHARMANDER
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_EventScript_EndReceivePokemon
+	call EventScript_GetGiftMonPartySlot
+	call EventScript_ChangePokemonNickname
+	goto SixIsland_House_EventScript_EndReceivePokemon
+	end
+
+SixIsland_House_EventScript_ReceiveCharmanderPC::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedCharmanderFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_CHARMANDER
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_PokemonTransferredToPC
+	call EventScript_NameReceivedBoxMon
+	goto SixIsland_House_PokemonTransferredToPC
+	end
+
+SixIsland_House_EventScript_ReceiveSquirtleParty::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedSquirtleFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_SQUIRTLE
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_EventScript_EndReceivePokemon
+	call EventScript_GetGiftMonPartySlot
+	call EventScript_ChangePokemonNickname
+	goto SixIsland_House_EventScript_EndReceivePokemon
+	end
+
+SixIsland_House_EventScript_ReceiveSquirtlePC::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedSquirtleFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_SQUIRTLE
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_PokemonTransferredToPC
+	call EventScript_NameReceivedBoxMon
+	goto SixIsland_House_PokemonTransferredToPC
+	end
+
+SixIsland_House_EventScript_StarterGuy2_GiveBulbasaur::
+	setvar VAR_TEMP_1, SPECIES_BULBASAUR
+	givemon SPECIES_BULBASAUR, 10
+	goto_if_eq VAR_RESULT, 0, SixIsland_House_EventScript_ReceiveBulbasaurParty2
+	goto_if_eq VAR_RESULT, 1, SixIsland_House_EventScript_ReceiveBulbasaurPC2
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	release
+	end
+
+SixIsland_House_EventScript_StarterGuy2_GiveCharmander::
+	setvar VAR_TEMP_1, SPECIES_CHARMANDER
+	givemon SPECIES_CHARMANDER, 10
+	goto_if_eq VAR_RESULT, 0, SixIsland_House_EventScript_ReceiveCharmanderParty2
+	goto_if_eq VAR_RESULT, 1, SixIsland_House_EventScript_ReceiveCharmanderPC2
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	release
+	end
+
+SixIsland_House_EventScript_StarterGuy2_GiveSquirtle::
+	setvar VAR_TEMP_1, SPECIES_SQUIRTLE
+	givemon SPECIES_SQUIRTLE, 10
+	goto_if_eq VAR_RESULT, 0, SixIsland_House_EventScript_ReceiveSquirtleParty2
+	goto_if_eq VAR_RESULT, 1, SixIsland_House_EventScript_ReceiveSquirtlePC2
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	release
+	end
+
+SixIsland_House_EventScript_ReceiveBulbasaurParty2::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedBulbasaurFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_BULBASAUR
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_EventScript_EndReceivePokemon2
+	call EventScript_GetGiftMonPartySlot
+	call EventScript_ChangePokemonNickname
+	goto SixIsland_House_EventScript_EndReceivePokemon2
+	end
+
+SixIsland_House_EventScript_ReceiveBulbasaurPC2::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedBulbasaurFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_BULBASAUR
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_PokemonTransferredToPC2
+	call EventScript_NameReceivedBoxMon
+	goto SixIsland_House_PokemonTransferredToPC2
+	end
+
+SixIsland_House_EventScript_ReceiveCharmanderParty2::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedCharmanderFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_CHARMANDER
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_EventScript_EndReceivePokemon2
+	call EventScript_GetGiftMonPartySlot
+	call EventScript_ChangePokemonNickname
+	goto SixIsland_House_EventScript_EndReceivePokemon2
+	end
+
+SixIsland_House_EventScript_ReceiveCharmanderPC2::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedCharmanderFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_CHARMANDER
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_PokemonTransferredToPC2
+	call EventScript_NameReceivedBoxMon
+	goto SixIsland_House_PokemonTransferredToPC2
+	end
+
+SixIsland_House_EventScript_ReceiveSquirtleParty2::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedSquirtleFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_SQUIRTLE
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_EventScript_EndReceivePokemon2
+	call EventScript_GetGiftMonPartySlot
+	call EventScript_ChangePokemonNickname
+	goto SixIsland_House_EventScript_EndReceivePokemon2
+	end
+
+SixIsland_House_EventScript_ReceiveSquirtlePC2::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_LEVEL_UP
+	message SixIsland_House_Text_ObtainedSquirtleFromGuy
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_SQUIRTLE
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SixIsland_House_PokemonTransferredToPC2
+	call EventScript_NameReceivedBoxMon
+	goto SixIsland_House_PokemonTransferredToPC2
+	end
+
+SixIsland_House_PokemonTransferredToPC::
+	call EventScript_TransferredToPC
+	goto SixIsland_House_EventScript_EndReceivePokemon
+	end
+
+SixIsland_House_PokemonTransferredToPC2::
+	call EventScript_TransferredToPC
+	goto SixIsland_House_EventScript_EndReceivePokemon2
+	end
+
+SixIsland_House_EventScript_EndReceivePokemon::
+	msgbox SixIsland_House_Text_StarterGuyTakeGoodCare
+	setflag FLAG_GOT_OTHER_STARTER_1
+	release
+	end
+
+SixIsland_House_EventScript_EndReceivePokemon2::
+	msgbox SixIsland_House_Text_StarterGuyTreatWell
+	setflag FLAG_GOT_OTHER_STARTER_2
+	release
+	end
+
+SixIsland_House_EventScript_StarterGuyGivenPokemonAlready::
+	msgbox SixIsland_House_Text_StarterGuyTakeGoodCare, MSGBOX_NPC
+	end
+
+SixIsland_House_EventScript_StarterGuy2GivenPokemonAlready::
+	msgbox SixIsland_House_Text_StarterGuyTreatWell, MSGBOX_NPC
+	end

@@ -1,3 +1,5 @@
+.set LOCALID_FOSSIL_POKEBALL, 3
+
 CinnabarIsland_PokemonLab_ResearchRoom_MapScripts::
 	.byte 0
 
@@ -15,4 +17,90 @@ CinnabarIsland_PokemonLab_ResearchRoom_EventScript_Computer::
 
 CinnabarIsland_PokemonLab_ResearchRoom_EventScript_AmberPipe::
 	msgbox CinnabarIsland_PokemonLab_ResearchRoom_Text_AnAmberPipe, MSGBOX_SIGN
+	end
+
+CinnabarIsland_PokemonLab_ResearchRoom_EventScript_KabutoBall::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOT_DOME_FOSSIL, CinnabarIsland_PokemonLab_ResearchRoom_EventScript_OmanyteBall
+	setvar VAR_TEMP_1, SPECIES_KABUTO
+	givemon SPECIES_KABUTO, 30
+	goto_if_eq VAR_RESULT, 0, CinnabarIsland_PokemonLab_ResearchRoom_EventScript_GetKabutoParty
+	goto_if_eq VAR_RESULT, 1, CinnabarIsland_PokemonLab_ResearchRoom_EventScript_GetKabutoPC
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	release
+	end
+
+
+CinnabarIsland_PokemonLab_ResearchRoom_EventScript_OmanyteBall::
+	setvar VAR_TEMP_1, SPECIES_OMANYTE
+	givemon SPECIES_OMANYTE, 30
+	goto_if_eq VAR_RESULT, 0, CinnabarIsland_PokemonLab_ResearchRoom_EventScript_GetOmanyteParty
+	goto_if_eq VAR_RESULT, 1, CinnabarIsland_PokemonLab_ResearchRoom_EventScript_GetOmanytePC
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	release
+	end
+
+CinnabarIsland_PokemonLab_ResearchRoom_EventScript_GetOmanyteParty::
+	removeobject LOCALID_FOSSIL_POKEBALL
+	playfanfare MUS_LEVEL_UP
+	message CinnabarIsland_PokemonLab_ResearchRoom_Text_ObtainedAnOmanyte
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_OMANYTE
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CinnabarIsland_PokemonLab_ResearchRoom_EventScript_SetGotFossil
+	call EventScript_GetGiftMonPartySlot
+	call EventScript_ChangePokemonNickname
+	goto CinnabarIsland_PokemonLab_ResearchRoom_EventScript_SetGotFossil
+	end
+
+CinnabarIsland_PokemonLab_ResearchRoom_EventScript_GetOmanytePC::
+	removeobject LOCALID_FOSSIL_POKEBALL
+	playfanfare MUS_LEVEL_UP
+	message CinnabarIsland_PokemonLab_ResearchRoom_Text_ObtainedAnOmanyte
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_OMANYTE
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CinnabarIsland_PokemonLab_ResearchRoom_EventScript_TransferMonToPC
+	call EventScript_NameReceivedBoxMon
+	goto CinnabarIsland_PokemonLab_ResearchRoom_EventScript_TransferMonToPC
+	end
+
+CinnabarIsland_PokemonLab_ResearchRoom_EventScript_GetKabutoParty::
+	removeobject LOCALID_FOSSIL_POKEBALL
+	playfanfare MUS_LEVEL_UP
+	message CinnabarIsland_PokemonLab_ResearchRoom_Text_ObtainedAKabuto
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_KABUTO
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CinnabarIsland_PokemonLab_ResearchRoom_EventScript_SetGotFossil
+	call EventScript_GetGiftMonPartySlot
+	call EventScript_ChangePokemonNickname
+	goto CinnabarIsland_PokemonLab_ResearchRoom_EventScript_SetGotFossil
+	end
+
+CinnabarIsland_PokemonLab_ResearchRoom_EventScript_GetKabutoPC::
+	removeobject LOCALID_FOSSIL_POKEBALL
+	playfanfare MUS_LEVEL_UP
+	message CinnabarIsland_PokemonLab_ResearchRoom_Text_ObtainedAKabuto
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_KABUTO
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CinnabarIsland_PokemonLab_ResearchRoom_EventScript_TransferMonToPC
+	call EventScript_NameReceivedBoxMon
+	goto CinnabarIsland_PokemonLab_ResearchRoom_EventScript_TransferMonToPC
+	end
+
+CinnabarIsland_PokemonLab_ResearchRoom_EventScript_TransferMonToPC::
+	call EventScript_TransferredToPC
+	goto CinnabarIsland_PokemonLab_ResearchRoom_EventScript_SetGotFossil
+	end
+
+CinnabarIsland_PokemonLab_ResearchRoom_EventScript_SetGotFossil::
+	setflag FLAG_GOT_FOSSIL_BALL
+	release
 	end

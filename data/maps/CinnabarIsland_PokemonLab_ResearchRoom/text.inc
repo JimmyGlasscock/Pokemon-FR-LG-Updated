@@ -17,3 +17,8 @@ CinnabarIsland_PokemonLab_ResearchRoom_Text_LegendaryBirdEmail::
 CinnabarIsland_PokemonLab_ResearchRoom_Text_AnAmberPipe::
     .string "An amber pipe!$"
 
+CinnabarIsland_PokemonLab_ResearchRoom_Text_ObtainedAKabuto::
+    .string "{PLAYER} obtained a KABUTO!$"
+
+CinnabarIsland_PokemonLab_ResearchRoom_Text_ObtainedAnOmanyte::
+    .string "{PLAYER} obtained an OMANYTE!$"

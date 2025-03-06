@@ -190,12 +190,12 @@
 #define FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS 0x0AE
 
 #define FLAG_HIDE_TRUCK_MEW                                0x0AF
+#define FLAG_GOT_OTHER_STARTER_1                           0x0B0
+#define FLAG_GOT_OTHER_STARTER_2                           0x0B1
+#define FLAG_HIDE_FOSSIL_BALL                              0x0B2
+#define FLAG_GOT_FOSSIL_BALL                               0x0B3
 
-// Unused?
-#define FLAG_0x0B0               0x0B0
-#define FLAG_0x0B1               0x0B1
-#define FLAG_0x0B2               0x0B2
-#define FLAG_0x0B3               0x0B3
+// Unused?  
 #define FLAG_0x0B4               0x0B4
 #define FLAG_0x0B5               0x0B5
 #define FLAG_0x0B6               0x0B6

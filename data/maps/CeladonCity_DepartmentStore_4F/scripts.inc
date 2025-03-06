@@ -34,6 +34,7 @@ CeladonCity_DepartmentStore_4F_Items::
 	.2byte ITEM_LEAF_STONE
 	.2byte ITEM_SUN_STONE
 	.2byte ITEM_MOON_STONE
+	.2byte ITEM_063
 	.2byte ITEM_NONE
 	release
 	end

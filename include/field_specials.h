@@ -27,5 +27,7 @@ void ResetFieldTasksArgs(void);
 bool8 UsedPokemonCenterWarp(void);
 void QuestLog_CheckDepartingIndoorsMap(void);
 void QuestLog_TryRecordDepartedLocation(void);
+u16 CheckForNextRepelInBag(void);
+void UseNextRepelFromBag(void);
 
 #endif // GUARD_FIELD_SPECIALS_H

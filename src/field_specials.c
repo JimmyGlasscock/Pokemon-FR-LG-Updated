@@ -41,6 +41,7 @@
 #include "constants/menu.h"
 #include "constants/event_objects.h"
 #include "constants/metatile_labels.h"
+#include "item.h"
 
 static EWRAM_DATA u8 sElevatorCurrentFloorWindowId = 0;
 static EWRAM_DATA u16 sElevatorScroll = 0;
@@ -2550,4 +2551,46 @@ static void Task_WingFlapSound(u8 taskId)
     }
     if (data[0] == gSpecialVar_0x8004 - 1)
         DestroyTask(taskId);
+}
+
+u16 CheckForNextRepelInBag(void)
+{
+    // Check for repels in priority order: Max Repel > Super Repel > Repel
+    if (CheckBagHasItem(ITEM_MAX_REPEL, 1))
+    {
+        gSpecialVar_0x8004 = ITEM_MAX_REPEL;
+        return TRUE;
+    }
+    else if (CheckBagHasItem(ITEM_SUPER_REPEL, 1))
+    {
+        gSpecialVar_0x8004 = ITEM_SUPER_REPEL;
+        return TRUE;
+    }
+    else if (CheckBagHasItem(ITEM_REPEL, 1))
+    {
+        gSpecialVar_0x8004 = ITEM_REPEL;
+        return TRUE;
+    }
+    else
+    {
+        gSpecialVar_0x8004 = ITEM_NONE;
+        return FALSE;
+    }
+}
+
+void UseNextRepelFromBag(void)
+{
+    u16 itemId = gSpecialVar_0x8004;
+    
+    if (itemId != ITEM_NONE)
+    {
+        // Remove the item from the bag
+        RemoveBagItem(itemId, 1);
+        
+        // Set the repel step count based on the item
+        VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(itemId));
+        
+        // Copy item name for message display
+        CopyItemName(itemId, gStringVar1);
+    }
 }

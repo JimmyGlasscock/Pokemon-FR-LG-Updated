@@ -398,6 +398,7 @@ static void ItemUseCB_ReplaceMoveWithTMHM(u8 taskId, TaskFunc func);
 static void Task_ReplaceMoveWithTMHM(u8 taskId);
 static void CB2_UseEvolutionStone(void);
 static bool8 MonCanEvolve(void);
+static bool8 ExecuteTableBasedItemEffect_(u8 partyMonIndex, u16 item, u8 monMoveIndex);
 
 static EWRAM_DATA struct PartyMenuInternal *sPartyMenuInternal = NULL;
 EWRAM_DATA struct PartyMenu gPartyMenu = {0};
@@ -4277,9 +4278,22 @@ static void CB2_DoUseItemAnim(void)
     if (CheckIfItemIsTMHMOrEvolutionStone(gSpecialVar_ItemId) == 2) // Evolution stone
     {
         if (MonCanEvolve() == TRUE)
-            StartUseItemAnim_Normal(gPartyMenu.slotId, gSpecialVar_ItemId, CB2_UseEvolutionStone);
+        {
+            // Skip animation and fade - directly trigger evolution scene
+            struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+            u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_ITEM_USE, gSpecialVar_ItemId);
+            
+            gCB2_AfterEvolution = gPartyMenu.exitCallback;
+            ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, &gPlayerParty[gPartyMenu.slotId], gSpecialVar_ItemId, 0xFFFF);
+            RemoveBagItem(gSpecialVar_ItemId, 1);
+            EvolutionScene(mon, targetSpecies, TRUE, gPartyMenu.slotId);
+        }
         else
-            StartUseItemAnim_CantEvolve(gPartyMenu.slotId, gSpecialVar_ItemId, gPartyMenu.exitCallback);
+        {
+            DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+            ScheduleBgCopyTilemapToVram(2);
+            SetMainCallback2(gPartyMenu.exitCallback);
+        }
     }
     else
         StartUseItemAnim_Normal(gPartyMenu.slotId, gSpecialVar_ItemId, CB2_UseItem);
@@ -5041,8 +5055,9 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc func)
     }
     else
     {
-        Task_DoUseItemAnim(taskId);
+        // Skip animation, directly apply rare candy effect
         gItemUseCB = ItemUseCB_RareCandyStep;
+        ItemUseCB_RareCandyStep(taskId, func);
     }
 }
 

@@ -38,11 +38,7 @@ endif
 # as installations which install binutils-arm-none-eabi
 # don't come with it
 ifneq ($(MODERN),1)
-  ifeq ($(shell uname -s),Darwin)
-    CPP := $(PREFIX)cpp
-  else
-    CPP := $(CC) -E
-  endif
+  CPP := $(PREFIX)cpp
 else
   CPP := $(PREFIX)cpp
 endif

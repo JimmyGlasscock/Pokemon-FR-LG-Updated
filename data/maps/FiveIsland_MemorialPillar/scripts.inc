@@ -1,4 +1,5 @@
 .set LOCALID_MEMORIAL_MAN, 1
+.set LOCALID_JIMMY, 6
 
 FiveIsland_MemorialPillar_MapScripts::
 	.byte 0
@@ -84,3 +85,31 @@ FiveIsland_MemorialPillar_EventScript_MemorialLemonadeAlreadyPlaced::
 	msgbox FiveIsland_MemorialPillar_Text_HereLiesTectonix
 	releaseall
 	end
+
+FiveIsland_MemorialPillar_EventScript_Jimmy::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_JIMMY, FiveIsland_MemorialPillar_EventScript_JimmyDefeated
+	msgbox FiveIsland_MemorialPillar_Text_JimmyIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, FiveIsland_MemorialPillar_EventScript_JimmyDeclined
+	trainerbattle_single TRAINER_JIMMY, FiveIsland_MemorialPillar_Text_JimmyLetsGo, FiveIsland_MemorialPillar_Text_JimmyDefeat, FiveIsland_MemorialPillar_EventScript_JimmyAfterBattle
+	release
+	end
+
+FiveIsland_MemorialPillar_EventScript_JimmyAfterBattle::
+	setflag FLAG_DEFEATED_JIMMY
+	msgbox FiveIsland_MemorialPillar_Text_JimmyPostBattle
+	giveitem ITEM_PREMIER_BALL, 10
+	release
+	end
+
+FiveIsland_MemorialPillar_EventScript_JimmyDefeated::
+	msgbox FiveIsland_MemorialPillar_Text_JimmyAlreadyBattled
+	release
+	end
+
+FiveIsland_MemorialPillar_EventScript_JimmyDeclined::
+	msgbox FiveIsland_MemorialPillar_Text_JimmyDeclinedBattle
+	release
+	end
+

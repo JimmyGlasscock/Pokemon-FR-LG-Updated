@@ -94,6 +94,31 @@ FiveIsland_MemorialPillar_Text_ScrubScrubTectonix::
 FiveIsland_MemorialPillar_Text_HereLiesTectonix::
     .string "Boulders and rocks are neatly piled\n"
     .string "up as a cairn.\p"
-    .string "“Here lies TECTONIX” is engraved\n"
+    .string "Here lies TECTONIX is engraved\n"
     .string "on a boulder.$"
 
+FiveIsland_MemorialPillar_Text_JimmyIntro::
+    .string "I travelled here all the way from\n"
+    .string "the SINNOH region.\p"
+    .string "You look like a strong trainer.\n"
+    .string "Do you want to battle?$"
+
+FiveIsland_MemorialPillar_Text_JimmyLetsGo::
+    .string "Let's go!$"
+
+FiveIsland_MemorialPillar_Text_JimmyDefeat::
+    .string "Wow! You're tough.$"
+
+FiveIsland_MemorialPillar_Text_JimmyPostBattle::
+    .string "That was a great battle!\n"
+    .string "You're really something.\p"
+    .string "This is my favorite kind of POKé\n"
+    .string "BALL. I want you to have these.$"
+
+FiveIsland_MemorialPillar_Text_JimmyAlreadyBattled::
+    .string "That was a great battle!\n"
+    .string "You're really something.$"
+
+FiveIsland_MemorialPillar_Text_JimmyDeclinedBattle::
+    .string "That's too bad.\n"
+    .string "Maybe another time!$"

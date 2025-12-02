@@ -10996,3 +10996,43 @@ static const struct TrainerMonNoItemDefaultMoves sParty_CueBallPaxton[] = {
         .species = SPECIES_MUK,
     },
 };
+
+static const struct TrainerMonNoItemCustomMoves sParty_Jimmy[] = {
+    {
+        .iv = 255,
+        .lvl = 68,
+        .species = SPECIES_TYPHLOSION,
+        .moves = {MOVE_FLAMETHROWER, MOVE_THUNDER_PUNCH, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE},
+    },
+    {
+        .iv = 255,
+        .lvl = 64,
+        .species = SPECIES_BLASTOISE,
+        .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_EARTHQUAKE, MOVE_MIRROR_COAT},
+    },
+    {
+        .iv = 255,
+        .lvl = 67,
+        .species = SPECIES_BRELOOM,
+        .moves = {MOVE_SKY_UPPERCUT, MOVE_MACH_PUNCH, MOVE_SLUDGE_BOMB, MOVE_SPORE},
+    },
+    {
+        .iv = 255,
+        .lvl = 66,
+        .species = SPECIES_CROBAT,
+        .moves = {MOVE_SLUDGE_BOMB, MOVE_AIR_CUTTER, MOVE_SHADOW_BALL, MOVE_CONFUSE_RAY},
+    },
+    {
+        .iv = 255,
+        .lvl = 71,
+        .species = SPECIES_RAICHU,
+        .moves = {MOVE_THUNDERBOLT, MOVE_BRICK_BREAK, MOVE_IRON_TAIL, MOVE_SURF},
+    },
+    {
+        .iv = 255,
+        .lvl = 69,
+        .species = SPECIES_TYRANITAR,
+        .moves = {MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_CRUNCH, MOVE_AERIAL_ACE},
+    },
+};
+

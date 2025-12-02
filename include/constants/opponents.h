@@ -746,6 +746,9 @@
 #define TRAINER_CHAMPION_REMATCH_BULBASAUR       740
 #define TRAINER_CHAMPION_REMATCH_CHARMANDER      741
 #define TRAINER_CUE_BALL_PAXTON                  742
+#define TRAINER_PROF_OAK_SQUIRTLE                743
+#define TRAINER_PROF_OAK_BULBASAUR               744
+#define TRAINER_PROF_OAK_CHARMANDER              745
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.

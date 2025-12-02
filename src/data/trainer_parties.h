@@ -10848,6 +10848,142 @@ static const struct TrainerMonItemCustomMoves sParty_ChampionRematchCharmander[]
     },
 };
 
+// Professor Oak teams (based on player's starter choice)
+static const struct TrainerMonItemCustomMoves sParty_ProfOakSquirtle[] = {
+    {
+        .iv = 255,
+        .lvl = 66,
+        .species = SPECIES_TAUROS,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_EARTHQUAKE, MOVE_RETURN, MOVE_IRON_TAIL, MOVE_SWAGGER},
+    },
+    {
+        .iv = 255,
+        .lvl = 67,
+        .species = SPECIES_EXEGGUTOR,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_GIGA_DRAIN, MOVE_PSYCHIC, MOVE_SLEEP_POWDER, MOVE_LIGHT_SCREEN},
+    },
+    {
+        .iv = 255,
+        .lvl = 68,
+        .species = SPECIES_ARCANINE,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_EXTREME_SPEED, MOVE_FLAMETHROWER, MOVE_CRUNCH, MOVE_IRON_TAIL},
+    },
+    {
+        .iv = 255,
+        .lvl = 69,
+        .species = SPECIES_VENUSAUR,
+        .heldItem = ITEM_LUM_BERRY,
+        .moves = {MOVE_SOLAR_BEAM, MOVE_SLUDGE_BOMB, MOVE_EARTHQUAKE, MOVE_SUNNY_DAY},
+    },
+    {
+        .iv = 255,
+        .lvl = 70,
+        .species = SPECIES_GYARADOS,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_HYDRO_PUMP, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_HYPER_BEAM},
+    },
+    {
+        .iv = 255,
+        .lvl = 72,
+        .species = SPECIES_DRAGONITE,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .moves = {MOVE_OUTRAGE, MOVE_EARTHQUAKE, MOVE_EXTREME_SPEED, MOVE_THUNDERBOLT},
+    },
+};
+
+static const struct TrainerMonItemCustomMoves sParty_ProfOakBulbasaur[] = {
+    {
+        .iv = 255,
+        .lvl = 66,
+        .species = SPECIES_TAUROS,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_EARTHQUAKE, MOVE_RETURN, MOVE_IRON_TAIL, MOVE_SWAGGER},
+    },
+    {
+        .iv = 255,
+        .lvl = 67,
+        .species = SPECIES_EXEGGUTOR,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_GIGA_DRAIN, MOVE_PSYCHIC, MOVE_SLEEP_POWDER, MOVE_LIGHT_SCREEN},
+    },
+    {
+        .iv = 255,
+        .lvl = 68,
+        .species = SPECIES_ARCANINE,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_EXTREME_SPEED, MOVE_FLAMETHROWER, MOVE_CRUNCH, MOVE_IRON_TAIL},
+    },
+    {
+        .iv = 255,
+        .lvl = 69,
+        .species = SPECIES_CHARIZARD,
+        .heldItem = ITEM_LUM_BERRY,
+        .moves = {MOVE_FIRE_BLAST, MOVE_DRAGON_CLAW, MOVE_AERIAL_ACE, MOVE_EARTHQUAKE},
+    },
+    {
+        .iv = 255,
+        .lvl = 70,
+        .species = SPECIES_GYARADOS,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_HYDRO_PUMP, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_HYPER_BEAM},
+    },
+    {
+        .iv = 255,
+        .lvl = 72,
+        .species = SPECIES_DRAGONITE,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .moves = {MOVE_OUTRAGE, MOVE_EARTHQUAKE, MOVE_EXTREME_SPEED, MOVE_THUNDERBOLT},
+    },
+};
+
+static const struct TrainerMonItemCustomMoves sParty_ProfOakCharmander[] = {
+    {
+        .iv = 255,
+        .lvl = 66,
+        .species = SPECIES_TAUROS,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_EARTHQUAKE, MOVE_RETURN, MOVE_IRON_TAIL, MOVE_SWAGGER},
+    },
+    {
+        .iv = 255,
+        .lvl = 67,
+        .species = SPECIES_EXEGGUTOR,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_GIGA_DRAIN, MOVE_PSYCHIC, MOVE_SLEEP_POWDER, MOVE_LIGHT_SCREEN},
+    },
+    {
+        .iv = 255,
+        .lvl = 68,
+        .species = SPECIES_ARCANINE,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_EXTREME_SPEED, MOVE_FLAMETHROWER, MOVE_CRUNCH, MOVE_IRON_TAIL},
+    },
+    {
+        .iv = 255,
+        .lvl = 69,
+        .species = SPECIES_BLASTOISE,
+        .heldItem = ITEM_LUM_BERRY,
+        .moves = {MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_EARTHQUAKE, MOVE_MIRROR_COAT},
+    },
+    {
+        .iv = 255,
+        .lvl = 70,
+        .species = SPECIES_GYARADOS,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_HYDRO_PUMP, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_HYPER_BEAM},
+    },
+    {
+        .iv = 255,
+        .lvl = 72,
+        .species = SPECIES_DRAGONITE,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .moves = {MOVE_OUTRAGE, MOVE_EARTHQUAKE, MOVE_EXTREME_SPEED, MOVE_THUNDERBOLT},
+    },
+};
+
 static const struct TrainerMonNoItemDefaultMoves sParty_CueBallPaxton[] = {
     {
         .iv = 50,

@@ -1484,7 +1484,7 @@
 #define FLAG_0x8D4                                                  (SYS_FLAGS + 0xD4)
 #define FLAG_0x8D5                                                  (SYS_FLAGS + 0xD5)
 #define FLAG_0x8D6                                                  (SYS_FLAGS + 0xD6)
-#define FLAG_0x8D7                                                  (SYS_FLAGS + 0xD7)
+#define FLAG_DEFEATED_OAK                                           (SYS_FLAGS + 0xD7)
 #define FLAG_0x8D8                                                  (SYS_FLAGS + 0xD8)
 #define FLAG_0x8D9                                                  (SYS_FLAGS + 0xD9)
 #define FLAG_0x8DA                                                  (SYS_FLAGS + 0xDA)

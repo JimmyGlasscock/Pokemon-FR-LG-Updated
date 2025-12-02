@@ -153,6 +153,7 @@ static void Task_Bruno(u8 taskId);
 static void Task_Agatha(u8 taskId);
 static void Task_Lance(u8 taskId);
 static void Task_Blue(u8 taskId);
+static void Task_Oak(u8 taskId);
 static void Task_Spiral(u8 taskId);
 static void Task_Intro(u8 taskId);
 static void DoMugshotTransition(u8 taskId);
@@ -242,6 +243,7 @@ static const TaskFunc sTasks_Main[] =
     [B_TRANSITION_AGATHA]          = Task_Agatha,
     [B_TRANSITION_LANCE]           = Task_Lance,
     [B_TRANSITION_BLUE]            = Task_Blue,
+    [B_TRANSITION_OAK]             = Task_Oak,
     [B_TRANSITION_SPIRAL]          = Task_Spiral,
 };
 
@@ -364,6 +366,7 @@ static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
     [MUGSHOT_AGATHA]  = TRAINER_PIC_ELITE_FOUR_AGATHA,
     [MUGSHOT_LANCE]   = TRAINER_PIC_ELITE_FOUR_LANCE,
     [MUGSHOT_BLUE]    = TRAINER_PIC_CHAMPION_RIVAL,
+    [MUGSHOT_OAK]     = TRAINER_PIC_PROFESSOR_OAK,
 };
 
 static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
@@ -373,6 +376,7 @@ static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
     [MUGSHOT_AGATHA]  = {0x200, 0x200},
     [MUGSHOT_LANCE]   = {0x200, 0x200},
     [MUGSHOT_BLUE]    = {0x200, 0x200},
+    [MUGSHOT_OAK]     = {0x200, 0x200},
 };
 
 static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
@@ -382,6 +386,7 @@ static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
     [MUGSHOT_AGATHA]  = {   0,  0 },
     [MUGSHOT_LANCE]   = { -32,  0 },
     [MUGSHOT_BLUE]    = {   0,  0 },
+    [MUGSHOT_OAK]     = {   0,  0 },
 };
 
 static const TransitionSpriteCallback sMugshotTrainerPicFuncs[] =
@@ -580,6 +585,7 @@ static const u16 sMugshotPal_Bruno[] = INCBIN_U16("graphics/battle_transitions/b
 static const u16 sMugshotPal_Agatha[] = INCBIN_U16("graphics/battle_transitions/agatha_bg.gbapal");
 static const u16 sMugshotPal_Lance[] = INCBIN_U16("graphics/battle_transitions/lance_bg.gbapal");
 static const u16 sMugshotPal_Blue[] = INCBIN_U16("graphics/battle_transitions/blue_bg.gbapal");
+static const u16 sMugshotPal_Oak[] = INCBIN_U16("graphics/battle_transitions/oak_bg.gbapal");
 static const u16 sMugshotPal_Red[] = INCBIN_U16("graphics/battle_transitions/red_bg.gbapal");
 static const u16 sMugshotPal_Green[] = INCBIN_U16("graphics/battle_transitions/green_bg.gbapal");
 
@@ -590,6 +596,7 @@ static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
     [MUGSHOT_AGATHA]  = sMugshotPal_Agatha,
     [MUGSHOT_LANCE]   = sMugshotPal_Lance,
     [MUGSHOT_BLUE]    = sMugshotPal_Blue,
+    [MUGSHOT_OAK]     = sMugshotPal_Oak,
 };
 
 static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =
@@ -1869,6 +1876,12 @@ static void Task_Lance(u8 taskId)
 static void Task_Blue(u8 taskId)
 {
     gTasks[taskId].tMugshotId = MUGSHOT_BLUE;
+    DoMugshotTransition(taskId);
+}
+
+static void Task_Oak(u8 taskId)
+{
+    gTasks[taskId].tMugshotId = MUGSHOT_OAK;
     DoMugshotTransition(taskId);
 }
 

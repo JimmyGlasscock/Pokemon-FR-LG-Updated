@@ -355,3 +355,37 @@ PalletTown_ProfessorOaksLab_Text_RivalIllCompleteThePokedex::
     .string "ONE ISLAND first…\p"
     .string "Anyways, I'm outta here!$"
 
+PalletTown_ProfessorOaksLab_Text_OakKeepFilling::
+    .string "OAK: {PLAYER}!\p"
+    .string "Keep working on your POKéDEX!\n"
+    .string "I'm looking forward to the day\l"
+    .string "you complete it!$"
+
+PalletTown_ProfessorOaksLab_Text_OakChallengeIntro::
+    .string "OAK: Congratulations on completing\n"
+    .string "the KANTO POKéDEX!\p"
+    .string "You've grown so much as a TRAINER.\p"
+    .string "I haven't battled for many years,\n"
+    .string "but I think it's time I take you on!$"
+
+PalletTown_ProfessorOaksLab_Text_OakDefeat::
+    .string "Ha ha! My blood is still boiling\n"
+    .string "from that thrilling battle!$"
+
+PalletTown_ProfessorOaksLab_Text_OakPostBattle::
+    .string "Ha ha! I haven't had a battle that\n"
+    .string "thrilling in years!\p"
+    .string "I want you to have this.$"
+
+PalletTown_ProfessorOaksLab_Text_ReceivedMasterBall::
+    .string "{PLAYER} received a MASTER BALL!$"
+
+PalletTown_ProfessorOaksLab_Text_OakClosingWords::
+    .string "OAK: There's always more to learn\n"
+    .string "in the world of POKéMON!$"
+
+PalletTown_ProfessorOaksLab_Text_OakAfterBattle::
+    .string "OAK: That was a wonderful battle!\p"
+    .string "I'm proud of how far you've come,\n"
+    .string "{PLAYER}!$"
+

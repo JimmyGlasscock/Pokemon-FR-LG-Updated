@@ -1,6 +1,7 @@
 #include "global.h"
 #include "pokedex.h"
 #include "pokedex_screen.h"
+#include "event_data.h"
 
 // Unused
 const u8 *GetPokedexCategoryName(u16 dexNum)
@@ -145,4 +146,9 @@ bool16 HasAllMons(void)
             return FALSE;
     }
     return TRUE;
+}
+
+void GetKantoPokedexCount_All(void)
+{
+    gSpecialVar_0x8004 = GetKantoPokedexCount(FLAG_GET_CAUGHT);
 }

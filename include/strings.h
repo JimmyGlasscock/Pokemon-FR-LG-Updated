@@ -833,6 +833,7 @@ extern const u8 gText_FourIsland[];
 extern const u8 gText_FiveIsland[];
 extern const u8 gText_SixIsland[];
 extern const u8 gText_SevenIsland[];
+extern const u8 gText_EightIsland[];
 
 // trade
 extern const u8 gText_IsThisTradeOkay[];

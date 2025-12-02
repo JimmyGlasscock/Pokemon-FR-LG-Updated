@@ -42,7 +42,8 @@
     "gMapGroup_IndoorFiveIslandRoute",
     "gMapGroup_IndoorTwoIslandRoute",
     "gMapGroup_IndoorSixIslandRoute",
-    "gMapGroup_IndoorSevenIslandRoute"
+    "gMapGroup_IndoorSevenIslandRoute",
+    "gMapGroup_IndoorEightIsland"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -258,6 +259,7 @@
     "FiveIsland",
     "SevenIsland",
     "SixIsland",
+    "EightIsland",
     "Route1",
     "Route2",
     "Route3",
@@ -304,7 +306,8 @@
     "SevenIsland_TrainerTower",
     "SevenIsland_SevaultCanyon_Entrance",
     "SevenIsland_SevaultCanyon",
-    "SevenIsland_TanobyRuins"
+    "SevenIsland_TanobyRuins",
+    "EightIsland_MysticSprings"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -554,6 +557,12 @@
   ],
   "gMapGroup_IndoorSevenIslandRoute": [
     "SevenIsland_SevaultCanyon_House"
+  ],
+  "gMapGroup_IndoorEightIsland": [
+    "EightIsland_Harbor",
+    "EightIsland_PokemonCenter_1F",
+    "EightIsland_Mart",
+    "EightIsland_House"
   ],
   "connections_include_order": [
     "PalletTown",

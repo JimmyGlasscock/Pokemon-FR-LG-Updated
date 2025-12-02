@@ -664,6 +664,7 @@ static const u8 *const sSeagallopDestStrings[] = {
     [SEAGALLOP_FIVE_ISLAND]    = gText_FiveIsland,
     [SEAGALLOP_SIX_ISLAND]     = gText_SixIsland,
     [SEAGALLOP_SEVEN_ISLAND]   = gText_SevenIsland,
+    [SEAGALLOP_EIGHT_ISLAND]   = gText_EightIsland,
 };
 
 static u16 GetStringTilesWide(const u8 *str)
@@ -1242,7 +1243,7 @@ void DrawSeagallopDestinationMenu(void)
                 destinationId = SEAGALLOP_FIVE_ISLAND;
             else
                 destinationId = SEAGALLOP_FOUR_ISLAND;
-            numItems = 5;
+            numItems = 6;
             top = 2;
         }
         else
@@ -1259,15 +1260,15 @@ void DrawSeagallopDestinationMenu(void)
         // -2 excludes "Other" and "Exit", appended after the loop
         for (i = 0; i < numItems - 2; i++)
         {
+            // Wrap around before accessing the array
+            if (destinationId > SEAGALLOP_EIGHT_ISLAND)
+                destinationId = SEAGALLOP_VERMILION_CITY;
+            
             if (destinationId != gSpecialVar_0x8004)
                 AddTextPrinterParameterized(windowId, FONT_NORMAL, sSeagallopDestStrings[destinationId], cursorWidth, i * 16 + 2, TEXT_SKIP_DRAW, NULL);
             else
                 i--;
             destinationId++;
-
-            // Wrap around
-            if (destinationId == SEAGALLOP_SEVEN_ISLAND + 1)
-                destinationId = SEAGALLOP_VERMILION_CITY;
         }
         AddTextPrinterParameterized(windowId, FONT_NORMAL, gText_Other, cursorWidth, i * 16 + 2, TEXT_SKIP_DRAW, NULL);
         i++;
@@ -1286,11 +1287,11 @@ u16 GetSelectedSeagallopDestination(void)
         return SCR_MENU_CANCEL;
     if (gSpecialVar_0x8005 == 1)
     {
-        if (gSpecialVar_Result == 3)
+        if (gSpecialVar_Result == 4)
         {
             return SEAGALLOP_MORE;
         }
-        else if (gSpecialVar_Result == 4)
+        else if (gSpecialVar_Result == 5)
         {
             return SCR_MENU_CANCEL;
         }
@@ -1314,6 +1315,13 @@ u16 GetSelectedSeagallopDestination(void)
                 return SEAGALLOP_SIX_ISLAND;
             else
                 return SEAGALLOP_SEVEN_ISLAND;
+        }
+        else if (gSpecialVar_Result == 3)
+        {
+            if (gSpecialVar_0x8004 > SEAGALLOP_SEVEN_ISLAND)
+                return SEAGALLOP_SEVEN_ISLAND;
+            else
+                return SEAGALLOP_EIGHT_ISLAND;
         }
     }
     else

@@ -4398,6 +4398,30 @@
       "secondary_tileset": "gTileset_MtEmber",
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa/map.bin"
+    },
+    {
+      "id": "LAYOUT_EIGHT_ISLAND",
+      "name": "EightIsland_Layout",
+      "width": 24,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/EightIsland/border.bin",
+      "blockdata_filepath": "data/layouts/EightIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_EIGHT_ISLAND_MYSTIC_SPRINGS",
+      "name": "EightIsland_MysticSprings_Layout",
+      "width": 24,
+      "height": 16,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/EightIsland_MysticSprings/border.bin",
+      "blockdata_filepath": "data/layouts/EightIsland_MysticSprings/map.bin"
     }
   ]
 }

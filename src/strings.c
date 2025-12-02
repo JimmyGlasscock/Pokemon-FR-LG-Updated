@@ -518,6 +518,7 @@ const u8 gText_FourIsland[] = _("FOUR ISLAND");
 const u8 gText_FiveIsland[] = _("FIVE ISLAND");
 const u8 gText_SixIsland[] = _("SIX ISLAND");
 const u8 gText_SevenIsland[] = _("SEVEN ISLAND");
+const u8 gText_EightIsland[] = _("EIGHT ISLAND");
 const u8 gText_Vermilion[] = _("VERMILION");
 const u8 gText_Colosseum_2[] = _("COLOSSEUM");
 const u8 gText_BerryCrush[] = _("BERRY CRUSH");

@@ -194,9 +194,10 @@
 #define FLAG_GOT_OTHER_STARTER_2                           0x0B1
 #define FLAG_HIDE_FOSSIL_BALL                              0x0B2
 #define FLAG_GOT_FOSSIL_BALL                               0x0B3
+#define FLAG_HIDE_VERMILION_CITY_STRANGE_OLD_MAN           0x0B4
 
 // Unused?  
-#define FLAG_0x0B4               0x0B4
+#define FLAG_0x0B5               0x0B5
 #define FLAG_0x0B5               0x0B5
 #define FLAG_0x0B6               0x0B6
 #define FLAG_0x0B7               0x0B7

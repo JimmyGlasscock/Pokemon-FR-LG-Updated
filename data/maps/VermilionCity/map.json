@@ -150,7 +150,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VermilionCity_EventScript_StrangeOldMan",
-      "flag": "0"
+      "flag": "FLAG_HIDE_VERMILION_CITY_STRANGE_OLD_MAN"
     }
   ],
   "warp_events": [

@@ -25,10 +25,15 @@ VermilionCity_Movement_ExitSSAnne::
 VermilionCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_VERMILION_CITY
 	call_if_set FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION, VermilionCity_EventScript_HideOaksAide
+	call_if_set FLAG_SYS_GAME_CLEAR, VermilionCity_EventScript_ShowStrangeOldMan
 	end
 
 VermilionCity_EventScript_HideOaksAide::
 	setflag FLAG_HIDE_VERMILION_CITY_OAKS_AIDE
+	return
+
+VermilionCity_EventScript_ShowStrangeOldMan::
+	clearflag FLAG_HIDE_VERMILION_CITY_STRANGE_OLD_MAN
 	return
 
 VermilionCity_EventScript_Woman::
@@ -237,7 +242,7 @@ VermilionCity_EventScript_StrangeOldMan::
 	lock
 	faceplayer
 	goto_if_set FLAG_GOT_TICKETS_FROM_OLD_MAN, VermilionCity_EventScript_StrangeOldManTicketsGiven
-	goto_if_unset FLAG_SYS_NATIONAL_DEX, VermilionCity_EventScript_StrangeOldManNoGive
+	goto_if_unset FLAG_SYS_GAME_CLEAR, VermilionCity_EventScript_StrangeOldManNoGive
 	msgbox VermilionCity_Text_StrangeOldMan
 	setflag FLAG_RECEIVED_MYSTIC_TICKET
 	setflag FLAG_RECEIVED_AURORA_TICKET

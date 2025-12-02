@@ -12,6 +12,7 @@
 #include "event_object_movement.h"
 #include "field_fadetransition.h"
 #include "event_scripts.h"
+#include "script_pokemon_util.h"
 #include "constants/heal_locations.h"
 #include "constants/maps.h"
 
@@ -392,60 +393,19 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
     switch (gTasks[taskId].tState)
     {
     case 0:
-        windowId = AddWindow(&sWindowTemplate_WhiteoutText);
-        gTasks[taskId].tWindowId = windowId;
-        Menu_LoadStdPalAt(BG_PLTT_ID(15));
-        FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
-        PutWindowTilemap(windowId);
-        CopyWindowToVram(windowId, COPYWIN_FULL);
-
-        // Scene changes if last heal location was the player's house
-        loc = GetHealLocation(SPAWN_PALLET_TOWN);
-        if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->group
-         && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->map
-         && gSaveBlock1Ptr->lastHealLocation.warpId == WARP_ID_NONE
-         && gSaveBlock1Ptr->lastHealLocation.x == loc->x
-         && gSaveBlock1Ptr->lastHealLocation.y == loc->y)
-            gTasks[taskId].tState = 4;
-        else
-            gTasks[taskId].tState = 1;
+        // Skip text and dialogue - just heal and fade in
+        ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_SOUTH);
+        HealPlayerParty();
+        palette_bg_faded_fill_black();
+        Overworld_PlaySpecialMapMusic();
+        FadeInFromBlack();
+        gTasks[taskId].tState = 1;
         break;
     case 1:
-        if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedToCenter, 2, 8))
-        {
-            ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
-            gTasks[taskId].tState++;
-        }
-        break;
-    case 4:
-        if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedBackHome, 2, 8))
-        {
-            ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
-            gTasks[taskId].tState++;
-        }
-        break;
-    case 2:
-    case 5:
-        windowId = gTasks[taskId].tWindowId;
-        ClearWindowTilemap(windowId);
-        CopyWindowToVram(windowId, COPYWIN_MAP);
-        RemoveWindow(windowId);
-        palette_bg_faded_fill_black();
-        FadeInFromBlack();
-        gTasks[taskId].tState++;
-        break;
-    case 3:
         if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
         {
             DestroyTask(taskId);
-            ScriptContext_SetupScript(EventScript_AfterWhiteOutHeal);
-        }
-        break;
-    case 6:
-        if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
-        {
-            DestroyTask(taskId);
-            ScriptContext_SetupScript(EventScript_AfterWhiteOutMomHeal);
+            ScriptContext_Enable();
         }
         break;
     }

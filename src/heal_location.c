@@ -61,6 +61,7 @@ const struct HealLocation * GetHealLocation(u32 idx)
 void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
 {
     u32 healLocationIdx;
+    const struct HealLocation *spawnPoint;
 
     if (VarGet(VAR_MAP_SCENE_TRAINER_TOWER) == 1)
     {
@@ -75,37 +76,14 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
     }
     else
     {
+        // Use outdoor spawn location instead of indoor Pokemon Center
         healLocationIdx = GetHealLocationIndexFromMapGroupAndNum(gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum);
-        warp->mapGroup = sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0];
-        warp->mapNum = sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1];
+        spawnPoint = &sSpawnPoints[healLocationIdx - 1];
+        warp->mapGroup = spawnPoint->group;
+        warp->mapNum = spawnPoint->map;
+        warp->x = spawnPoint->x;
+        warp->y = spawnPoint->y;
         warp->warpId = 0xFF;
-
-        if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_1F))
-        {
-            warp->x = 8;
-            warp->y = 5;
-        }
-        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(INDIGO_PLATEAU_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(INDIGO_PLATEAU_POKEMON_CENTER_1F))
-        {
-            warp->x = 13;
-            warp->y = 12;
-        }
-        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(ONE_ISLAND_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(ONE_ISLAND_POKEMON_CENTER_1F))
-        {
-            warp->x = 5;
-            warp->y = 4;
-        }
-        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(TRAINER_TOWER_LOBBY) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(TRAINER_TOWER_LOBBY))
-        {
-            warp->x = 4;
-            warp->y = 11;
-            VarSet(VAR_MAP_SCENE_TRAINER_TOWER, 0);
-        }
-        else
-        {
-            warp->x = 7;
-            warp->y = 4;
-        }
         SetWhiteoutRespawnHealerNpcAsLastTalked(healLocationIdx);
     }
 }

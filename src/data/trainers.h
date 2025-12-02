@@ -7424,7 +7424,7 @@ const struct Trainer gTrainers[] = {
     },
     [TRAINER_PROF_OAK_SQUIRTLE] = {
         .trainerClass = TRAINER_CLASS_PKMN_PROF,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_PROFESSOR_OAK,
         .trainerName = _("OAK"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
@@ -7434,7 +7434,7 @@ const struct Trainer gTrainers[] = {
     },
     [TRAINER_PROF_OAK_BULBASAUR] = {
         .trainerClass = TRAINER_CLASS_PKMN_PROF,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_PROFESSOR_OAK,
         .trainerName = _("OAK"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
@@ -7444,7 +7444,7 @@ const struct Trainer gTrainers[] = {
     },
     [TRAINER_PROF_OAK_CHARMANDER] = {
         .trainerClass = TRAINER_CLASS_PKMN_PROF,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_PROFESSOR_OAK,
         .trainerName = _("OAK"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},

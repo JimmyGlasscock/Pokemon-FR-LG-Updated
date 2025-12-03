@@ -11007,8 +11007,8 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jimmy[] = {
     {
         .iv = 255,
         .lvl = 64,
-        .species = SPECIES_BLASTOISE,
-        .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_EARTHQUAKE, MOVE_MIRROR_COAT},
+        .species = SPECIES_EMPOLEON,
+        .moves = {MOVE_DRILL_PECK, MOVE_METAL_CLAW, MOVE_BLIZZARD, MOVE_HYDRO_PUMP},
     },
     {
         .iv = 255,

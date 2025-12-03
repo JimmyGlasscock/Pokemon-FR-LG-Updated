@@ -6223,6 +6223,10 @@ void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
 {
     u8 getFlagCaseId = (caseId == FLAG_SET_SEEN) ? FLAG_GET_SEEN : FLAG_GET_CAUGHT;
     
+    // Skip Pokédex registration for Empoleon (special encounter)
+    if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_EMPOLEON)
+        return;
+    
     if (!GetSetPokedexFlag(nationalNum, getFlagCaseId))
     {
         GetSetPokedexFlag(nationalNum, caseId);

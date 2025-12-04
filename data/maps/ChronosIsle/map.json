@@ -15,7 +15,20 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
-
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_RS_BRENDAN",
+      "x": 8,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1"
+    }
   ],
   "warp_events": [
     {
@@ -41,7 +54,33 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_CHRONOS_ISLE",
+      "var_value": "0",
+      "script": "ChronosIsle_EventScript_BrendanOneLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_CHRONOS_ISLE",
+      "var_value": "0",
+      "script": "ChronosIsle_EventScript_BrendanOne"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_CHRONOS_ISLE",
+      "var_value": "0",
+      "script": "ChronosIsle_EventScript_BrendanOneRight"
+    }
   ],
   "bg_events": [
 

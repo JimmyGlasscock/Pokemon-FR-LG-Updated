@@ -189,8 +189,9 @@
 #define VAR_MAP_SCENE_SIX_ISLAND_POKEMON_CENTER_1F                             0x4089
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x408A
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
+#define VAR_MAP_SCENE_CHRONOS_ISLE                                             0x408C
 
-#define VAR_SEEN_TRUCK_MEW                                                     0x408C
+#define VAR_SEEN_TRUCK_MEW                                                     0x408D
 
 #define VAR_0x408D                 0x408D
 #define VAR_0x408E                 0x408E

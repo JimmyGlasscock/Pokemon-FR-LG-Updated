@@ -28,14 +28,14 @@
     {
       "x": 25,
       "y": 11,
-      "elevation": 0,
+      "elevation": 3,
       "dest_map": "MAP_CHRONOS_MEADOW",
       "dest_warp_id": "0"
     },
     {
       "x": 26,
       "y": 11,
-      "elevation": 0,
+      "elevation": 3,
       "dest_map": "MAP_CHRONOS_MEADOW",
       "dest_warp_id": "0"
     }

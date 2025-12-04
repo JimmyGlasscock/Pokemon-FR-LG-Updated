@@ -11036,3 +11036,12 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jimmy[] = {
     },
 };
 
+
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BrendanChronosMeadow[] = {
+    {
+        .iv = 0,
+        .lvl = 5,
+        .species = SPECIES_MUDKIP,
+    },
+};

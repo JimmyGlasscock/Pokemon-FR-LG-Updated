@@ -5,11 +5,16 @@ ChronosIsle_MapScripts::
 ChronosIsle_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_CHRONOS_ISLE
 	setflag FLAG_SYS_SEVII_MAP_CHRONOS
+	call_if_eq VAR_MAP_SCENE_CHRONOS_ISLE, 0, ChronosIsle_EventScript_ShowBrendan
 	end
+
+ChronosIsle_EventScript_ShowBrendan::
+	clearflag FLAG_HIDE_CHRONOS_ISLE_BRENDAN
+	return
 
 ChronosIsle_EventScript_BrendanOneLeft::
 	lockall
-	clearflag FLAG_TEMP_1
+	clearflag FLAG_HIDE_CHRONOS_ISLE_BRENDAN
 	addobject 1
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
@@ -19,7 +24,7 @@ ChronosIsle_EventScript_BrendanOneLeft::
 	closemessage
 	applymovement 1, ChronosIsle_Movement_BrendanLeaveLeft
 	waitmovement 0
-	setflag FLAG_TEMP_1
+	setflag FLAG_HIDE_CHRONOS_ISLE_BRENDAN
 	removeobject 1
 	setvar VAR_MAP_SCENE_CHRONOS_ISLE, 1
 	releaseall
@@ -27,7 +32,7 @@ ChronosIsle_EventScript_BrendanOneLeft::
 
 ChronosIsle_EventScript_BrendanOne::
 	lockall
-	clearflag FLAG_TEMP_1
+	clearflag FLAG_HIDE_CHRONOS_ISLE_BRENDAN
 	addobject 1
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
@@ -37,7 +42,7 @@ ChronosIsle_EventScript_BrendanOne::
 	closemessage
 	applymovement 1, ChronosIsle_Movement_BrendanLeave
 	waitmovement 0
-	setflag FLAG_TEMP_1
+	setflag FLAG_HIDE_CHRONOS_ISLE_BRENDAN
 	removeobject 1
 	setvar VAR_MAP_SCENE_CHRONOS_ISLE, 1
 	releaseall
@@ -45,7 +50,7 @@ ChronosIsle_EventScript_BrendanOne::
 
 ChronosIsle_EventScript_BrendanOneRight::
 	lockall
-	clearflag FLAG_TEMP_1
+	clearflag FLAG_HIDE_CHRONOS_ISLE_BRENDAN
 	addobject 1
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
@@ -55,7 +60,7 @@ ChronosIsle_EventScript_BrendanOneRight::
 	closemessage
 	applymovement 1, ChronosIsle_Movement_BrendanLeaveRight
 	waitmovement 0
-	setflag FLAG_TEMP_1
+	setflag FLAG_HIDE_CHRONOS_ISLE_BRENDAN
 	removeobject 1
 	setvar VAR_MAP_SCENE_CHRONOS_ISLE, 1
 	releaseall

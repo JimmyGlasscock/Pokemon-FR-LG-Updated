@@ -18,11 +18,11 @@ ChronosMeadow_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_CHRONOS_ISLE
 	setflag FLAG_SYS_SEVII_MAP_CHRONOS
 	call_if_unset FLAG_FOUGHT_CELEBI, ChronosMeadow_EventScript_ShowCelebi
-	call_if_eq VAR_MAP_SCENE_CHRONOS_ISLE, 1, ChronosMeadow_EventScript_HideBrendan
+	call_if_unset FLAG_DEFEATED_CHRONOS_BRENDAN, ChronosMeadow_EventScript_ShowBrendan
 	end
 
-ChronosMeadow_EventScript_HideBrendan::
-	setflag FLAG_TEMP_2
+ChronosMeadow_EventScript_ShowBrendan::
+	clearflag FLAG_HIDE_CHRONOS_BRENDAN
 	return
 
 ChronosMeadow_EventScript_ShowCelebi::
@@ -81,7 +81,7 @@ ChronosMeadow_EventScript_BrendanBattle::
 	applymovement OBJ_EVENT_ID_PLAYER, ChronosMeadow_Movement_PlayerFaceSouth
 	waitmovement 0
 	delay 30
-	clearflag FLAG_TEMP_2
+	clearflag FLAG_HIDE_CHRONOS_BRENDAN
 	addobject 2
 	playbgm MUS_ENCOUNTER_RIVAL, 0
 	applymovement 2, ChronosMeadow_Movement_BrendanApproach
@@ -95,7 +95,8 @@ ChronosMeadow_EventScript_BrendanBattle::
 	applymovement 2, ChronosMeadow_Movement_BrendanLeave
 	waitmovement 0
 	fadedefaultbgm
-	setflag FLAG_TEMP_2
+	setflag FLAG_HIDE_CHRONOS_BRENDAN
+	setflag FLAG_DEFEATED_CHRONOS_BRENDAN
 	removeobject 2
 	setvar VAR_MAP_SCENE_CHRONOS_ISLE, 2
 	releaseall
@@ -108,7 +109,7 @@ ChronosMeadow_EventScript_BrendanBattleLeft::
 	applymovement OBJ_EVENT_ID_PLAYER, ChronosMeadow_Movement_PlayerFaceSouth
 	waitmovement 0
 	delay 30
-	clearflag FLAG_TEMP_2
+	clearflag FLAG_HIDE_CHRONOS_BRENDAN
 	addobject 2
 	playbgm MUS_ENCOUNTER_RIVAL, 0
 	applymovement 2, ChronosMeadow_Movement_BrendanApproachLeft
@@ -122,7 +123,8 @@ ChronosMeadow_EventScript_BrendanBattleLeft::
 	applymovement 2, ChronosMeadow_Movement_BrendanLeaveLeft
 	waitmovement 0
 	fadedefaultbgm
-	setflag FLAG_TEMP_2
+	setflag FLAG_HIDE_CHRONOS_BRENDAN
+	setflag FLAG_DEFEATED_CHRONOS_BRENDAN
 	removeobject 2
 	setvar VAR_MAP_SCENE_CHRONOS_ISLE, 2
 	releaseall
@@ -135,7 +137,7 @@ ChronosMeadow_EventScript_BrendanBattleRight::
 	applymovement OBJ_EVENT_ID_PLAYER, ChronosMeadow_Movement_PlayerFaceSouth
 	waitmovement 0
 	delay 30
-	clearflag FLAG_TEMP_2
+	clearflag FLAG_HIDE_CHRONOS_BRENDAN
 	addobject 2
 	playbgm MUS_ENCOUNTER_RIVAL, 0
 	applymovement 2, ChronosMeadow_Movement_BrendanApproachRight
@@ -149,7 +151,8 @@ ChronosMeadow_EventScript_BrendanBattleRight::
 	applymovement 2, ChronosMeadow_Movement_BrendanLeaveRight
 	waitmovement 0
 	fadedefaultbgm
-	setflag FLAG_TEMP_2
+	setflag FLAG_HIDE_CHRONOS_BRENDAN
+	setflag FLAG_DEFEATED_CHRONOS_BRENDAN
 	removeobject 2
 	setvar VAR_MAP_SCENE_CHRONOS_ISLE, 2
 	releaseall

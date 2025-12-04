@@ -751,12 +751,28 @@
 #define TRAINER_PROF_OAK_CHARMANDER              745
 #define TRAINER_JIMMY                            746
 #define TRAINER_BRENDAN_CHRONOS_MEADOW           747
+#define TRAINER_COOLTRAINER_KAJ                  748
+#define TRAINER_COOLTRAINER_JASON                749
+#define TRAINER_COOLTRAINER_KENDRA               750
+#define TRAINER_COOLTRAINER_KARI                 751
+#define TRAINER_BIRD_KEEPER_JACK                 752
+#define TRAINER_BIRD_KEEPER_ANDREW               753
+#define TRAINER_BIRD_KEEPER_CHUCK                754
+#define TRAINER_BIRD_KEEPER_NICK                 755
+#define TRAINER_HIKER_RODNEY                     756
+#define TRAINER_HIKER_DELEON                     757
+#define TRAINER_HIKER_ANDY                       758
+#define TRAINER_HIKER_MARCUS                     759
+#define TRAINER_PSYCHIC_GUY                      760
+#define TRAINER_PSYCHIC_TRE                      761
+#define TRAINER_PSYCHIC_SETH                     762
+#define TRAINER_HEX_MANIAC_BROOKE                763
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             748
+#define NUM_TRAINERS                             764
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

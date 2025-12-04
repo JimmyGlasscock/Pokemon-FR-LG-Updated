@@ -246,3 +246,83 @@ ChronosMeadow_EventScript_HealerDecline::
 	msgbox ChronosMeadow_Text_HealerDecline, MSGBOX_DEFAULT
 	release
 	end
+
+ChronosMeadow_EventScript_Kaj::
+	trainerbattle_single TRAINER_COOLTRAINER_KAJ, ChronosMeadow_Text_KajIntro, ChronosMeadow_Text_KajDefeat
+	msgbox ChronosMeadow_Text_KajPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Jason::
+	trainerbattle_single TRAINER_COOLTRAINER_JASON, ChronosMeadow_Text_JasonIntro, ChronosMeadow_Text_JasonDefeat
+	msgbox ChronosMeadow_Text_JasonPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Kendra::
+	trainerbattle_single TRAINER_COOLTRAINER_KENDRA, ChronosMeadow_Text_KendraIntro, ChronosMeadow_Text_KendraDefeat
+	msgbox ChronosMeadow_Text_KendraPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Kari::
+	trainerbattle_single TRAINER_COOLTRAINER_KARI, ChronosMeadow_Text_KariIntro, ChronosMeadow_Text_KariDefeat
+	msgbox ChronosMeadow_Text_KariPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Jack::
+	trainerbattle_single TRAINER_BIRD_KEEPER_JACK, ChronosMeadow_Text_JackIntro, ChronosMeadow_Text_JackDefeat
+	msgbox ChronosMeadow_Text_JackPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Andrew::
+	trainerbattle_single TRAINER_BIRD_KEEPER_ANDREW, ChronosMeadow_Text_AndrewIntro, ChronosMeadow_Text_AndrewDefeat
+	msgbox ChronosMeadow_Text_AndrewPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Chuck::
+	trainerbattle_single TRAINER_BIRD_KEEPER_CHUCK, ChronosMeadow_Text_ChuckIntro, ChronosMeadow_Text_ChuckDefeat
+	msgbox ChronosMeadow_Text_ChuckPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Nick::
+	trainerbattle_single TRAINER_BIRD_KEEPER_NICK, ChronosMeadow_Text_NickIntro, ChronosMeadow_Text_NickDefeat
+	msgbox ChronosMeadow_Text_NickPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Rodney::
+	trainerbattle_single TRAINER_HIKER_RODNEY, ChronosMeadow_Text_RodneyIntro, ChronosMeadow_Text_RodneyDefeat
+	msgbox ChronosMeadow_Text_RodneyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_DeLeon::
+	trainerbattle_single TRAINER_HIKER_DELEON, ChronosMeadow_Text_DeLeonIntro, ChronosMeadow_Text_DeLeonDefeat
+	msgbox ChronosMeadow_Text_DeLeonPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Andy::
+	trainerbattle_single TRAINER_HIKER_ANDY, ChronosMeadow_Text_AndyIntro, ChronosMeadow_Text_AndyDefeat
+	msgbox ChronosMeadow_Text_AndyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Marcus::
+	trainerbattle_single TRAINER_HIKER_MARCUS, ChronosMeadow_Text_MarcusIntro, ChronosMeadow_Text_MarcusDefeat
+	msgbox ChronosMeadow_Text_MarcusPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Guy::
+	trainerbattle_single TRAINER_PSYCHIC_GUY, ChronosMeadow_Text_GuyIntro, ChronosMeadow_Text_GuyDefeat
+	msgbox ChronosMeadow_Text_GuyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Tre::
+	trainerbattle_single TRAINER_PSYCHIC_TRE, ChronosMeadow_Text_TreIntro, ChronosMeadow_Text_TreDefeat
+	msgbox ChronosMeadow_Text_TrePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Seth::
+	trainerbattle_single TRAINER_PSYCHIC_SETH, ChronosMeadow_Text_SethIntro, ChronosMeadow_Text_SethDefeat
+	msgbox ChronosMeadow_Text_SethPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Brooke::
+	trainerbattle_single TRAINER_HEX_MANIAC_BROOKE, ChronosMeadow_Text_BrookeIntro, ChronosMeadow_Text_BrookeDefeat
+	msgbox ChronosMeadow_Text_BrookePostBattle, MSGBOX_AUTOCLOSE
+	end

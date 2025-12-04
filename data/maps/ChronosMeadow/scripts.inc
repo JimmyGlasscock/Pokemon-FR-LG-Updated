@@ -227,3 +227,22 @@ ChronosMeadow_EventScript_ItemRareCandy::
 ChronosMeadow_EventScript_ItemMaxRevive::
 	finditem ITEM_MAX_REVIVE
 	end
+
+ChronosMeadow_EventScript_Healer::
+	lock
+	faceplayer
+	msgbox ChronosMeadow_Text_HealerOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, ChronosMeadow_EventScript_HealerDecline
+	msgbox ChronosMeadow_Text_HealerAccept, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_WHITE
+	special HealPlayerParty
+	fadescreen FADE_FROM_WHITE
+	msgbox ChronosMeadow_Text_HealerHealed, MSGBOX_DEFAULT
+	release
+	end
+
+ChronosMeadow_EventScript_HealerDecline::
+	msgbox ChronosMeadow_Text_HealerDecline, MSGBOX_DEFAULT
+	release
+	end

@@ -1360,3 +1360,9 @@ Text_TestMsg::
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
+
+	.include "data/maps/ChronosIsle/scripts.inc"
+	.include "data/maps/ChronosIsle/text.inc"
+
+	.include "data/maps/ChronosMeadow/scripts.inc"
+	.include "data/maps/ChronosMeadow/text.inc"

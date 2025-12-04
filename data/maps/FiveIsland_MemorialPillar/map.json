@@ -106,8 +106,12 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
-  "coord_events": [],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -119,7 +123,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 8,
+      "x": 7,
       "y": 52,
       "elevation": 3,
       "item": "ITEM_BIG_PEARL",

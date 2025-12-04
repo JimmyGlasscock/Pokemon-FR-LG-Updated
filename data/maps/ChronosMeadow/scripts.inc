@@ -112,10 +112,10 @@ ChronosMeadow_Movement_BrendanApproach::
 	step_end
 
 ChronosMeadow_Movement_BrendanLeave::
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end

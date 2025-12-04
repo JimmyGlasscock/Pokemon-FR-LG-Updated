@@ -11387,7 +11387,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Seth[] = {
     {
         .iv = 20,
         .lvl = 56,
-        .species = SPECIES_GARDEVOIR,
+        .species = SPECIES_KIRLIA,
     },
     {
         .iv = 20,

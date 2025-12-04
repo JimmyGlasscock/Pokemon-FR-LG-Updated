@@ -50,6 +50,23 @@ VermilionCity_Text_StrangeOldMan2::
 VermilionCity_Text_MachopStompingLandFlat::
     .string "A MACHOP is stomping the land flat.$"
 
+VermilionCity_Text_TestChronosTicketGive::
+    .string "TEST NPC:\n"
+    .string "Want the CHRONOS TICKET for testing?$"
+
+VermilionCity_Text_ReceivedChronosTicket::
+    .string "TEST: You got the CHRONOS TICKET!\p"
+    .string "Talk to the sailor to sail to\n"
+    .string "CHRONOS ISLE!$"
+
+VermilionCity_Text_AlreadyHaveChronosTicket::
+    .string "TEST: You already have the\n"
+    .string "CHRONOS TICKET!$"
+
+VermilionCity_Text_DeclineChronosTicket::
+    .string "TEST: Okay, come back if you\n"
+    .string "change your mind!$"
+
 VermilionCity_Text_SSAnneVisitsOnceAYear::
     .string "The S.S. ANNE is a famous luxury\n"
     .string "cruise ship.\p"
@@ -127,6 +144,12 @@ VermilionCity_Text_OhAuroraTicketTakeYouToBirthIsland::
     .string "We'll be happy to take you to\n"
     .string "BIRTH ISLAND anytime.$"
 
+VermilionCity_Text_OhChronosTicketTakeYouToChronosIsle::
+    .string "Oh! That's a CHRONOSTICKET!\n"
+    .string "Now that is rare.\p"
+    .string "We'll be happy to take you to\n"
+    .string "CHRONOS ISLE anytime.$"
+
 VermilionCity_Text_BoardSeagallopFerry::
     .string "Would you like to board\n"
     .string "a SEAGALLOP ferry?$"
@@ -141,6 +164,12 @@ VermilionCity_Text_Seagallop12Departing::
     .string "Okay, everything's in order for you\n"
     .string "to board a special ferry.\p"
     .string "SEAGALLOP HI-SPEED 12 will be\n"
+    .string "departing immediately.$"
+
+VermilionCity_Text_Seagallop13Departing::
+    .string "Okay, everything's in order for you\n"
+    .string "to board a special ferry.\p"
+    .string "SEAGALLOP HI-SPEED 13 will be\n"
     .string "departing immediately.$"
 
 VermilionCity_Text_Route2AideHasPackageForYou::

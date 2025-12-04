@@ -395,6 +395,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_TEA]            = {gItemIcon_Tea, gItemIconPalette_Tea},
     [ITEM_MYSTIC_TICKET]  = {gItemIcon_MysticTicket, gItemIconPalette_MysticTicket},
     [ITEM_AURORA_TICKET]  = {gItemIcon_AuroraTicket, gItemIconPalette_AuroraTicket},
+    [ITEM_CHRONOS_TICKET] = {gItemIcon_AuroraTicket, gItemIconPalette_AuroraTicket},
     [ITEM_POWDER_JAR]     = {gItemIcon_PowderJar, gItemIconPalette_PowderJar},
     [ITEM_RUBY]           = {gItemIcon_Gem, gItemIconPalette_Ruby},
     [ITEM_SAPPHIRE]       = {gItemIcon_Gem, gItemIconPalette_Sapphire},

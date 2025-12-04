@@ -439,6 +439,34 @@ static const struct MenuAction sMultichoiceList_SeviiNavelBirth[] = {
     { gOtherText_Exit }
 };
 
+static const struct MenuAction sMultichoiceList_SeviiChronos[] = {
+    { gText_SeviiIslands },
+    { gText_ChronosIsle },
+    { gOtherText_Exit }
+};
+
+static const struct MenuAction sMultichoiceList_SeviiNavelChronos[] = {
+    { gText_SeviiIslands },
+    { gText_NavelRock },
+    { gText_ChronosIsle },
+    { gOtherText_Exit }
+};
+
+static const struct MenuAction sMultichoiceList_SeviiBirthChronos[] = {
+    { gText_SeviiIslands },
+    { gText_BirthIsland },
+    { gText_ChronosIsle },
+    { gOtherText_Exit }
+};
+
+static const struct MenuAction sMultichoiceList_SeviiNavelBirthChronos[] = {
+    { gText_SeviiIslands },
+    { gText_NavelRock },
+    { gText_BirthIsland },
+    { gText_ChronosIsle },
+    { gOtherText_Exit }
+};
+
 static const struct MenuAction sMultichoiceList_Seagallop123[] = {
     { gText_OneIsland },
     { gText_TwoIsland },
@@ -554,12 +582,16 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_SEVII_NAVEL]                                = MULTICHOICE(sMultichoiceList_SeviiNavel),
     [MULTICHOICE_SEVII_BIRTH]                                = MULTICHOICE(sMultichoiceList_SeviiBirth),
     [MULTICHOICE_SEVII_NAVEL_BIRTH]                          = MULTICHOICE(sMultichoiceList_SeviiNavelBirth),
+    [MULTICHOICE_SEVII_CHRONOS]                              = MULTICHOICE(sMultichoiceList_SeviiChronos),
+    [MULTICHOICE_SEVII_NAVEL_CHRONOS]                        = MULTICHOICE(sMultichoiceList_SeviiNavelChronos),
+    [MULTICHOICE_SEVII_BIRTH_CHRONOS]                        = MULTICHOICE(sMultichoiceList_SeviiBirthChronos),
+    [MULTICHOICE_SEVII_NAVEL_BIRTH_CHRONOS]                  = MULTICHOICE(sMultichoiceList_SeviiNavelBirthChronos),
     [MULTICHOICE_SEAGALLOP_123]                              = MULTICHOICE(sMultichoiceList_Seagallop123),
     [MULTICHOICE_SEAGALLOP_V23]                              = MULTICHOICE(sMultichoiceList_SeagallopV23),
     [MULTICHOICE_SEAGALLOP_V13]                              = MULTICHOICE(sMultichoiceList_SeagallopV13),
     [MULTICHOICE_SEAGALLOP_V12]                              = MULTICHOICE(sMultichoiceList_SeagallopV12),
     [MULTICHOICE_SEAGALLOP_VERMILION]                        = MULTICHOICE(sMultichoiceList_SeagallopVermilion),
-    [MULTICHOICE_62]                                         = MULTICHOICE(sMultichoiceList_62),
+    [MULTICHOICE_66]                                         = MULTICHOICE(sMultichoiceList_62),
     [MULTICHOICE_JOIN_OR_LEAD]                               = MULTICHOICE(sMultichoiceList_JoinOrLead),
     [MULTICHOICE_TRAINER_TOWER_MODE]                         = MULTICHOICE(sMultichoiceList_TrainerTowerMode),
 };

@@ -705,6 +705,7 @@
 #define FLAG_GOT_TEA                                     0x2A6
 #define FLAG_RECEIVED_AURORA_TICKET                      0x2A7
 #define FLAG_RECEIVED_MYSTIC_TICKET                      0x2A8
+#define FLAG_RECEIVED_CHRONOS_TICKET                     0x2A9
 #define FLAG_RECEIVED_OLD_SEA_MAP                        0x2A9
 #define FLAG_WONDER_CARD_UNUSED_1                        0x2AA
 #define FLAG_WONDER_CARD_UNUSED_2                        0x2AB
@@ -780,6 +781,7 @@
 #define FLAG_GOT_HM06                                    0x2EF
 #define FLAG_SHOWN_MYSTIC_TICKET                         0x2F0
 #define FLAG_SHOWN_AURORA_TICKET                         0x2F1
+#define FLAG_SHOWN_CHRONOS_TICKET                        0x2F2
 #define FLAG_FOUGHT_LUGIA                                0x2F2
 #define FLAG_FOUGHT_HO_OH                                0x2F3
 #define FLAG_OAK_SAW_DEX_COMPLETION                      0x2F4
@@ -1411,6 +1413,7 @@
 #define FLAG_SYS_UNLOCKED_TANOBY_RUINS                              (SYS_FLAGS + 0x49)
 #define FLAG_ENABLE_SHIP_NAVEL_ROCK                                 (SYS_FLAGS + 0x4A)
 #define FLAG_ENABLE_SHIP_BIRTH_ISLAND                               (SYS_FLAGS + 0x4B)
+#define FLAG_ENABLE_SHIP_CHRONOS_ISLE                               (SYS_FLAGS + 0x4C)
 
 // World Map Flags
 #define FLAG_WORLD_MAP_PALLET_TOWN                                  (SYS_FLAGS + 0x90)

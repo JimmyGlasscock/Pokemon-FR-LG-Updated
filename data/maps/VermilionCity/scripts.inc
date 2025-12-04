@@ -75,6 +75,13 @@ VermilionCity_EventScript_CheckHasAuroraTicket::
 	goto EventScript_SetResultTrue
 	end
 
+VermilionCity_EventScript_CheckHasChronosTicket::
+	goto_if_unset FLAG_ENABLE_SHIP_CHRONOS_ISLE, EventScript_SetResultFalse
+	checkitem ITEM_CHRONOS_TICKET
+	goto_if_eq VAR_RESULT, FALSE, EventScript_SetResultFalse
+	goto EventScript_SetResultTrue
+	end
+
 VermilionCity_EventScript_CheckSeagallopPresent::
 	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
 	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 5, VermilionCity_EventScript_ChooseSeagallopDestRainbowPass
@@ -90,6 +97,8 @@ VermilionCity_EventScript_ChooseSeagallopDestRainbowPass::
 	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasMysticTicket
 	call VermilionCity_EventScript_CheckHasAuroraTicket
 	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasAuroraTicket
+	call VermilionCity_EventScript_CheckHasChronosTicket
+	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasChronosTicket
 	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
 	message VermilionCity_Text_BoardSeagallopRainbowPass
 	waitmessage
@@ -99,6 +108,8 @@ VermilionCity_EventScript_ChooseSeagallopDestRainbowPass::
 VermilionCity_EventScript_HasMysticTicket::
 	call VermilionCity_EventScript_CheckHasAuroraTicket
 	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasMysticAndAuroraTickets
+	call VermilionCity_EventScript_CheckHasChronosTicket
+	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasMysticAndChronosTickets
 	call_if_unset FLAG_SHOWN_MYSTIC_TICKET, VermilionCity_EventScript_ShowMysticTicket
 	message VermilionCity_Text_BoardSeagallopFerry
 	waitmessage
@@ -110,12 +121,44 @@ VermilionCity_EventScript_HasMysticTicket::
 	case 127, EventScript_CancelSail
 	end
 
+VermilionCity_EventScript_HasMysticAndChronosTickets::
+	call_if_unset FLAG_SHOWN_MYSTIC_TICKET, VermilionCity_EventScript_ShowMysticTicket
+	call_if_unset FLAG_SHOWN_CHRONOS_TICKET, VermilionCity_EventScript_ShowChronosTicket
+	message VermilionCity_Text_BoardSeagallopFerry
+	waitmessage
+	multichoice 13, 5, MULTICHOICE_SEVII_NAVEL_CHRONOS, FALSE
+	switch VAR_RESULT
+	case 0, EventScript_SeviiDestinationsPage1
+	case 1, EventScript_SailToNavelRock
+	case 2, EventScript_SailToChronosIsle
+	case 3, EventScript_CancelSail
+	case 127, EventScript_CancelSail
+	end
+
+VermilionCity_EventScript_CheckAuroraWithMysticChronos::
+	call VermilionCity_EventScript_CheckHasAuroraTicket
+	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasAllThreeTickets
+	call_if_unset FLAG_SHOWN_MYSTIC_TICKET, VermilionCity_EventScript_ShowMysticTicket
+	call_if_unset FLAG_SHOWN_CHRONOS_TICKET, VermilionCity_EventScript_ShowChronosTicket
+	message VermilionCity_Text_BoardSeagallopFerry
+	waitmessage
+	multichoice 13, 5, MULTICHOICE_SEVII_NAVEL_CHRONOS, FALSE
+	switch VAR_RESULT
+	case 0, EventScript_SeviiDestinationsPage1
+	case 1, EventScript_SailToNavelRock
+	case 2, EventScript_SailToChronosIsle
+	case 3, EventScript_CancelSail
+	case 127, EventScript_CancelSail
+	end
+
 VermilionCity_EventScript_ShowMysticTicket::
 	setflag FLAG_SHOWN_MYSTIC_TICKET
 	msgbox VermilionCity_Text_OhMysticTicketTakeYouToNavelRock
 	return
 
 VermilionCity_EventScript_HasAuroraTicket::
+	call VermilionCity_EventScript_CheckHasChronosTicket
+	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasAuroraAndChronosTickets
 	call_if_unset FLAG_SHOWN_AURORA_TICKET, VermilionCity_EventScript_ShowAuroraTicket
 	message VermilionCity_Text_BoardSeagallopFerry
 	waitmessage
@@ -127,12 +170,31 @@ VermilionCity_EventScript_HasAuroraTicket::
 	case 127, EventScript_CancelSail
 	end
 
+VermilionCity_EventScript_HasChronosTicket::
+	call_if_unset FLAG_SHOWN_CHRONOS_TICKET, VermilionCity_EventScript_ShowChronosTicket
+	message VermilionCity_Text_BoardSeagallopFerry
+	waitmessage
+	multichoice 13, 6, MULTICHOICE_SEVII_CHRONOS, FALSE
+	switch VAR_RESULT
+	case 0, EventScript_SeviiDestinationsPage1
+	case 1, EventScript_SailToChronosIsle
+	case 2, EventScript_CancelSail
+	case 127, EventScript_CancelSail
+	end
+
 VermilionCity_EventScript_ShowAuroraTicket::
 	setflag FLAG_SHOWN_AURORA_TICKET
 	msgbox VermilionCity_Text_OhAuroraTicketTakeYouToBirthIsland
 	return
 
+VermilionCity_EventScript_ShowChronosTicket::
+	setflag FLAG_SHOWN_CHRONOS_TICKET
+	msgbox VermilionCity_Text_OhChronosTicketTakeYouToChronosIsle
+	return
+
 VermilionCity_EventScript_HasMysticAndAuroraTickets::
+	call VermilionCity_EventScript_CheckHasChronosTicket
+	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasAllThreeTickets
 	call_if_unset FLAG_SHOWN_MYSTIC_TICKET, VermilionCity_EventScript_ShowMysticTicket
 	call_if_unset FLAG_SHOWN_AURORA_TICKET, VermilionCity_EventScript_ShowAuroraTicket
 	message VermilionCity_Text_BoardSeagallopFerry
@@ -143,6 +205,36 @@ VermilionCity_EventScript_HasMysticAndAuroraTickets::
 	case 1, EventScript_SailToNavelRock
 	case 2, EventScript_SailToBirthIsland
 	case 3, EventScript_CancelSail
+	case 127, EventScript_CancelSail
+	end
+
+VermilionCity_EventScript_HasAuroraAndChronosTickets::
+	call_if_unset FLAG_SHOWN_AURORA_TICKET, VermilionCity_EventScript_ShowAuroraTicket
+	call_if_unset FLAG_SHOWN_CHRONOS_TICKET, VermilionCity_EventScript_ShowChronosTicket
+	message VermilionCity_Text_BoardSeagallopFerry
+	waitmessage
+	multichoice 13, 5, MULTICHOICE_SEVII_BIRTH_CHRONOS, FALSE
+	switch VAR_RESULT
+	case 0, EventScript_SeviiDestinationsPage1
+	case 1, EventScript_SailToBirthIsland
+	case 2, EventScript_SailToChronosIsle
+	case 3, EventScript_CancelSail
+	case 127, EventScript_CancelSail
+	end
+
+VermilionCity_EventScript_HasAllThreeTickets::
+	call_if_unset FLAG_SHOWN_MYSTIC_TICKET, VermilionCity_EventScript_ShowMysticTicket
+	call_if_unset FLAG_SHOWN_AURORA_TICKET, VermilionCity_EventScript_ShowAuroraTicket
+	call_if_unset FLAG_SHOWN_CHRONOS_TICKET, VermilionCity_EventScript_ShowChronosTicket
+	message VermilionCity_Text_BoardSeagallopFerry
+	waitmessage
+	multichoice 13, 4, MULTICHOICE_SEVII_NAVEL_BIRTH_CHRONOS, FALSE
+	switch VAR_RESULT
+	case 0, EventScript_SeviiDestinationsPage1
+	case 1, EventScript_SailToNavelRock
+	case 2, EventScript_SailToBirthIsland
+	case 3, EventScript_SailToChronosIsle
+	case 4, EventScript_CancelSail
 	case 127, EventScript_CancelSail
 	end
 
@@ -157,6 +249,13 @@ EventScript_SailToBirthIsland::
 	msgbox VermilionCity_Text_Seagallop12Departing
 	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
 	setvar VAR_0x8006, SEAGALLOP_BIRTH_ISLAND
+	goto EventScript_SetSail
+	end
+
+EventScript_SailToChronosIsle::
+	msgbox VermilionCity_Text_Seagallop13Departing
+	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
+	setvar VAR_0x8006, SEAGALLOP_CHRONOS_ISLE
 	goto EventScript_SetSail
 	end
 
@@ -297,4 +396,29 @@ VermilionCity_EventScript_GymSign::
 
 VermilionCity_EventScript_HarborSign::
 	msgbox VermilionCity_Text_VermilionHarbor, MSGBOX_SIGN
+	end
+
+VermilionCity_EventScript_ChronosTicketTest::
+	lock
+	faceplayer
+	checkitem ITEM_CHRONOS_TICKET, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq VermilionCity_EventScript_AlreadyHasChronosTicket
+	msgbox VermilionCity_Text_TestChronosTicketGive, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq VermilionCity_EventScript_DeclineChronosTicket
+	giveitem ITEM_CHRONOS_TICKET
+	setflag FLAG_ENABLE_SHIP_CHRONOS_ISLE
+	msgbox VermilionCity_Text_ReceivedChronosTicket
+	release
+	end
+
+VermilionCity_EventScript_AlreadyHasChronosTicket::
+	msgbox VermilionCity_Text_AlreadyHaveChronosTicket
+	release
+	end
+
+VermilionCity_EventScript_DeclineChronosTicket::
+	msgbox VermilionCity_Text_DeclineChronosTicket
+	release
 	end

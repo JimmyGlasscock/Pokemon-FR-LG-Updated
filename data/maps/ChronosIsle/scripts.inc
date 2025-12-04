@@ -1,5 +1,11 @@
 ChronosIsle_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, ChronosIsle_OnTransition
 	.byte 0
+
+ChronosIsle_OnTransition::
+	setworldmapflag FLAG_WORLD_MAP_CHRONOS_ISLE
+	setflag FLAG_SYS_SEVII_MAP_CHRONOS
+	end
 
 ChronosIsle_EventScript_BrendanOneLeft::
 	lockall

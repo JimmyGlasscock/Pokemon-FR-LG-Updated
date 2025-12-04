@@ -15,6 +15,8 @@ ChronosMeadow_EventScript_TryRemoveCelebi::
 	return
 
 ChronosMeadow_OnTransition::
+	setworldmapflag FLAG_WORLD_MAP_CHRONOS_ISLE
+	setflag FLAG_SYS_SEVII_MAP_CHRONOS
 	call_if_unset FLAG_FOUGHT_CELEBI, ChronosMeadow_EventScript_ShowCelebi
 	call_if_eq VAR_MAP_SCENE_CHRONOS_ISLE, 1, ChronosMeadow_EventScript_HideBrendan
 	end

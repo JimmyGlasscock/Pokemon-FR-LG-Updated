@@ -31,6 +31,7 @@ enum {
     REGIONMAP_SEVII123,
     REGIONMAP_SEVII45,
     REGIONMAP_SEVII67,
+    REGIONMAP_CHRONOS,
     REGIONMAP_COUNT
 };
 
@@ -411,6 +412,7 @@ static const u32 sKanto_Tilemap[] = INCBIN_U32("graphics/region_map/kanto.bin.lz
 static const u32 sSevii123_Tilemap[] = INCBIN_U32("graphics/region_map/sevii_123.bin.lz");
 static const u32 sSevii45_Tilemap[] = INCBIN_U32("graphics/region_map/sevii_45.bin.lz");
 static const u32 sSevii67_Tilemap[] = INCBIN_U32("graphics/region_map/sevii_67.bin.lz");
+static const u32 sChronos_Tilemap[] = INCBIN_U32("graphics/region_map/chronos.bin.lz");
 static const u32 sMapEdge_Tilemap[] = INCBIN_U32("graphics/region_map/map_edge.bin.lz");
 static const u32 sSwitchMap_KantoSeviiAll_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_kanto_sevii_all.bin.lz");
 static const u32 sSwitchMap_KantoSevii123_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_kanto_sevii_123.bin.lz");
@@ -524,7 +526,7 @@ static const u8 *const sTextColorTable[] = {
     [MAPSECTYPE_NOT_VISITED - 2] = sTextColor_Red
 };
 
-static const u8 sSeviiMapsecs[3][30] = {
+static const u8 sSeviiMapsecs[4][30] = {
     [REGIONMAP_SEVII123 - 1] =
     {
         MAPSEC_ONE_ISLAND,
@@ -588,6 +590,12 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_SCUFIB_CHAMBER,
         MAPSEC_RIXY_CHAMBER,
         MAPSEC_VIAPOIS_CHAMBER,
+        MAPSEC_NONE
+    },
+    [REGIONMAP_CHRONOS - 1] = 
+    {
+        MAPSEC_CHRONOS_ISLE,
+        MAPSEC_CHRONOS_MEADOW,
         MAPSEC_NONE
     }
 };
@@ -824,6 +832,7 @@ static const u8 sTextColors[] = {TEXT_DYNAMIC_COLOR_6, TEXT_COLOR_WHITE, TEXT_CO
 #include "data/region_map/region_map_layout_sevii_123.h"
 #include "data/region_map/region_map_layout_sevii_45.h"
 #include "data/region_map/region_map_layout_sevii_67.h"
+#include "data/region_map/region_map_layout_chronos.h"
 
 static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_PALLET_TOWN         - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           SPAWN_PALLET_TOWN},
@@ -934,6 +943,8 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_RIXY_CHAMBER        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_VIAPOIS_CHAMBER     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_EMBER_SPA           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_CHRONOS_ISLE        - MAPSECS_KANTO] = {MAP(CHRONOS_ISLE),                          0},
+    [MAPSEC_CHRONOS_MEADOW      - MAPSECS_KANTO] = {MAP(CHRONOS_MEADOW),                        0},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -1142,6 +1153,9 @@ static bool8 LoadRegionMapGfx(void)
         break;
     case 8:
         LZ77UnCompWram(sSevii67_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII67]);
+        break;
+    case 9:
+        LZ77UnCompWram(sChronos_Tilemap, sRegionMap->layouts[REGIONMAP_CHRONOS]);
         break;
     default:
         LZ77UnCompWram(sBackground_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
@@ -1553,7 +1567,9 @@ static void SetRegionMapPlayerIsOn(u8 region)
 static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
 {
     sSwitchMapMenu = AllocZeroed(sizeof(struct SwitchMapMenu));
-    if (FlagGet(FLAG_SYS_SEVII_MAP_4567))
+    if (FlagGet(FLAG_SYS_SEVII_MAP_CHRONOS))
+        sSwitchMapMenu->maxSelection = 4;
+    else if (FlagGet(FLAG_SYS_SEVII_MAP_4567))
         sSwitchMapMenu->maxSelection = 3;
     else if (FlagGet(FLAG_SYS_SEVII_MAP_123))
         sSwitchMapMenu->maxSelection = 1;
@@ -1572,6 +1588,7 @@ static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
         LZ77UnCompWram(sSwitchMap_KantoSeviiAll2_Tilemap, sSwitchMapMenu->switchMapTilemap);
         sSwitchMapMenu->yOffset = 4;
         break;
+    case 4:
     case 3:
     default:
         sSwitchMapMenu->yOffset = 3;
@@ -2931,6 +2948,8 @@ static u16 GetMapsecUnderCursor(void)
     mapsec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_MAP, sMapCursor->y, sMapCursor->x);
     if ((mapsec == MAPSEC_NAVEL_ROCK || mapsec == MAPSEC_BIRTH_ISLAND) && !FlagGet(FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR))
         mapsec = MAPSEC_NONE;
+    if ((mapsec == MAPSEC_CHRONOS_ISLE || mapsec == MAPSEC_CHRONOS_MEADOW) && !FlagGet(FLAG_WORLD_MAP_CHRONOS_ISLE))
+        mapsec = MAPSEC_NONE;
     return mapsec;
 }
 
@@ -2989,6 +3008,8 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_SIX_ISLAND:
         return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_CHRONOS_ISLE:
+        return FlagGet(FLAG_WORLD_MAP_CHRONOS_ISLE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ROUTE_4_POKECENTER:
         if (!GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS))
             return MAPSECTYPE_NONE;
@@ -3233,6 +3254,14 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->x = 10;
         sMapCursor->y = 8;
         break;
+    case MAPSEC_CHRONOS_ISLE:
+        sMapCursor->x = 10;
+        sMapCursor->y = 8;
+        break;
+    case MAPSEC_CHRONOS_MEADOW:
+        sMapCursor->x = 10;
+        sMapCursor->y = 8;
+        break;
     case MAPSEC_TRAINER_TOWER_2:
         sMapCursor->x = 5;
         sMapCursor->y = 6;
@@ -3363,6 +3392,8 @@ static u8 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
         return sRegionMapSections_Sevii45[layer][y][x];
     case REGIONMAP_SEVII67:
         return sRegionMapSections_Sevii67[layer][y][x];
+    case REGIONMAP_CHRONOS:
+        return sRegionMapSections_Chronos[layer][y][x];
     default:
         return MAPSEC_NONE;
     }

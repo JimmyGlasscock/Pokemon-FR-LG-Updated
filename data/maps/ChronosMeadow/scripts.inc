@@ -326,3 +326,29 @@ ChronosMeadow_EventScript_Brooke::
 	trainerbattle_single TRAINER_HEX_MANIAC_BROOKE, ChronosMeadow_Text_BrookeIntro, ChronosMeadow_Text_BrookeDefeat
 	msgbox ChronosMeadow_Text_BrookePostBattle, MSGBOX_AUTOCLOSE
 	end
+
+ChronosMeadow_EventScript_Oz::
+	trainerbattle_single TRAINER_GENTLEMAN_OZ, ChronosMeadow_Text_OzIntro, ChronosMeadow_Text_OzDefeat
+	msgbox ChronosMeadow_Text_OzPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ChronosMeadow_EventScript_Tourist::
+	lock
+	faceplayer
+	msgbox ChronosMeadow_Text_Tourist, MSGBOX_DEFAULT
+	release
+	end
+
+ChronosMeadow_EventScript_Researcher::
+	lock
+	faceplayer
+	msgbox ChronosMeadow_Text_Researcher, MSGBOX_DEFAULT
+	release
+	end
+
+ChronosMeadow_EventScript_OldWoman::
+	lock
+	faceplayer
+	msgbox ChronosMeadow_Text_OldWoman, MSGBOX_DEFAULT
+	release
+	end

@@ -15,13 +15,13 @@ ChronosMeadow_Text_BrendanPostBattle::
 	.string "Wow.\nYou proved yourself.\pI guess you must be worthy to\ncatch the legendary POKéMON.\pI'll see you around.$"
 
 ChronosMeadow_Text_HealerOffer::
-	.string "This is a lovely meadow.\nWould you like me to heal\lyour POKéMON?$"
+	.string "This is a lovely meadow.\pWould you like me to heal\lyour POKéMON?$"
 
 ChronosMeadow_Text_HealerAccept::
 	.string "Okay! Let me heal them for you!$"
 
 ChronosMeadow_Text_HealerHealed::
-	.string "Your POKéMON are fully healed!\nEnjoy the meadow!$"
+	.string "Your POKéMON are fully healed!$"
 
 ChronosMeadow_Text_HealerDecline::
 	.string "Okay! Feel free to ask if you\nchange your mind!$"
@@ -169,5 +169,23 @@ ChronosMeadow_Text_BrookeDefeat::
 
 ChronosMeadow_Text_BrookePostBattle::
 	.string "CELEBI's power transcends life\nand death… How fascinating!$"
+
+ChronosMeadow_Text_OzIntro::
+	.string "Greetings! I've traveled from afar\nto witness this legendary place.\pShall we have a proper battle?$"
+
+ChronosMeadow_Text_OzDefeat::
+	.string "Splendid! A fine match indeed!$"
+
+ChronosMeadow_Text_OzPostBattle::
+	.string "CHRONOS ISLE is truly a gentleman's\nparadise.\pThe air itself seems touched by\nCELEBI's grace.$"
+
+ChronosMeadow_Text_Tourist::
+	.string "I came all the way from JOHTO to\nsee this legendary place!\pThe flowers here bloom in colors\nI've never seen before.\pIt's like time itself flows\ndifferently in this meadow…$"
+
+ChronosMeadow_Text_Researcher::
+	.string "Fascinating! The plant life here\nshows no signs of decay.\pSome of these flowers appear to be\ngrowing backwards in time!\pCould CELEBI's presence be affecting\nthe very fabric of nature?$"
+
+ChronosMeadow_Text_OldWoman::
+	.string "I visited CHRONOS ISLE 50 years\nago as a young girl…\pThis meadow looks exactly the same\nas it did back then.\pNot a single flower has withered.\nIt's truly a miracle…$"
 
 

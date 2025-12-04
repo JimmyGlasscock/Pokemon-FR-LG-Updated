@@ -11418,3 +11418,26 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Brooke[] = {
         .species = SPECIES_SHEDINJA,
     },
 };
+
+static const struct TrainerMonNoItemDefaultMoves sParty_Oz[] = {
+    {
+        .iv = 18,
+        .lvl = 54,
+        .species = SPECIES_LINOONE,
+    },
+    {
+        .iv = 18,
+        .lvl = 55,
+        .species = SPECIES_LUDICOLO,
+    },
+    {
+        .iv = 18,
+        .lvl = 56,
+        .species = SPECIES_SHIFTRY,
+    },
+    {
+        .iv = 18,
+        .lvl = 57,
+        .species = SPECIES_MILOTIC,
+    },
+};

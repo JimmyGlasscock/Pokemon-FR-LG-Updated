@@ -767,12 +767,13 @@
 #define TRAINER_PSYCHIC_TRE                      761
 #define TRAINER_PSYCHIC_SETH                     762
 #define TRAINER_HEX_MANIAC_BROOKE                763
+#define TRAINER_GENTLEMAN_OZ                     764
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             764
+#define NUM_TRAINERS                             765
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

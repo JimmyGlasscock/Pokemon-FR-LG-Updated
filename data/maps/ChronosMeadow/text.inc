@@ -183,7 +183,7 @@ ChronosMeadow_Text_Tourist::
 	.string "I came all the way from JOHTO to\nsee this legendary place!\pThe flowers here bloom in colors\nI've never seen before.\pIt's like time itself flows\ndifferently in this meadow…$"
 
 ChronosMeadow_Text_Researcher::
-	.string "Fascinating! The plant life here\nshows no signs of decay.\pSome of these flowers appear to be\ngrowing backwards in time!\pCould CELEBI's presence be affecting\nthe very fabric of nature?$"
+    .string "Fascinating! The plant life here\nshows no signs of decay.\pSome of these flowers appear to be\ngrowing backwards in time!\pCould a POKéMON be affecting\nthe very fabric of nature?$"
 
 ChronosMeadow_Text_OldWoman::
 	.string "I visited CHRONOS ISLE 50 years\nago as a young girl…\pThis meadow looks exactly the same\nas it did back then.\pNot a single flower has withered.\nIt's truly a miracle…$"

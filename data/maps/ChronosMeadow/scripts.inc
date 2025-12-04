@@ -76,6 +76,7 @@ ChronosMeadow_EventScript_RanFromCelebi::
 
 ChronosMeadow_EventScript_BrendanBattle::
 	lockall
+	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, ChronosMeadow_Movement_PlayerFaceSouth
@@ -104,6 +105,7 @@ ChronosMeadow_EventScript_BrendanBattle::
 
 ChronosMeadow_EventScript_BrendanBattleLeft::
 	lockall
+	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, ChronosMeadow_Movement_PlayerFaceSouth
@@ -132,6 +134,7 @@ ChronosMeadow_EventScript_BrendanBattleLeft::
 
 ChronosMeadow_EventScript_BrendanBattleRight::
 	lockall
+	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, ChronosMeadow_Movement_PlayerFaceSouth

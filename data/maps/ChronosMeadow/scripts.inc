@@ -211,3 +211,19 @@ ChronosMeadow_Movement_BrendanLeaveRight::
 	walk_down
 	walk_right
 	step_end
+
+ChronosMeadow_EventScript_ItemProtein::
+	finditem ITEM_PROTEIN
+	end
+
+ChronosMeadow_EventScript_ItemPPMax::
+	finditem ITEM_PP_MAX
+	end
+
+ChronosMeadow_EventScript_ItemRareCandy::
+	finditem ITEM_RARE_CANDY
+	end
+
+ChronosMeadow_EventScript_ItemMaxRevive::
+	finditem ITEM_MAX_REVIVE
+	end

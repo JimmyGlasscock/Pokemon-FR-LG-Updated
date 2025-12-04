@@ -558,10 +558,10 @@
 #define FLAG_0x215               0x215
 #define FLAG_0x216               0x216
 #define FLAG_0x217               0x217
-#define FLAG_0x218               0x218
-#define FLAG_0x219               0x219
-#define FLAG_0x21A               0x21A
-#define FLAG_0x21B               0x21B
+#define FLAG_HIDE_CHRONOS_MEADOW_PROTEIN                    0x218
+#define FLAG_HIDE_CHRONOS_MEADOW_PP_MAX                     0x219
+#define FLAG_HIDE_CHRONOS_MEADOW_RARE_CANDY                 0x21A
+#define FLAG_HIDE_CHRONOS_MEADOW_MAX_REVIVE                 0x21B
 #define FLAG_0x21C               0x21C
 #define FLAG_0x21D               0x21D
 #define FLAG_0x21E               0x21E

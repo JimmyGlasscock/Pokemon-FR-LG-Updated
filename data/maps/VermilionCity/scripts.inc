@@ -407,7 +407,7 @@ VermilionCity_EventScript_ChronosTicketTest::
 	msgbox VermilionCity_Text_TestChronosTicketGive, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq VermilionCity_EventScript_DeclineChronosTicket
-	giveitem ITEM_CHRONOS_TICKET
+	additem ITEM_CHRONOS_TICKET, 1
 	setflag FLAG_ENABLE_SHIP_CHRONOS_ISLE
 	msgbox VermilionCity_Text_ReceivedChronosTicket
 	release

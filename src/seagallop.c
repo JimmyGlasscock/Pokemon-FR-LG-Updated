@@ -97,7 +97,7 @@ static const u16 sTravelDirectionMatrix[] = {
     [SEAGALLOP_CINNABAR_ISLAND] = 0x7ff, // 11111111111
     [SEAGALLOP_NAVEL_ROCK]      = 0x6e0, // 11011100000
     [SEAGALLOP_BIRTH_ISLAND]    = 0x000, // 00000000000
-    [SEAGALLOP_CHRONOS_ISLE]    = 0x000  // 00000000000
+    [SEAGALLOP_CHRONOS_ISLE]    = 0x6e0  // 11011100000
 };
 
 static const union AnimCmd sSpriteAnims_Ferry_WB[] = {

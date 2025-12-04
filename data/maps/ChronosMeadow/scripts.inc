@@ -99,6 +99,60 @@ ChronosMeadow_EventScript_BrendanBattle::
 	releaseall
 	end
 
+ChronosMeadow_EventScript_BrendanBattleLeft::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, ChronosMeadow_Movement_PlayerFaceSouth
+	waitmovement 0
+	delay 30
+	clearflag FLAG_TEMP_2
+	addobject 2
+	playbgm MUS_ENCOUNTER_RIVAL, 0
+	applymovement 2, ChronosMeadow_Movement_BrendanApproachLeft
+	waitmovement 0
+	msgbox ChronosMeadow_Text_BrendanNoWay, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_BRENDAN_CHRONOS_MEADOW, ChronosMeadow_Text_BrendanDefeat
+	msgbox ChronosMeadow_Text_BrendanPostBattle, MSGBOX_DEFAULT
+	closemessage
+	playbgm MUS_RIVAL_EXIT, 0
+	applymovement 2, ChronosMeadow_Movement_BrendanLeaveLeft
+	waitmovement 0
+	fadedefaultbgm
+	setflag FLAG_TEMP_2
+	removeobject 2
+	setvar VAR_MAP_SCENE_CHRONOS_ISLE, 2
+	releaseall
+	end
+
+ChronosMeadow_EventScript_BrendanBattleRight::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, ChronosMeadow_Movement_PlayerFaceSouth
+	waitmovement 0
+	delay 30
+	clearflag FLAG_TEMP_2
+	addobject 2
+	playbgm MUS_ENCOUNTER_RIVAL, 0
+	applymovement 2, ChronosMeadow_Movement_BrendanApproachRight
+	waitmovement 0
+	msgbox ChronosMeadow_Text_BrendanNoWay, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_BRENDAN_CHRONOS_MEADOW, ChronosMeadow_Text_BrendanDefeat
+	msgbox ChronosMeadow_Text_BrendanPostBattle, MSGBOX_DEFAULT
+	closemessage
+	playbgm MUS_RIVAL_EXIT, 0
+	applymovement 2, ChronosMeadow_Movement_BrendanLeaveRight
+	waitmovement 0
+	fadedefaultbgm
+	setflag FLAG_TEMP_2
+	removeobject 2
+	setvar VAR_MAP_SCENE_CHRONOS_ISLE, 2
+	releaseall
+	end
+
 ChronosMeadow_Movement_PlayerFaceSouth::
 	face_down
 	step_end
@@ -118,4 +172,42 @@ ChronosMeadow_Movement_BrendanLeave::
 	walk_down
 	walk_down
 	walk_down
+	step_end
+
+ChronosMeadow_Movement_BrendanApproachLeft::
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+ChronosMeadow_Movement_BrendanLeaveLeft::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	step_end
+
+ChronosMeadow_Movement_BrendanApproachRight::
+	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+ChronosMeadow_Movement_BrendanLeaveRight::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
 	step_end

@@ -70,12 +70,30 @@
   "coord_events": [
     {
       "type": "trigger",
+      "x": 8,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_MAP_SCENE_CHRONOS_ISLE",
+      "var_value": "1",
+      "script": "ChronosMeadow_EventScript_BrendanBattleRight"
+    },
+    {
+      "type": "trigger",
       "x": 9,
       "y": 11,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_CHRONOS_ISLE",
       "var_value": "1",
       "script": "ChronosMeadow_EventScript_BrendanBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_MAP_SCENE_CHRONOS_ISLE",
+      "var_value": "1",
+      "script": "ChronosMeadow_EventScript_BrendanBattleLeft"
     }
   ],
   "bg_events": [

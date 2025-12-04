@@ -11118,7 +11118,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Jason[] = {
     {
         .iv = 20,
         .lvl = 57,
-        .species = SPECIES_SLAKING,
+        .species = SPECIES_VIGOROTH,
     },
 };
 
@@ -11141,7 +11141,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Kendra[] = {
     {
         .iv = 20,
         .lvl = 57,
-        .species = SPECIES_ALTARIA,
+        .species = SPECIES_SWABLU,
     },
 };
 

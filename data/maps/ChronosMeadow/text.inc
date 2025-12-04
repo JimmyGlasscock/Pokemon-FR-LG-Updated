@@ -188,4 +188,7 @@ ChronosMeadow_Text_Researcher::
 ChronosMeadow_Text_OldWoman::
 	.string "I visited CHRONOS ISLE 50 years\nago as a young girl…\pThis meadow looks exactly the same\nas it did back then.\pNot a single flower has withered.\nIt's truly a miracle…$"
 
+ChronosMeadow_Text_Sign::
+	.string "CHRONOS MEADOW\nWhere time stands still$"
+
 

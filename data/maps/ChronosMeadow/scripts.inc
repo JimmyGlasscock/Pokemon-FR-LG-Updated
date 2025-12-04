@@ -352,3 +352,7 @@ ChronosMeadow_EventScript_OldWoman::
 	msgbox ChronosMeadow_Text_OldWoman, MSGBOX_DEFAULT
 	release
 	end
+
+ChronosMeadow_EventScript_Sign::
+	msgbox ChronosMeadow_Text_Sign, MSGBOX_SIGN
+	end

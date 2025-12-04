@@ -7533,9 +7533,9 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_DEFAULT_MOVES(sParty_Andrew),
     },
     [TRAINER_BIRD_KEEPER_CHUCK] = {
-        .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
+        .trainerClass = TRAINER_CLASS_CUE_BALL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_BIRD_KEEPER,
+        .trainerPic = TRAINER_PIC_CUE_BALL,
         .trainerName = _("CHUCK"),
         .items = {},
         .doubleBattle = FALSE,

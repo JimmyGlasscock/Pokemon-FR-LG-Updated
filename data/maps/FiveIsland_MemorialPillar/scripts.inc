@@ -110,21 +110,20 @@ FiveIsland_MemorialPillar_EventScript_JimmyAfterBattle::
 	end
 
 FiveIsland_MemorialPillar_EventScript_JimmyLeaveCheckDirection::
+	setflag FLAG_DEFEATED_JIMMY
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	compare VAR_TEMP_0, 7
 	goto_if_eq FiveIsland_MemorialPillar_EventScript_JimmyLeaveFromLeft
-	setflag FLAG_DEFEATED_JIMMY
 	applymovement 6, FiveIsland_MemorialPillar_Movement_JimmyLeave
 	waitmovement 0
-	removeobject 6
+	setflag FLAG_HIDE_JIMMY
 	release
 	end
 
 FiveIsland_MemorialPillar_EventScript_JimmyLeaveFromLeft::
-	setflag FLAG_DEFEATED_JIMMY
 	applymovement 6, FiveIsland_MemorialPillar_Movement_JimmyLeaveFromLeft
 	waitmovement 0
-	removeobject 6
+	setflag FLAG_HIDE_JIMMY
 	release
 	end
 

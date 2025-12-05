@@ -1233,7 +1233,7 @@
 
 // Unused hidden item flags
 #define FLAG_DEFEATED_JIMMY             0x4A7 // Defeated custom trainer Jimmy
-#define FLAG_UNUSED_0x4A8               0x4A8 // Unused Flag
+#define FLAG_HIDE_JIMMY                 0x4A8 // Hide Jimmy after battle
 #define FLAG_UNUSED_0x4A9               0x4A9 // Unused Flag
 #define FLAG_UNUSED_0x4AA               0x4AA // Unused Flag
 #define FLAG_UNUSED_0x4AB               0x4AB // Unused Flag

@@ -3974,7 +3974,7 @@ static void Task_FlyMap(u8 taskId)
                 PlaySE(SE_M_SPIT_UP);
                 PrintTopBarTextRight(gText_RegionMap_AButtonCancel);
             }
-            else if (GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_VISITED || GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_UNKNOWN)
+            else if (GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_VISITED)
             {
                 PrintTopBarTextRight(gText_RegionMap_AButtonOK);
             }
@@ -3984,7 +3984,7 @@ static void Task_FlyMap(u8 taskId)
             }
             break;
         case MAP_INPUT_A_BUTTON:
-            if ((GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_VISITED || GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_UNKNOWN) && GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS) == TRUE)
+            if (GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_VISITED && GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS) == TRUE)
             {
                 switch (GetMapTypeByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum))
                 {

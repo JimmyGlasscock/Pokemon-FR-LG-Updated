@@ -17,9 +17,13 @@ ChronosMeadow_EventScript_TryRemoveCelebi::
 ChronosMeadow_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_CHRONOS_ISLE
 	setflag FLAG_SYS_SEVII_MAP_CHRONOS
+	call_if_unset FLAG_DEFEATED_CHRONOS_BRENDAN, ChronosMeadow_EventScript_HideBrendan
 	call_if_unset FLAG_FOUGHT_CELEBI, ChronosMeadow_EventScript_ShowCelebi
-	call_if_unset FLAG_DEFEATED_CHRONOS_BRENDAN, ChronosMeadow_EventScript_ShowBrendan
 	end
+
+ChronosMeadow_EventScript_HideBrendan::
+	setflag FLAG_HIDE_CHRONOS_BRENDAN
+	return
 
 ChronosMeadow_EventScript_ShowBrendan::
 	clearflag FLAG_HIDE_CHRONOS_BRENDAN
@@ -49,7 +53,6 @@ ChronosMeadow_EventScript_Celebi::
 	waitmessage
 	waitmoncry
 	delay 20
-	playbgm MUS_ENCOUNTER_GYM_LEADER, 0
 	waitbuttonpress
 	setwildbattle SPECIES_CELEBI, 50
 	setflag FLAG_SYS_SPECIAL_WILD_BATTLE

@@ -33,6 +33,7 @@
 #include "constants/songs.h"
 #include "constants/item_effects.h"
 #include "constants/trainers.h"
+#include "constants/opponents.h"
 #include "constants/hold_effects.h"
 #include "constants/battle_move_effects.h"
 #include "constants/union_room.h"
@@ -5845,6 +5846,13 @@ static u16 GetBattleBGM(void)
         return MUS_RS_VS_TRAINER;
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
+        // Check for Brendan battles specifically
+        if (gTrainerBattleOpponent_A == TRAINER_BRENDAN 
+         || gTrainerBattleOpponent_A == TRAINER_BRENDAN_2 
+         || gTrainerBattleOpponent_A == TRAINER_BRENDAN_3
+         || gTrainerBattleOpponent_A == TRAINER_BRENDAN_CHRONOS_MEADOW)
+            return MUS_RS_VS_TRAINER;
+        
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
         case TRAINER_CLASS_CHAMPION:

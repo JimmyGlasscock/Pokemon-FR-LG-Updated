@@ -97,11 +97,60 @@ FiveIsland_MemorialPillar_EventScript_Jimmy::
 	end
 
 FiveIsland_MemorialPillar_EventScript_JimmyAfterBattle::
-	setflag FLAG_DEFEATED_JIMMY
 	msgbox FiveIsland_MemorialPillar_Text_JimmyPostBattle
-	giveitem ITEM_PREMIER_BALL, 10
+	giveitem ITEM_CHRONOS_TICKET, 1
+	setflag FLAG_ENABLE_SHIP_CHRONOS_ISLE
+	msgbox FiveIsland_MemorialPillar_Text_JimmyReceivedTicket
+	closemessage
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq FiveIsland_MemorialPillar_EventScript_JimmyLeaveCheckDirection
+	goto FiveIsland_MemorialPillar_EventScript_JimmyLeaveCheckDirection
 	release
 	end
+
+FiveIsland_MemorialPillar_EventScript_JimmyLeaveCheckDirection::
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+	compare VAR_TEMP_0, 7
+	goto_if_eq FiveIsland_MemorialPillar_EventScript_JimmyLeaveFromLeft
+	setflag FLAG_DEFEATED_JIMMY
+	applymovement 6, FiveIsland_MemorialPillar_Movement_JimmyLeave
+	waitmovement 0
+	removeobject 6
+	release
+	end
+
+FiveIsland_MemorialPillar_EventScript_JimmyLeaveFromLeft::
+	setflag FLAG_DEFEATED_JIMMY
+	applymovement 6, FiveIsland_MemorialPillar_Movement_JimmyLeaveFromLeft
+	waitmovement 0
+	removeobject 6
+	release
+	end
+
+FiveIsland_MemorialPillar_Movement_JimmyLeave::
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+FiveIsland_MemorialPillar_Movement_JimmyLeaveFromLeft::
+	walk_up
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
 
 FiveIsland_MemorialPillar_EventScript_JimmyDefeated::
 	msgbox FiveIsland_MemorialPillar_Text_JimmyAlreadyBattled

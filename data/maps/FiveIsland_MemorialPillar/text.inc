@@ -112,12 +112,25 @@ FiveIsland_MemorialPillar_Text_JimmyDefeat::
 FiveIsland_MemorialPillar_Text_JimmyPostBattle::
     .string "That was a great battle!\n"
     .string "You're really something.\p"
-    .string "This is my favorite kind of POKé\n"
-    .string "BALL. I want you to have these.$"
+    .string "Say, if you're up for it:\p"
+    .string "Rumor has it there may be a\n"
+    .string "legendary POKéMON hanging around\l"
+    .string "CHRONOS ISLE.\p"
+    .string "You should go check it out.$"
 
 FiveIsland_MemorialPillar_Text_JimmyAlreadyBattled::
-    .string "That was a great battle!\n"
-    .string "You're really something.$"
+    .string "Take that to the dock at VERMILION\n"
+    .string "and they'll take you right there.\p"
+    .string "I'd look into it, but I've gotta\n"
+    .string "head home.\p"
+    .string "I'll be seeing ya!$"
+
+FiveIsland_MemorialPillar_Text_JimmyReceivedTicket::
+    .string "Take that to the dock at VERMILION\n"
+    .string "and they'll take you right there.\p"
+    .string "I'd look into it, but I've gotta\n"
+    .string "head home.\p"
+    .string "I'll be seeing ya!$"
 
 FiveIsland_MemorialPillar_Text_JimmyDeclinedBattle::
     .string "That's too bad.\n"

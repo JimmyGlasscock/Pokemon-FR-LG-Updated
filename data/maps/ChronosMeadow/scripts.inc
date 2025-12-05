@@ -246,9 +246,11 @@ ChronosMeadow_EventScript_Healer::
 	goto_if_eq VAR_RESULT, NO, ChronosMeadow_EventScript_HealerDecline
 	msgbox ChronosMeadow_Text_HealerAccept, MSGBOX_DEFAULT
 	closemessage
-	fadescreen FADE_TO_WHITE
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
 	special HealPlayerParty
-	fadescreen FADE_FROM_WHITE
+	fadescreen FADE_FROM_BLACK
 	msgbox ChronosMeadow_Text_HealerHealed, MSGBOX_DEFAULT
 	release
 	end

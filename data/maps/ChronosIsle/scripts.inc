@@ -16,6 +16,7 @@ ChronosIsle_EventScript_BrendanOneLeft::
 	lockall
 	clearflag FLAG_HIDE_CHRONOS_ISLE_BRENDAN
 	addobject 1
+	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement 1, ChronosIsle_Movement_BrendanApproachLeft
@@ -34,6 +35,7 @@ ChronosIsle_EventScript_BrendanOne::
 	lockall
 	clearflag FLAG_HIDE_CHRONOS_ISLE_BRENDAN
 	addobject 1
+	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement 1, ChronosIsle_Movement_BrendanApproach
@@ -52,6 +54,7 @@ ChronosIsle_EventScript_BrendanOneRight::
 	lockall
 	clearflag FLAG_HIDE_CHRONOS_ISLE_BRENDAN
 	addobject 1
+	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement 1, ChronosIsle_Movement_BrendanApproachRight

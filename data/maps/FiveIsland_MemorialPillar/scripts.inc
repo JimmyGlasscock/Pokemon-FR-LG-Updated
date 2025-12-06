@@ -101,11 +101,7 @@ FiveIsland_MemorialPillar_EventScript_JimmyAfterBattle::
 	giveitem ITEM_CHRONOS_TICKET, 1
 	setflag FLAG_ENABLE_SHIP_CHRONOS_ISLE
 	msgbox FiveIsland_MemorialPillar_Text_JimmyReceivedTicket
-	closemessage
-	checkplayergender
-	compare VAR_RESULT, MALE
-	goto_if_eq FiveIsland_MemorialPillar_EventScript_JimmyLeaveCheckDirection
-	goto FiveIsland_MemorialPillar_EventScript_JimmyLeaveCheckDirection
+	setflag FLAG_DEFEATED_JIMMY
 	release
 	end
 
@@ -152,7 +148,15 @@ FiveIsland_MemorialPillar_Movement_JimmyLeaveFromLeft::
 	step_end
 
 FiveIsland_MemorialPillar_EventScript_JimmyDefeated::
+	specialvar VAR_RESULT, HasCaughtCelebi
+	compare VAR_RESULT, TRUE
+	goto_if_eq FiveIsland_MemorialPillar_EventScript_JimmyCelebiCaught
 	msgbox FiveIsland_MemorialPillar_Text_JimmyAlreadyBattled
+	release
+	end
+
+FiveIsland_MemorialPillar_EventScript_JimmyCelebiCaught::
+	msgbox FiveIsland_MemorialPillar_Text_JimmyCelebiCaught
 	release
 	end
 

@@ -119,19 +119,20 @@ FiveIsland_MemorialPillar_Text_JimmyPostBattle::
     .string "You should go check it out.$"
 
 FiveIsland_MemorialPillar_Text_JimmyAlreadyBattled::
-    .string "Take that to the dock at VERMILION\n"
-    .string "and they'll take you right there.\p"
-    .string "I'd look into it, but I've gotta\n"
-    .string "head home.\p"
-    .string "I'll be seeing ya!$"
+    .string "Chronos Isle is actually closer to\n"
+    .string "HOENN than it is to KANTO.\p"
+    .string "Even if there's no legendary,\n"
+    .string "there's bount to be something\l"
+    .string "cool on that island!$"
 
 FiveIsland_MemorialPillar_Text_JimmyReceivedTicket::
     .string "Take that to the dock at VERMILION\n"
-    .string "and they'll take you right there.\p"
-    .string "I'd look into it, but I've gotta\n"
-    .string "head home.\p"
-    .string "I'll be seeing ya!$"
+    .string "and they'll take you right there.$"
 
 FiveIsland_MemorialPillar_Text_JimmyDeclinedBattle::
     .string "That's too bad.\n"
     .string "Maybe another time!$"
+
+FiveIsland_MemorialPillar_Text_JimmyCelebiCaught::
+    .string "You caught CELEBI?\p"
+    .string "Hey, that's great!$"

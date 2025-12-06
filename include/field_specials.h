@@ -29,5 +29,6 @@ void QuestLog_CheckDepartingIndoorsMap(void);
 void QuestLog_TryRecordDepartedLocation(void);
 u16 CheckForNextRepelInBag(void);
 void UseNextRepelFromBag(void);
+bool8 HasCaughtCelebi(void);
 
 #endif // GUARD_FIELD_SPECIALS_H

@@ -41,6 +41,7 @@
 #include "constants/menu.h"
 #include "constants/event_objects.h"
 #include "constants/metatile_labels.h"
+#include "constants/species.h"
 #include "item.h"
 
 static EWRAM_DATA u8 sElevatorCurrentFloorWindowId = 0;
@@ -2593,4 +2594,9 @@ void UseNextRepelFromBag(void)
         // Copy item name for message display
         CopyItemName(itemId, gStringVar1);
     }
+}
+
+bool8 HasCaughtCelebi(void)
+{
+    return GetSetPokedexFlag(SPECIES_CELEBI, FLAG_GET_CAUGHT);
 }

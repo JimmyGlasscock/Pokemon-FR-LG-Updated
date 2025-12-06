@@ -455,4 +455,5 @@ gSpecials::
 	def_special CreateEnemyEventMon
 	def_special CheckForNextRepelInBag
 	def_special UseNextRepelFromBag
+	def_special HasCaughtCelebi
 gSpecialsEnd::

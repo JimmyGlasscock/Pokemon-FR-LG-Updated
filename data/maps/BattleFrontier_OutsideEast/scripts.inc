@@ -1,0 +1,155 @@
+BattleFrontier_OutsideEast_MapScripts::
+.byte 0
+
+BattleFrontier_OutsideEast_EventScript_BattleTowerSign::
+msgbox BattleFrontier_OutsideEast_Text_BattleTowerSign, MSGBOX_SIGN
+end
+
+BattleFrontier_OutsideEast_EventScript_BattlePalaceSign::
+msgbox BattleFrontier_OutsideEast_Text_BattlePalaceSign, MSGBOX_SIGN
+end
+
+BattleFrontier_OutsideEast_EventScript_BattleArenaSign::
+msgbox BattleFrontier_OutsideEast_Text_BattleArenaSign, MSGBOX_SIGN
+end
+
+BattleFrontier_OutsideEast_EventScript_BattlePyramidSign::
+msgbox BattleFrontier_OutsideEast_Text_BattlePyramidSign, MSGBOX_SIGN
+end
+
+BattleFrontier_OutsideEast_EventScript_ExchangeCornerSign::
+msgbox BattleFrontier_OutsideEast_Text_ExchangeCornerSign, MSGBOX_SIGN
+end
+
+BattleFrontier_OutsideEast_EventScript_RankingHallSign::
+msgbox BattleFrontier_OutsideEast_Text_RankingHallSign, MSGBOX_SIGN
+end
+
+BattleFrontier_OutsideEast_EventScript_NinjaBoy::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Man1::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Hiker::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_HexManiac::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_BlackBelt1::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Cook::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_ExpertF::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_TriathleteM::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_RichBoy::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_TriathleteF::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Twin::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Man2::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Zigzagoon::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Sudowoodo::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Maniac1::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Girl::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_PsychicM::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Man3::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Woman1::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Woman2::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_BlackBelt2::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Maniac2::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Woman3::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_OldWoman::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Gentleman::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_EventScript_Camper::
+msgbox BattleFrontier_OutsideEast_Text_PlaceholderNPC, MSGBOX_NPC
+end
+
+BattleFrontier_OutsideEast_Text_BattleTowerSign:
+.string "This is the BATTLE TOWER!\n"
+.string "Ascend to greater heights!$"
+
+BattleFrontier_OutsideEast_Text_BattlePalaceSign:
+.string "This is the BATTLE PALACE!\n"
+.string "Let your POK?MON do the fighting!$"
+
+BattleFrontier_OutsideEast_Text_BattleArenaSign:
+.string "This is the BATTLE ARENA!\n"
+.string "The ultimate test of skill!$"
+
+BattleFrontier_OutsideEast_Text_BattlePyramidSign:
+.string "This is the BATTLE PYRAMID!\n"
+.string "Enter the ancient ruins!$"
+
+BattleFrontier_OutsideEast_Text_ExchangeCornerSign:
+.string "Exchange Service Corner$"
+
+BattleFrontier_OutsideEast_Text_RankingHallSign:
+.string "Ranking Hall$"
+
+BattleFrontier_OutsideEast_Text_PlaceholderNPC:
+.string "Welcome to the Battle Frontier!$"

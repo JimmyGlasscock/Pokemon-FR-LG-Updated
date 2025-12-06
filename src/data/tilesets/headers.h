@@ -746,3 +746,25 @@ const struct Tileset gTileset_HallOfFame =
     .callback = NULL,
 };
 
+const struct Tileset gTileset_BattleFrontierOutsideWest =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_BattleFrontierOutsideWest,
+    .palettes = gTilesetPalettes_BattleFrontierOutsideWest,
+    .metatiles = gMetatiles_BattleFrontierOutsideWest,
+    .metatileAttributes = gMetatileAttributes_BattleFrontierOutsideWest,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_BattleFrontierOutsideEast =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_BattleFrontierOutsideEast,
+    .palettes = gTilesetPalettes_BattleFrontierOutsideEast,
+    .metatiles = gMetatiles_BattleFrontierOutsideEast,
+    .metatileAttributes = gMetatileAttributes_BattleFrontierOutsideEast,
+    .callback = NULL,
+};
+

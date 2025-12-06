@@ -200,6 +200,8 @@
 #define MAP_BIRTH_ISLAND_HARBOR                       (58 | (2 << 8))
 #define MAP_NAVEL_ROCK_HARBOR                         (59 | (2 << 8))
 #define MAP_CHRONOS_ISLE_HARBOR                       (60 | (2 << 8))
+#define MAP_BATTLE_FRONTIER_OUTSIDE_WEST              (61 | (2 << 8))
+#define MAP_BATTLE_FRONTIER_OUTSIDE_EAST              (62 | (2 << 8))
 
 // gMapGroup_TownsAndRoutes
 #define MAP_PALLET_TOWN                          (0 | (3 << 8))

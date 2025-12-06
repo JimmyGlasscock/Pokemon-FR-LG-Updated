@@ -1,0 +1,91 @@
+BattleFrontier_OutsideWest_MapScripts::
+.byte 0
+BattleFrontier_OutsideWest_EventScript_FerryAttendant::
+msgbox BattleFrontier_OutsideWest_Text_FerryNotInService, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_BattleDomeSign::
+msgbox BattleFrontier_OutsideWest_Text_BattleDomeSign, MSGBOX_SIGN
+end
+BattleFrontier_OutsideWest_EventScript_BattleFactorySign::
+msgbox BattleFrontier_OutsideWest_Text_BattleFactorySign, MSGBOX_SIGN
+end
+BattleFrontier_OutsideWest_EventScript_BattlePikeSign::
+msgbox BattleFrontier_OutsideWest_Text_BattlePikeSign, MSGBOX_SIGN
+end
+BattleFrontier_OutsideWest_EventScript_Boy1::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_ExpertM::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Man1::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Woman1::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_FatMan1::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Gentleman::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Maniac1::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Maniac2::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Man2::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Girl::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Woman2::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Camper::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Lass::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Man3::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Fisherman1::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Fisherman2::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_FatMan2::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Woman3::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Boy2::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_OldMan::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_Man4::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_EventScript_PokefanF::
+msgbox BattleFrontier_OutsideWest_Text_PlaceholderNPC, MSGBOX_NPC
+end
+BattleFrontier_OutsideWest_Text_BattleDomeSign:
+.string "This is the BATTLE DOME!\n"
+.string "Your path to the invincible superstar!$"
+BattleFrontier_OutsideWest_Text_BattleFactorySign:
+.string "This is the BATTLE FACTORY!\n"
+.string "Seek out the toughest POK?MON!$"
+BattleFrontier_OutsideWest_Text_BattlePikeSign:
+.string "This is the BATTLE PIKE!\n"
+.string "Choose one of three paths!$"
+BattleFrontier_OutsideWest_Text_PlaceholderNPC:
+.string "Welcome to the Battle Frontier!$"

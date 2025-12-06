@@ -1368,3 +1368,9 @@ Text_TestMsg::
 
 	.include "data/maps/ChronosMeadow/scripts.inc"
 	.include "data/maps/ChronosMeadow/text.inc"
+
+	.include "data/maps/BattleFrontier_OutsideWest/scripts.inc"
+	.include "data/maps/BattleFrontier_OutsideWest/text.inc"
+
+	.include "data/maps/BattleFrontier_OutsideEast/scripts.inc"
+	.include "data/maps/BattleFrontier_OutsideEast/text.inc"

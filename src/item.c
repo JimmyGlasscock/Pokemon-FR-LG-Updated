@@ -492,36 +492,62 @@ void BagPocketCompaction(struct ItemSlot * slots, u8 capacity)
     }
 }
 
-void SortPocketAndPlaceHMsFirst(struct BagPocket * pocket)
+void SortPocketAndPlaceHMsLast(struct BagPocket * pocket)
 {
     u16 i;
     u16 j = 0;
     u16 k;
+    u16 numTMs = 0;
+    u16 numHMs = 0;
     struct ItemSlot * buff;
 
     SortAndCompactBagPocket(pocket);
 
+    // Count TMs and HMs
     for (i = 0; i < pocket->capacity; i++)
     {
         if (pocket->itemSlots[i].itemId == ITEM_NONE && GetBagItemQuantity(&pocket->itemSlots[i].quantity) == 0)
-            return;
-        if (pocket->itemSlots[i].itemId >= ITEM_HM01 && GetBagItemQuantity(&pocket->itemSlots[i].quantity) != 0)
-        {
-            for (j = i + 1; j < pocket->capacity; j++)
-            {
-                if (pocket->itemSlots[j].itemId == ITEM_NONE && GetBagItemQuantity(&pocket->itemSlots[j].quantity) == 0)
-                    break;
-            }
             break;
-        }
+        if (pocket->itemSlots[i].itemId >= ITEM_HM01 && GetBagItemQuantity(&pocket->itemSlots[i].quantity) != 0)
+            numHMs++;
+        else if (GetBagItemQuantity(&pocket->itemSlots[i].quantity) != 0)
+            numTMs++;
     }
 
+    // If no HMs or no TMs, nothing to rearrange
+    if (numHMs == 0 || numTMs == 0)
+        return;
+
+    // Decrypt quantities temporarily
     for (k = 0; k < pocket->capacity; k++)
         pocket->itemSlots[k].quantity = GetBagItemQuantity(&pocket->itemSlots[k].quantity);
+    
+    // Create buffer and separate TMs and HMs
     buff = AllocZeroed(pocket->capacity * sizeof(struct ItemSlot));
-    CpuCopy16(pocket->itemSlots + i, buff, (j - i) * sizeof(struct ItemSlot));
-    CpuCopy16(pocket->itemSlots, buff + (j - i), i * sizeof(struct ItemSlot));
+    
+    // Copy TMs first, then HMs
+    j = 0;
+    for (i = 0; i < numTMs + numHMs; i++)
+    {
+        if (pocket->itemSlots[i].itemId < ITEM_HM01)
+        {
+            CpuCopy16(&pocket->itemSlots[i], &buff[j], sizeof(struct ItemSlot));
+            j++;
+        }
+    }
+    for (i = 0; i < numTMs + numHMs; i++)
+    {
+        if (pocket->itemSlots[i].itemId >= ITEM_HM01)
+        {
+            CpuCopy16(&pocket->itemSlots[i], &buff[j], sizeof(struct ItemSlot));
+            j++;
+        }
+    }
+    
+    // Copy back to pocket
     CpuCopy16(buff, pocket->itemSlots, pocket->capacity * sizeof(struct ItemSlot));
+    
+    // Re-encrypt quantities
     for (k = 0; k < pocket->capacity; k++)
         SetBagItemQuantity(&pocket->itemSlots[k].quantity, pocket->itemSlots[k].quantity);
     Free(buff);

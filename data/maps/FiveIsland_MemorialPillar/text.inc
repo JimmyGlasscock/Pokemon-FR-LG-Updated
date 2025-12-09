@@ -119,7 +119,7 @@ FiveIsland_MemorialPillar_Text_JimmyPostBattle::
     .string "You should go check it out.$"
 
 FiveIsland_MemorialPillar_Text_JimmyAlreadyBattled::
-    .string "Chronos Isle is actually closer to\n"
+    .string "CHRONOS ISLE is actually closer to\n"
     .string "HOENN than it is to KANTO.\p"
     .string "Even if there's no legendary,\n"
     .string "there's bount to be something\l"

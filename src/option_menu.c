@@ -43,7 +43,10 @@ struct OptionMenu
     /*0x10*/ u8 loadState;
     /*0x11*/ u8 state;
     /*0x12*/ u8 loadPaletteState;
+    /*0x13*/ u8 scrollOffset;
 };
+
+#define MAX_VISIBLE_OPTIONS 7
 
 static EWRAM_DATA struct OptionMenu *sOptionMenuPtr = NULL;
 
@@ -214,6 +217,7 @@ void CB2_OptionsMenuFromStartMenu(void)
     sOptionMenuPtr->loadPaletteState = 0;
     sOptionMenuPtr->state = 0;
     sOptionMenuPtr->cursorPos = 0;
+    sOptionMenuPtr->scrollOffset = 0;
     sOptionMenuPtr->option[MENUITEM_TEXTSPEED] = gSaveBlock2Ptr->optionsTextSpeed;
     sOptionMenuPtr->option[MENUITEM_BATTLESCENE] = gSaveBlock2Ptr->optionsBattleSceneOff;
     sOptionMenuPtr->option[MENUITEM_BATTLESTYLE] = gSaveBlock2Ptr->optionsBattleStyle;
@@ -271,7 +275,8 @@ static void CB2_OptionMenu(void)
         LoadOptionMenuItemNames();
         break;
     case 7:
-        for (i = 0; i < MENUITEM_COUNT; i++)
+        // Only buffer visible option strings (based on scroll offset)
+        for (i = sOptionMenuPtr->scrollOffset; i < min(sOptionMenuPtr->scrollOffset + 7, MENUITEM_COUNT); i++)
             BufferOptionMenuString(i);
         break;
     case 8:
@@ -421,6 +426,7 @@ static u8 OptionMenu_ProcessInput(void)
 { 
     u16 current;
     u16 *curr;
+    u8 i;
     if (JOY_REPT(DPAD_RIGHT))
     {
         current = sOptionMenuPtr->option[(sOptionMenuPtr->cursorPos)];
@@ -448,18 +454,38 @@ static u8 OptionMenu_ProcessInput(void)
     }
     else if (JOY_REPT(DPAD_UP))
     {
-        if (sOptionMenuPtr->cursorPos == MENUITEM_TEXTSPEED)
-            sOptionMenuPtr->cursorPos = MENUITEM_CANCEL;
-        else
+        if (sOptionMenuPtr->cursorPos != MENUITEM_TEXTSPEED)
+        {
             sOptionMenuPtr->cursorPos = sOptionMenuPtr->cursorPos - 1;
+        
+            // Scroll up if cursor moved above visible area
+            if (sOptionMenuPtr->cursorPos < sOptionMenuPtr->scrollOffset)
+            {
+                sOptionMenuPtr->scrollOffset = sOptionMenuPtr->cursorPos;
+                LoadOptionMenuItemNames();
+                // Redraw all visible option values after scrolling
+                for (i = sOptionMenuPtr->scrollOffset; i < min(sOptionMenuPtr->scrollOffset + 7, MENUITEM_COUNT); i++)
+                    BufferOptionMenuString(i);
+            }
+        }
         return 3;        
     }
     else if (JOY_REPT(DPAD_DOWN))
     {
-        if (sOptionMenuPtr->cursorPos == MENUITEM_CANCEL)
-            sOptionMenuPtr->cursorPos = MENUITEM_TEXTSPEED;
-        else
+        if (sOptionMenuPtr->cursorPos != MENUITEM_CANCEL)
+        {
             sOptionMenuPtr->cursorPos = sOptionMenuPtr->cursorPos + 1;
+        
+            // Scroll down if cursor moved below visible area
+            if (sOptionMenuPtr->cursorPos >= sOptionMenuPtr->scrollOffset + 7)
+            {
+                sOptionMenuPtr->scrollOffset = sOptionMenuPtr->cursorPos - 6;
+                LoadOptionMenuItemNames();
+                // Redraw all visible option values after scrolling
+                for (i = sOptionMenuPtr->scrollOffset; i < min(sOptionMenuPtr->scrollOffset + 7, MENUITEM_COUNT); i++)
+                    BufferOptionMenuString(i);
+            }
+        }
         return 3;
     }
     else if (JOY_NEW(B_BUTTON) || JOY_NEW(A_BUTTON))
@@ -478,10 +504,13 @@ static void BufferOptionMenuString(u8 selection)
     u8 buf[12];
     u8 dst[3];
     u8 x, y;
+    u16 displayIndex;
     
     memcpy(dst, sOptionMenuTextColor, 3);
     x = 0x82;
-    y = ((GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT) - 1) * selection) + 2;
+    // Calculate display position based on scroll offset
+    displayIndex = selection - sOptionMenuPtr->scrollOffset;
+    y = ((GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT) - 1) * displayIndex) + 2;
     FillWindowPixelRect(1, 1, x, y, 0x46, GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT));
 
     switch (selection)
@@ -569,20 +598,34 @@ static void DrawOptionMenuBg(void)
 static void LoadOptionMenuItemNames(void)
 {
     u8 i;
+    u8 displayIndex;
+    u8 maxVisibleItems = 7;
+    u8 endIndex;
     
     FillWindowPixelBuffer(1, PIXEL_FILL(1));
-    for (i = 0; i < MENUITEM_COUNT; i++)
+    
+    // Calculate the range of items to display
+    endIndex = min(sOptionMenuPtr->scrollOffset + maxVisibleItems, MENUITEM_COUNT);
+    
+    for (i = sOptionMenuPtr->scrollOffset, displayIndex = 0; i < endIndex; i++, displayIndex++)
     {
-        AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, sOptionMenuItemsNames[i], 8, (u8)((i * (GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT))) + 2) - i, TEXT_SKIP_DRAW, NULL);    
+        AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, sOptionMenuItemsNames[i], 
+            8, (u8)((displayIndex * (GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT))) + 2) - displayIndex, 
+            TEXT_SKIP_DRAW, NULL);    
     }
+    
+    CopyWindowToVram(1, COPYWIN_FULL);
 }
 
 static void UpdateSettingSelectionDisplay(u16 selection)
 {
     u16 maxLetterHeight, y;
+    u16 displayIndex;
     
     maxLetterHeight = GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT);
-    y = selection * (maxLetterHeight - 1) + 0x3A;
+    // Calculate display index based on scroll offset
+    displayIndex = selection - sOptionMenuPtr->scrollOffset;
+    y = displayIndex * (maxLetterHeight - 1) + 0x3A;
     SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(y, y + maxLetterHeight));
     SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(0x10, 0xE0));
 }

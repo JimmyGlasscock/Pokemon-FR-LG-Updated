@@ -149,6 +149,48 @@ CinnabarIsland_Gym_Text_GymStatuePlayerWon::
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"
 
+CinnabarIsland_Gym_Text_BlaineRematchIntro::
+    .string "Hah! You've returned!\p"
+    .string "My passion for FIRE-type POKéMON\n"
+    .string "burns hotter than ever!\p"
+    .string "Are you ready to feel the heat of\n"
+    .string "another intense battle?$"
+
+CinnabarIsland_Gym_Text_BlaineRematchAccept::
+    .string "Hah! Let me show you how much we've\n"
+    .string "been fired up!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+
+CinnabarIsland_Gym_Text_BlaineRematchDecline::
+    .string "Come back when you're ready to\n"
+    .string "face the heat!$"
+
+CinnabarIsland_Gym_Text_BlaineRematchDefeat::
+    .string "Whoa!\n"
+    .string "You really are red hot!$"
+
+CinnabarIsland_Gym_Text_BlaineRematchPostBattle::
+    .string "Hah! Excellent battle!\p"
+    .string "Your passion burns as bright as\n"
+    .string "any FIRE POKéMON!\p"
+    .string "Take this as proof of your\n"
+    .string "blazing victory!$"
+
+CinnabarIsland_Gym_Text_ReceivedCharcoalFromBlaine::
+    .string "{PLAYER} received CHARCOAL\n"
+    .string "from BLAINE!$"
+
+CinnabarIsland_Gym_Text_ExplainCharcoal::
+    .string "CHARCOAL is a hold item.\p"
+    .string "When held by a POKéMON, it boosts\n"
+    .string "the power of FIRE-type moves.\p"
+    .string "Keep that burning passion alive,\n"
+    .string "kid!$"
+
+CinnabarIsland_Gym_Text_BlaineRematchAfterReward::
+    .string "You can challenge me anytime!\p"
+    .string "My FIRE POKéMON and I are always\n"
+    .string "fired up for a good battle!$"
+
 CinnabarIsland_Gym_Text_PokemonQuizRules::
     .string "POKéMON Quiz!\p"
     .string "Get it right, and the door opens to\n"

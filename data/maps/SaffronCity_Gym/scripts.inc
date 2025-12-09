@@ -2,10 +2,74 @@ SaffronCity_Gym_MapScripts::
 	.byte 0
 
 SaffronCity_Gym_EventScript_Sabrina::
+	lock
+	faceplayer
 	famechecker FAMECHECKER_SABRINA, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_set FLAG_SYS_GAME_CLEAR, SaffronCity_Gym_EventScript_CheckRematch
 	trainerbattle_single TRAINER_LEADER_SABRINA, SaffronCity_Gym_Text_SabrinaIntro, SaffronCity_Gym_Text_SabrinaDefeat, SaffronCity_Gym_EventScript_DefeatedSabrina, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM04_FROM_SABRINA, SaffronCity_Gym_EventScript_GiveTM04
 	msgbox SaffronCity_Gym_Text_ExplainTM04
+	release
+	end
+
+SaffronCity_Gym_EventScript_CheckRematch::
+	goto_if_set FLAG_TEMP_5, SaffronCity_Gym_EventScript_AlreadyBattledToday
+	goto_if_unset FLAG_GOT_TWISTED_SPOON_FROM_SABRINA, SaffronCity_Gym_EventScript_RematchAsk
+	msgbox SaffronCity_Gym_Text_SabrinaRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SaffronCity_Gym_EventScript_DeclineRematch
+	msgbox SaffronCity_Gym_Text_SabrinaRematchAccept
+	trainerbattle_no_intro TRAINER_LEADER_SABRINA_REMATCH, SaffronCity_Gym_Text_SabrinaRematchDefeat
+	setflag FLAG_TEMP_5
+	msgbox SaffronCity_Gym_Text_SabrinaRematchAfterReward
+	release
+	end
+
+SaffronCity_Gym_EventScript_RematchAsk::
+	msgbox SaffronCity_Gym_Text_SabrinaRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SaffronCity_Gym_EventScript_DeclineRematch
+	msgbox SaffronCity_Gym_Text_SabrinaRematchAccept
+	trainerbattle_no_intro TRAINER_LEADER_SABRINA_REMATCH, SaffronCity_Gym_Text_SabrinaRematchDefeat
+	setflag FLAG_TEMP_5
+	goto SaffronCity_Gym_EventScript_GiveTwistedSpoon
+	end
+
+SaffronCity_Gym_EventScript_GiveTwistedSpoon::
+	msgbox SaffronCity_Gym_Text_SabrinaRematchPostBattle
+	checkitemspace ITEM_TWISTED_SPOON
+	goto_if_eq VAR_RESULT, FALSE, SaffronCity_Gym_EventScript_NoRoomForReward
+	giveitem_msg SaffronCity_Gym_Text_ReceivedTwistedSpoonFromSabrina, ITEM_TWISTED_SPOON
+	setflag FLAG_GOT_TWISTED_SPOON_FROM_SABRINA
+	msgbox SaffronCity_Gym_Text_ExplainTwistedSpoon
+	release
+	end
+
+SaffronCity_Gym_EventScript_GiveRematchReward::
+	msgbox SaffronCity_Gym_Text_SabrinaRematchPostBattle
+	checkitemspace ITEM_TWISTED_SPOON
+	goto_if_eq VAR_RESULT, FALSE, SaffronCity_Gym_EventScript_NoRoomForReward
+	giveitem_msg SaffronCity_Gym_Text_ReceivedTwistedSpoonFromSabrina, ITEM_TWISTED_SPOON
+	setflag FLAG_GOT_TWISTED_SPOON_FROM_SABRINA
+	msgbox SaffronCity_Gym_Text_ExplainTwistedSpoon
+	release
+	end
+
+SaffronCity_Gym_EventScript_AfterRematch::
+	msgbox SaffronCity_Gym_Text_SabrinaRematchAfterReward
+	release
+	end
+
+SaffronCity_Gym_EventScript_DeclineRematch::
+	msgbox SaffronCity_Gym_Text_SabrinaRematchDecline
+	release
+	end
+
+SaffronCity_Gym_EventScript_AlreadyBattledToday::
+	msgbox SaffronCity_Gym_Text_SabrinaRematchAfterReward
+	release
+	end
+
+SaffronCity_Gym_EventScript_NoRoomForReward::
+	msgbox SaffronCity_Gym_Text_BagFullOfOtherItems
 	release
 	end
 

@@ -158,3 +158,44 @@ SaffronCity_Gym_Text_GymStatuePlayerWon::
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"
 
+SaffronCity_Gym_Text_SabrinaRematchIntro::
+    .string "I sensed your presence…\p"
+    .string "My PSYCHIC POKéMON and I have\n"
+    .string "been training our minds.\p"
+    .string "Would you like to test your strength\n"
+    .string "against our psychic powers?$"
+
+SaffronCity_Gym_Text_SabrinaRematchAccept::
+    .string "I will show you the true power of\n"
+    .string "psychic POKéMON.{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+
+SaffronCity_Gym_Text_SabrinaRematchDecline::
+    .string "I understand.\n"
+    .string "Return when you are ready.$"
+
+SaffronCity_Gym_Text_SabrinaRematchDefeat::
+    .string "Your power…\n"
+    .string "It surprises even me…$"
+
+SaffronCity_Gym_Text_SabrinaRematchPostBattle::
+    .string "You and your POKéMON share a bond\n"
+    .string "that transcends the physical.\p"
+    .string "Your mind is strong.\p"
+    .string "Please, take this.$"
+
+SaffronCity_Gym_Text_ReceivedTwistedSpoonFromSabrina::
+    .string "{PLAYER} received TWISTED SPOON\n"
+    .string "from SABRINA!$"
+
+SaffronCity_Gym_Text_ExplainTwistedSpoon::
+    .string "TWISTED SPOON is a hold item.\p"
+    .string "When held by a POKéMON, it boosts\n"
+    .string "the power of PSYCHIC-type moves.\p"
+    .string "Use it to amplify the power of your\n"
+    .string "mind.$"
+
+SaffronCity_Gym_Text_SabrinaRematchAfterReward::
+    .string "Your presence is always welcome.\p"
+    .string "Battling you helps sharpen my own\n"
+    .string "psychic abilities.$"
+

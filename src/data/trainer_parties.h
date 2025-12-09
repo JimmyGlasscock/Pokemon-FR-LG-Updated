@@ -5865,6 +5865,72 @@ static const struct TrainerMonItemDefaultMoves sParty_LeaderKogaRematch[] = {
     },
 };
 
+static const struct TrainerMonItemDefaultMoves sParty_LeaderSabrinaRematch[] = {
+    {
+        .iv = 200,
+        .lvl = 62,
+        .species = SPECIES_ALAKAZAM,
+        .heldItem = ITEM_TWISTED_SPOON,
+    },
+    {
+        .iv = 200,
+        .lvl = 63,
+        .species = SPECIES_ESPEON,
+        .heldItem = ITEM_TWISTED_SPOON,
+    },
+    {
+        .iv = 200,
+        .lvl = 64,
+        .species = SPECIES_MR_MIME,
+        .heldItem = ITEM_TWISTED_SPOON,
+    },
+    {
+        .iv = 200,
+        .lvl = 65,
+        .species = SPECIES_XATU,
+        .heldItem = ITEM_TWISTED_SPOON,
+    },
+    {
+        .iv = 200,
+        .lvl = 67,
+        .species = SPECIES_GARDEVOIR,
+        .heldItem = ITEM_TWISTED_SPOON,
+    },
+};
+
+static const struct TrainerMonItemDefaultMoves sParty_LeaderBlaineRematch[] = {
+    {
+        .iv = 200,
+        .lvl = 62,
+        .species = SPECIES_ARCANINE,
+        .heldItem = ITEM_CHARCOAL,
+    },
+    {
+        .iv = 200,
+        .lvl = 63,
+        .species = SPECIES_RAPIDASH,
+        .heldItem = ITEM_CHARCOAL,
+    },
+    {
+        .iv = 200,
+        .lvl = 64,
+        .species = SPECIES_MAGMAR,
+        .heldItem = ITEM_CHARCOAL,
+    },
+    {
+        .iv = 200,
+        .lvl = 65,
+        .species = SPECIES_MAGCARGO,
+        .heldItem = ITEM_CHARCOAL,
+    },
+    {
+        .iv = 200,
+        .lvl = 67,
+        .species = SPECIES_HOUNDOOM,
+        .heldItem = ITEM_CHARCOAL,
+    },
+};
+
 static const struct TrainerMonNoItemCustomMoves sParty_LeaderBlaine[] = {
     {
         .iv = 0,

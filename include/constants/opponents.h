@@ -773,12 +773,14 @@
 #define TRAINER_LEADER_LT_SURGE_REMATCH          767
 #define TRAINER_LEADER_ERIKA_REMATCH             768
 #define TRAINER_LEADER_KOGA_REMATCH              769
+#define TRAINER_LEADER_SABRINA_REMATCH           770
+#define TRAINER_LEADER_BLAINE_REMATCH            771
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             770
+#define NUM_TRAINERS                             772
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

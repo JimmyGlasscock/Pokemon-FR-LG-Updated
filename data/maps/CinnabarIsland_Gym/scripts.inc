@@ -53,10 +53,53 @@ CinnabarIsland_Gym_OnLoadOpenDoor6::
 	return
 
 CinnabarIsland_Gym_EventScript_Blaine::
+	lock
+	faceplayer
 	famechecker FAMECHECKER_BLAINE, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_set FLAG_SYS_GAME_CLEAR, CinnabarIsland_Gym_EventScript_CheckRematch
 	trainerbattle_single TRAINER_LEADER_BLAINE, CinnabarIsland_Gym_Text_BlaineIntro, CinnabarIsland_Gym_Text_BlaineDefeat, CinnabarIsland_Gym_EventScript_DefeatedBlaine, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM38_FROM_BLAINE, CinnabarIsland_Gym_EventScript_GiveTM38
 	msgbox CinnabarIsland_Gym_Text_BlainePostBattle
+	release
+	end
+
+CinnabarIsland_Gym_EventScript_CheckRematch::
+	goto_if_set FLAG_TEMP_6, CinnabarIsland_Gym_EventScript_AlreadyBattledToday
+	msgbox CinnabarIsland_Gym_Text_BlaineRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CinnabarIsland_Gym_EventScript_DeclineRematch
+	msgbox CinnabarIsland_Gym_Text_BlaineRematchAccept
+	trainerbattle_no_intro TRAINER_LEADER_BLAINE_REMATCH, CinnabarIsland_Gym_Text_BlaineRematchDefeat
+	setflag FLAG_TEMP_6
+	goto_if_set FLAG_GOT_CHARCOAL_FROM_BLAINE, CinnabarIsland_Gym_EventScript_AfterRematch
+	goto CinnabarIsland_Gym_EventScript_GiveRematchReward
+
+CinnabarIsland_Gym_EventScript_GiveRematchReward::
+	msgbox CinnabarIsland_Gym_Text_BlaineRematchPostBattle
+	checkitemspace ITEM_CHARCOAL
+	goto_if_eq VAR_RESULT, FALSE, CinnabarIsland_Gym_EventScript_NoRoomForReward
+	giveitem_msg CinnabarIsland_Gym_Text_ReceivedCharcoalFromBlaine, ITEM_CHARCOAL
+	setflag FLAG_GOT_CHARCOAL_FROM_BLAINE
+	msgbox CinnabarIsland_Gym_Text_ExplainCharcoal
+	release
+	end
+
+CinnabarIsland_Gym_EventScript_AfterRematch::
+	msgbox CinnabarIsland_Gym_Text_BlaineRematchAfterReward
+	release
+	end
+
+CinnabarIsland_Gym_EventScript_DeclineRematch::
+	msgbox CinnabarIsland_Gym_Text_BlaineRematchDecline
+	release
+	end
+
+CinnabarIsland_Gym_EventScript_AlreadyBattledToday::
+	msgbox CinnabarIsland_Gym_Text_BlaineRematchAfterReward
+	release
+	end
+
+CinnabarIsland_Gym_EventScript_NoRoomForReward::
+	msgbox CinnabarIsland_Gym_Text_MakeSpaceForThis
 	release
 	end
 

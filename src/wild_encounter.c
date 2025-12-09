@@ -198,6 +198,22 @@ static u16 GetCurrentMapWildMonHeaderId(void)
 
             if (!UnlockedTanobyOrAreNotInTanoby())
                 break;
+            
+            // Check if there's a version-specific encounter set next (FireRed/LeafGreen)
+            // If the next entry has the same map group/num, it's the alternate version
+            if (i + 1 < UINT16_MAX && 
+                gWildMonHeaders[i + 1].mapGroup == gSaveBlock1Ptr->location.mapGroup &&
+                gWildMonHeaders[i + 1].mapNum == gSaveBlock1Ptr->location.mapNum)
+            {
+                // There are two entries for this map (FireRed and LeafGreen versions)
+                // First entry is always FireRed, second is always LeafGreen in the JSON
+                if (gSaveBlock2Ptr->optionsVersionEncounters == OPTIONS_VERSION_ENCOUNTERS_LEAFGREEN)
+                    return i + 1;  // Use LeafGreen encounters
+                else
+                    return i;      // Use FireRed encounters
+            }
+            
+            // Only one entry for this map, return it
             return i;
         }
     }

@@ -66,6 +66,11 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
     gSaveBlock2Ptr->optionsButtonMode = OPTIONS_BUTTON_MODE_LR;
+#ifdef FIRERED
+    gSaveBlock2Ptr->optionsVersionEncounters = OPTIONS_VERSION_ENCOUNTERS_FIRERED;
+#else
+    gSaveBlock2Ptr->optionsVersionEncounters = OPTIONS_VERSION_ENCOUNTERS_LEAFGREEN;
+#endif
 }
 
 static void ClearPokedexFlags(void)

@@ -2,10 +2,59 @@ CeruleanCity_Gym_MapScripts::
 	.byte 0
 
 CeruleanCity_Gym_EventScript_Misty::
+	lock
+	faceplayer
 	famechecker FAMECHECKER_MISTY, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_set FLAG_SYS_GAME_CLEAR, CeruleanCity_Gym_EventScript_MistyRematchCheck
 	trainerbattle_single TRAINER_LEADER_MISTY, CeruleanCity_Gym_Text_MistyIntro, CeruleanCity_Gym_Text_MistyDefeat, CeruleanCity_Gym_EventScript_MistyDefeated, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM03_FROM_MISTY, CeruleanCity_Gym_EventScript_GiveTM03
 	msgbox CeruleanCity_Gym_Text_ExplainTM03
+	release
+	end
+
+CeruleanCity_Gym_EventScript_MistyRematchCheck::
+	goto_if_set FLAG_TEMP_1, CeruleanCity_Gym_EventScript_MistyAlreadyBattledThisVisit
+	goto_if_unset FLAG_GOT_MYSTIC_WATER_FROM_MISTY, CeruleanCity_Gym_EventScript_MistyRematchAsk
+	msgbox CeruleanCity_Gym_Text_MistyRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeruleanCity_Gym_EventScript_MistyRematchDecline
+	msgbox CeruleanCity_Gym_Text_MistyRematchAccept
+	trainerbattle_no_intro TRAINER_LEADER_MISTY_REMATCH, CeruleanCity_Gym_Text_MistyRematchDefeat
+	setflag FLAG_TEMP_1
+	msgbox CeruleanCity_Gym_Text_MistyRematchAfterReward
+	release
+	end
+
+CeruleanCity_Gym_EventScript_MistyAlreadyBattledThisVisit::
+	msgbox CeruleanCity_Gym_Text_MistyRematchAfterReward
+	release
+	end
+
+CeruleanCity_Gym_EventScript_MistyRematchAsk::
+	msgbox CeruleanCity_Gym_Text_MistyRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeruleanCity_Gym_EventScript_MistyRematchDecline
+	msgbox CeruleanCity_Gym_Text_MistyRematchAccept
+	trainerbattle_no_intro TRAINER_LEADER_MISTY_REMATCH, CeruleanCity_Gym_Text_MistyRematchDefeat
+	setflag FLAG_TEMP_1
+	goto CeruleanCity_Gym_EventScript_GiveMysticWater
+	end
+
+CeruleanCity_Gym_EventScript_MistyRematchDecline::
+	msgbox CeruleanCity_Gym_Text_MistyRematchDecline
+	release
+	end
+
+CeruleanCity_Gym_EventScript_GiveMysticWater::
+	msgbox CeruleanCity_Gym_Text_MistyRematchPostBattle
+	checkitemspace ITEM_MYSTIC_WATER
+	goto_if_eq VAR_RESULT, FALSE, CeruleanCity_Gym_EventScript_NoRoomForMysticWater
+	giveitem_msg CeruleanCity_Gym_Text_ReceivedMysticWaterFromMisty, ITEM_MYSTIC_WATER
+	setflag FLAG_GOT_MYSTIC_WATER_FROM_MISTY
+	msgbox CeruleanCity_Gym_Text_ExplainMysticWater
+	release
+	end
+
+CeruleanCity_Gym_EventScript_NoRoomForMysticWater::
+	msgbox CeruleanCity_Gym_Text_BetterMakeRoomForThis
 	release
 	end
 

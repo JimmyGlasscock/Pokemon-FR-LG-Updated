@@ -138,3 +138,46 @@ VermilionCity_Gym_Text_OnlyTrashLocksWereReset::
     .string "Hey!\n"
     .string "The electric locks were reset!$"
 
+VermilionCity_Gym_Text_LtSurgeRematchIntro::
+    .string "Well, well! Look who's back!\p"
+    .string "You've toughened up since we last\n"
+    .string "met, kid!\p"
+    .string "My ELECTRIC POKéMON have been\n"
+    .string "through combat training too!\p"
+    .string "Ready for another battle?$"
+
+VermilionCity_Gym_Text_LtSurgeRematchAccept::
+    .string "Ha! That's the spirit!\n"
+    .string "Let's light it up!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+
+VermilionCity_Gym_Text_LtSurgeRematchDecline::
+    .string "Come back when you're ready to\n"
+    .string "rumble, kid!$"
+
+VermilionCity_Gym_Text_LtSurgeRematchDefeat::
+    .string "Whoa!\n"
+    .string "You've really powered up, kid!$"
+
+VermilionCity_Gym_Text_LtSurgeRematchPostBattle::
+    .string "Outstanding, kid!\n"
+    .string "You're a combat veteran now!\p"
+    .string "Your POKéMON are electrifying!\p"
+    .string "Here, take this from a fellow\n"
+    .string "soldier!$"
+
+VermilionCity_Gym_Text_ReceivedMagnetFromLtSurge::
+    .string "{PLAYER} received a MAGNET\n"
+    .string "from LT. SURGE!$"
+
+VermilionCity_Gym_Text_ExplainMagnet::
+    .string "MAGNET is a hold item.\p"
+    .string "When held by a POKéMON, it boosts\n"
+    .string "the power of ELECTRIC-type moves.\p"
+    .string "Keep training hard, kid!\n"
+    .string "Lightning-quick reflexes win wars!$"
+
+VermilionCity_Gym_Text_LtSurgeRematchAfterReward::
+    .string "You can challenge me anytime, kid!\p"
+    .string "My POKéMON and I are always ready\n"
+    .string "for combat!$"
+

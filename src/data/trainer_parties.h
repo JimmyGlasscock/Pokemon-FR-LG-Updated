@@ -5664,6 +5664,39 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderMisty[] = {
     },
 };
 
+static const struct TrainerMonItemDefaultMoves sParty_LeaderMistyRematch[] = {
+    {
+        .iv = 200,
+        .lvl = 62,
+        .species = SPECIES_STARMIE,
+        .heldItem = ITEM_MYSTIC_WATER,
+    },
+    {
+        .iv = 200,
+        .lvl = 63,
+        .species = SPECIES_LAPRAS,
+        .heldItem = ITEM_MYSTIC_WATER,
+    },
+    {
+        .iv = 200,
+        .lvl = 64,
+        .species = SPECIES_QUAGSIRE,
+        .heldItem = ITEM_MYSTIC_WATER,
+    },
+    {
+        .iv = 200,
+        .lvl = 65,
+        .species = SPECIES_GOLDUCK,
+        .heldItem = ITEM_MYSTIC_WATER,
+    },
+    {
+        .iv = 200,
+        .lvl = 67,
+        .species = SPECIES_KINGDRA,
+        .heldItem = ITEM_MYSTIC_WATER,
+    },
+};
+
 static const struct TrainerMonNoItemCustomMoves sParty_LeaderLtSurge[] = {
     {
         .iv = 0,
@@ -5682,6 +5715,39 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderLtSurge[] = {
         .lvl = 24,
         .species = SPECIES_RAICHU,
         .moves = {MOVE_QUICK_ATTACK, MOVE_THUNDER_WAVE, MOVE_DOUBLE_TEAM, MOVE_SHOCK_WAVE},
+    },
+};
+
+static const struct TrainerMonItemDefaultMoves sParty_LeaderLtSurgeRematch[] = {
+    {
+        .iv = 200,
+        .lvl = 62,
+        .species = SPECIES_RAICHU,
+        .heldItem = ITEM_MAGNET,
+    },
+    {
+        .iv = 200,
+        .lvl = 63,
+        .species = SPECIES_ELECTRODE,
+        .heldItem = ITEM_MAGNET,
+    },
+    {
+        .iv = 200,
+        .lvl = 64,
+        .species = SPECIES_MAGNETON,
+        .heldItem = ITEM_MAGNET,
+    },
+    {
+        .iv = 200,
+        .lvl = 65,
+        .species = SPECIES_ELECTABUZZ,
+        .heldItem = ITEM_MAGNET,
+    },
+    {
+        .iv = 200,
+        .lvl = 67,
+        .species = SPECIES_LANTURN,
+        .heldItem = ITEM_MAGNET,
     },
 };
 

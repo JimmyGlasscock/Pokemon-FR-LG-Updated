@@ -90,3 +90,46 @@ CeruleanCity_Gym_Text_GymStatuePlayerWon::
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"
 
+CeruleanCity_Gym_Text_MistyRematchIntro::
+    .string "Oh! It's you!\n"
+    .string "You've gotten stronger!\p"
+    .string "My WATER POKéMON have been\n"
+    .string "training hard too!\p"
+    .string "Want to have a rematch?$"
+
+CeruleanCity_Gym_Text_MistyRematchAccept::
+    .string "Let me show you the power of my\n"
+    .string "all-out WATER offensive!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+
+CeruleanCity_Gym_Text_MistyRematchDecline::
+    .string "Come back anytime you want to\n"
+    .string "battle!$"
+
+CeruleanCity_Gym_Text_MistyRematchDefeat::
+    .string "You really are amazing!\n"
+    .string "I can't believe it!$"
+
+CeruleanCity_Gym_Text_MistyRematchPostBattle::
+    .string "You're incredible!\n"
+    .string "I'm totally impressed!\p"
+    .string "Your POKéMON are swimming with\n"
+    .string "power!\p"
+    .string "Here, take this as a token of my\n"
+    .string "appreciation!$"
+
+CeruleanCity_Gym_Text_ReceivedMysticWaterFromMisty::
+    .string "{PLAYER} received MYSTIC WATER\n"
+    .string "from MISTY!$"
+
+CeruleanCity_Gym_Text_ExplainMysticWater::
+    .string "MYSTIC WATER is a hold item.\p"
+    .string "When held by a POKéMON, it boosts\n"
+    .string "the power of WATER-type moves.\p"
+    .string "Keep training with your POKéMON,\n"
+    .string "and stay as fluid as water!$"
+
+CeruleanCity_Gym_Text_MistyRematchAfterReward::
+    .string "You can battle me anytime!\p"
+    .string "My POKéMON and I love facing\n"
+    .string "strong TRAINERS like you!$"
+

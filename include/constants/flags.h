@@ -631,6 +631,8 @@
 #define FLAG_GOT_TM06_FROM_KOGA                          0x259
 #define FLAG_GOT_HARD_STONE_FROM_BROCK                   0x25A
 #define FLAG_GOT_TM27                                    0x25B
+#define FLAG_GOT_MYSTIC_WATER_FROM_MISTY                 0x25C
+#define FLAG_GOT_MAGNET_FROM_LT_SURGE                    0x25D
 #define FLAG_0x25C                                       0x25C
 #define FLAG_0x25D                                       0x25D
 #define FLAG_GOT_OLD_AMBER                               0x25E

@@ -633,12 +633,10 @@
 #define FLAG_GOT_TM27                                    0x25B
 #define FLAG_GOT_MYSTIC_WATER_FROM_MISTY                 0x25C
 #define FLAG_GOT_MAGNET_FROM_LT_SURGE                    0x25D
-#define FLAG_0x25C                                       0x25C
-#define FLAG_0x25D                                       0x25D
 #define FLAG_GOT_OLD_AMBER                               0x25E
-#define FLAG_0x25F                                       0x25F
+#define FLAG_GOT_MIRACLE_SEED_FROM_ERIKA                 0x25F
 #define FLAG_0x260                                       0x260
-#define FLAG_0x261                                       0x261
+#define FLAG_GOT_POISON_BARB_FROM_KOGA                   0x261
 #define FLAG_0x262                                       0x262
 #define FLAG_GOT_EEVEE                                   0x263
 #define FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES           0x264

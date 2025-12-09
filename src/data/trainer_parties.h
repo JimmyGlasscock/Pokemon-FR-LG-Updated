@@ -5772,6 +5772,39 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderErika[] = {
     },
 };
 
+static const struct TrainerMonItemDefaultMoves sParty_LeaderErikaRematch[] = {
+    {
+        .iv = 200,
+        .lvl = 62,
+        .species = SPECIES_TANGELA,
+        .heldItem = ITEM_MIRACLE_SEED,
+    },
+    {
+        .iv = 200,
+        .lvl = 63,
+        .species = SPECIES_VICTREEBEL,
+        .heldItem = ITEM_MIRACLE_SEED,
+    },
+    {
+        .iv = 200,
+        .lvl = 64,
+        .species = SPECIES_JUMPLUFF,
+        .heldItem = ITEM_MIRACLE_SEED,
+    },
+    {
+        .iv = 200,
+        .lvl = 65,
+        .species = SPECIES_BELLOSSOM,
+        .heldItem = ITEM_MIRACLE_SEED,
+    },
+    {
+        .iv = 200,
+        .lvl = 67,
+        .species = SPECIES_VILEPLUME,
+        .heldItem = ITEM_MIRACLE_SEED,
+    },
+};
+
 static const struct TrainerMonNoItemCustomMoves sParty_LeaderKoga[] = {
     {
         .iv = 0,
@@ -5796,6 +5829,39 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderKoga[] = {
         .lvl = 43,
         .species = SPECIES_WEEZING,
         .moves = {MOVE_TACKLE, MOVE_SLUDGE, MOVE_SMOKESCREEN, MOVE_TOXIC},
+    },
+};
+
+static const struct TrainerMonItemDefaultMoves sParty_LeaderKogaRematch[] = {
+    {
+        .iv = 200,
+        .lvl = 62,
+        .species = SPECIES_MUK,
+        .heldItem = ITEM_POISON_BARB,
+    },
+    {
+        .iv = 200,
+        .lvl = 63,
+        .species = SPECIES_CROBAT,
+        .heldItem = ITEM_POISON_BARB,
+    },
+    {
+        .iv = 200,
+        .lvl = 64,
+        .species = SPECIES_VENOMOTH,
+        .heldItem = ITEM_POISON_BARB,
+    },
+    {
+        .iv = 200,
+        .lvl = 65,
+        .species = SPECIES_FORRETRESS,
+        .heldItem = ITEM_POISON_BARB,
+    },
+    {
+        .iv = 200,
+        .lvl = 67,
+        .species = SPECIES_WEEZING,
+        .heldItem = ITEM_POISON_BARB,
     },
 };
 

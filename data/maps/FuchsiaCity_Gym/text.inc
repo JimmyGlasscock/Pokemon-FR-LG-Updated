@@ -154,3 +154,50 @@ FuchsiaCity_Gym_Text_GymStatuePlayerWon::
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"
 
+FuchsiaCity_Gym_Text_KogaRematchIntro::
+    .string "KOGA: Fwahahaha!\p"
+    .string "You have returned!\p"
+    .string "My POISON POKéMON have grown\n"
+    .string "stronger through harsh training!\p"
+    .string "Do you dare challenge the terror\n"
+    .string "of my ninja arts once more?$"
+
+FuchsiaCity_Gym_Text_KogaRematchAccept::
+    .string "Prepare to face the creeping horror\n"
+    .string "of true POISON mastery!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+
+FuchsiaCity_Gym_Text_KogaRematchDecline::
+    .string "Return when you have the courage\n"
+    .string "to face me, child!$"
+
+FuchsiaCity_Gym_Text_KogaRematchDefeat::
+    .string "Humph!\n"
+    .string "Your skills have sharpened greatly!$"
+
+FuchsiaCity_Gym_Text_KogaRematchPostBattle::
+    .string "Impressive!\n"
+    .string "You've mastered the way!\p"
+    .string "Your POKéMON strike with the\n"
+    .string "precision of a true ninja!\p"
+    .string "Accept this reward!$"
+
+FuchsiaCity_Gym_Text_ReceivedPoisonBarbFromKoga::
+    .string "{PLAYER} received POISON BARB\n"
+    .string "from KOGA!$"
+
+FuchsiaCity_Gym_Text_ExplainPoisonBarb::
+    .string "POISON BARB is a hold item.\p"
+    .string "When held by a POKéMON, it boosts\n"
+    .string "the power of POISON-type moves.\p"
+    .string "Continue to hone your skills like\n"
+    .string "the blade of a ninja!$"
+
+FuchsiaCity_Gym_Text_KogaRematchAfterReward::
+    .string "You may challenge me whenever you\n"
+    .string "wish!\p"
+    .string "A ninja master never refuses a\n"
+    .string "worthy challenge!$"
+
+FuchsiaCity_Gym_Text_MakeRoomForThis::
+    .string "Make room for this, child!$"
+

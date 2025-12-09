@@ -2,10 +2,59 @@ FuchsiaCity_Gym_MapScripts::
 	.byte 0
 
 FuchsiaCity_Gym_EventScript_Koga::
+	lock
+	faceplayer
 	famechecker FAMECHECKER_KOGA, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_set FLAG_SYS_GAME_CLEAR, FuchsiaCity_Gym_EventScript_KogaRematchCheck
 	trainerbattle_single TRAINER_LEADER_KOGA, FuchsiaCity_Gym_Text_KogaIntro, FuchsiaCity_Gym_Text_KogaDefeat, FuchsiaCity_Gym_EventScript_DefeatedKoga, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM06_FROM_KOGA, FuchsiaCity_Gym_EventScript_GiveTM06
 	msgbox FuchsiaCity_Gym_Text_KogaPostBattle
+	release
+	end
+
+FuchsiaCity_Gym_EventScript_KogaRematchCheck::
+	goto_if_set FLAG_TEMP_4, FuchsiaCity_Gym_EventScript_KogaAlreadyBattledThisVisit
+	goto_if_unset FLAG_GOT_POISON_BARB_FROM_KOGA, FuchsiaCity_Gym_EventScript_KogaRematchAsk
+	msgbox FuchsiaCity_Gym_Text_KogaRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, FuchsiaCity_Gym_EventScript_KogaRematchDecline
+	msgbox FuchsiaCity_Gym_Text_KogaRematchAccept
+	trainerbattle_no_intro TRAINER_LEADER_KOGA_REMATCH, FuchsiaCity_Gym_Text_KogaRematchDefeat
+	setflag FLAG_TEMP_4
+	msgbox FuchsiaCity_Gym_Text_KogaRematchAfterReward
+	release
+	end
+
+FuchsiaCity_Gym_EventScript_KogaAlreadyBattledThisVisit::
+	msgbox FuchsiaCity_Gym_Text_KogaRematchAfterReward
+	release
+	end
+
+FuchsiaCity_Gym_EventScript_KogaRematchAsk::
+	msgbox FuchsiaCity_Gym_Text_KogaRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, FuchsiaCity_Gym_EventScript_KogaRematchDecline
+	msgbox FuchsiaCity_Gym_Text_KogaRematchAccept
+	trainerbattle_no_intro TRAINER_LEADER_KOGA_REMATCH, FuchsiaCity_Gym_Text_KogaRematchDefeat
+	setflag FLAG_TEMP_4
+	goto FuchsiaCity_Gym_EventScript_GivePoisonBarb
+	end
+
+FuchsiaCity_Gym_EventScript_KogaRematchDecline::
+	msgbox FuchsiaCity_Gym_Text_KogaRematchDecline
+	release
+	end
+
+FuchsiaCity_Gym_EventScript_GivePoisonBarb::
+	msgbox FuchsiaCity_Gym_Text_KogaRematchPostBattle
+	checkitemspace ITEM_POISON_BARB
+	goto_if_eq VAR_RESULT, FALSE, FuchsiaCity_Gym_EventScript_NoRoomForPoisonBarb
+	giveitem_msg FuchsiaCity_Gym_Text_ReceivedPoisonBarbFromKoga, ITEM_POISON_BARB
+	setflag FLAG_GOT_POISON_BARB_FROM_KOGA
+	msgbox FuchsiaCity_Gym_Text_ExplainPoisonBarb
+	release
+	end
+
+FuchsiaCity_Gym_EventScript_NoRoomForPoisonBarb::
+	msgbox FuchsiaCity_Gym_Text_MakeRoomForThis
 	release
 	end
 

@@ -2,11 +2,60 @@ CeladonCity_Gym_MapScripts::
 	.byte 0
 
 CeladonCity_Gym_EventScript_Erika::
+	lock
+	faceplayer
 	famechecker FAMECHECKER_ERIKA, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_set FLAG_SYS_GAME_CLEAR, CeladonCity_Gym_EventScript_ErikaRematchCheck
 	trainerbattle_single TRAINER_LEADER_ERIKA, CeladonCity_Gym_Text_ErikaIntro, CeladonCity_Gym_Text_ErikaDefeat, CeladonCity_Gym_EventScript_DefeatedErika, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM19_FROM_ERIKA, CeladonCity_Gym_EventScript_GiveTM19
 	famechecker FAMECHECKER_ERIKA, 4
 	msgbox CeladonCity_Gym_Text_ErikaPostBattle
+	release
+	end
+
+CeladonCity_Gym_EventScript_ErikaRematchCheck::
+	goto_if_set FLAG_TEMP_3, CeladonCity_Gym_EventScript_ErikaAlreadyBattledThisVisit
+	goto_if_unset FLAG_GOT_MIRACLE_SEED_FROM_ERIKA, CeladonCity_Gym_EventScript_ErikaRematchAsk
+	msgbox CeladonCity_Gym_Text_ErikaRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeladonCity_Gym_EventScript_ErikaRematchDecline
+	msgbox CeladonCity_Gym_Text_ErikaRematchAccept
+	trainerbattle_no_intro TRAINER_LEADER_ERIKA_REMATCH, CeladonCity_Gym_Text_ErikaRematchDefeat
+	setflag FLAG_TEMP_3
+	msgbox CeladonCity_Gym_Text_ErikaRematchAfterReward
+	release
+	end
+
+CeladonCity_Gym_EventScript_ErikaAlreadyBattledThisVisit::
+	msgbox CeladonCity_Gym_Text_ErikaRematchAfterReward
+	release
+	end
+
+CeladonCity_Gym_EventScript_ErikaRematchAsk::
+	msgbox CeladonCity_Gym_Text_ErikaRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeladonCity_Gym_EventScript_ErikaRematchDecline
+	msgbox CeladonCity_Gym_Text_ErikaRematchAccept
+	trainerbattle_no_intro TRAINER_LEADER_ERIKA_REMATCH, CeladonCity_Gym_Text_ErikaRematchDefeat
+	setflag FLAG_TEMP_3
+	goto CeladonCity_Gym_EventScript_GiveMiracleSeed
+	end
+
+CeladonCity_Gym_EventScript_ErikaRematchDecline::
+	msgbox CeladonCity_Gym_Text_ErikaRematchDecline
+	release
+	end
+
+CeladonCity_Gym_EventScript_GiveMiracleSeed::
+	msgbox CeladonCity_Gym_Text_ErikaRematchPostBattle
+	checkitemspace ITEM_MIRACLE_SEED
+	goto_if_eq VAR_RESULT, FALSE, CeladonCity_Gym_EventScript_NoRoomForMiracleSeed
+	giveitem_msg CeladonCity_Gym_Text_ReceivedMiracleSeedFromErika, ITEM_MIRACLE_SEED
+	setflag FLAG_GOT_MIRACLE_SEED_FROM_ERIKA
+	msgbox CeladonCity_Gym_Text_ExplainMiracleSeed
+	release
+	end
+
+CeladonCity_Gym_EventScript_NoRoomForMiracleSeed::
+	msgbox CeladonCity_Gym_Text_YouDontHaveSpaceForThis
 	release
 	end
 

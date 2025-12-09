@@ -150,3 +150,48 @@ CeladonCity_Gym_Text_GymStatuePlayerWon::
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"
 
+CeladonCity_Gym_Text_ErikaRematchIntro::
+    .string "Oh my…\n"
+    .string "You've returned.\p"
+    .string "My GRASS POKéMON have been\n"
+    .string "nurtured with tender care.\p"
+    .string "Would you like to have another\n"
+    .string "battle with me?$"
+
+CeladonCity_Gym_Text_ErikaRematchAccept::
+    .string "Let me show you the beauty of\n"
+    .string "nature's power.{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+
+CeladonCity_Gym_Text_ErikaRematchDecline::
+    .string "Please come back whenever you'd\n"
+    .string "like to battle.$"
+
+CeladonCity_Gym_Text_ErikaRematchDefeat::
+    .string "Oh…\n"
+    .string "You're so strong…$"
+
+CeladonCity_Gym_Text_ErikaRematchPostBattle::
+    .string "You and your POKéMON are both\n"
+    .string "lovely.\p"
+    .string "You've nurtured them beautifully.\p"
+    .string "Please accept this as a gift.$"
+
+CeladonCity_Gym_Text_ReceivedMiracleSeedFromErika::
+    .string "{PLAYER} received MIRACLE SEED\n"
+    .string "from ERIKA!$"
+
+CeladonCity_Gym_Text_ExplainMiracleSeed::
+    .string "MIRACLE SEED is a hold item.\p"
+    .string "When held by a POKéMON, it boosts\n"
+    .string "the power of GRASS-type moves.\p"
+    .string "Continue to nurture your POKéMON\n"
+    .string "with love and care.$"
+
+CeladonCity_Gym_Text_ErikaRematchAfterReward::
+    .string "You're always welcome to visit.\p"
+    .string "Battling you and your POKéMON is\n"
+    .string "always such a pleasure.$"
+
+CeladonCity_Gym_Text_YouDontHaveSpaceForThis::
+    .string "You don't have space for this.$"
+

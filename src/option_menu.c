@@ -68,6 +68,7 @@ static void CloseAndSaveOptionMenu(u8 taskId);
 static void PrintOptionMenuHeader(void);
 static void DrawOptionMenuBg(void);
 static void LoadOptionMenuItemNames(void);
+static void RedrawOptionMenuItemNames(void);
 static void UpdateSettingSelectionDisplay(u16 selection);
 
 // Data Definitions
@@ -462,7 +463,7 @@ static u8 OptionMenu_ProcessInput(void)
             if (sOptionMenuPtr->cursorPos < sOptionMenuPtr->scrollOffset)
             {
                 sOptionMenuPtr->scrollOffset = sOptionMenuPtr->cursorPos;
-                LoadOptionMenuItemNames();
+                RedrawOptionMenuItemNames();
                 // Redraw all visible option values after scrolling
                 for (i = sOptionMenuPtr->scrollOffset; i < min(sOptionMenuPtr->scrollOffset + 7, MENUITEM_COUNT); i++)
                     BufferOptionMenuString(i);
@@ -480,7 +481,7 @@ static u8 OptionMenu_ProcessInput(void)
             if (sOptionMenuPtr->cursorPos >= sOptionMenuPtr->scrollOffset + 7)
             {
                 sOptionMenuPtr->scrollOffset = sOptionMenuPtr->cursorPos - 6;
-                LoadOptionMenuItemNames();
+                RedrawOptionMenuItemNames();
                 // Redraw all visible option values after scrolling
                 for (i = sOptionMenuPtr->scrollOffset; i < min(sOptionMenuPtr->scrollOffset + 7, MENUITEM_COUNT); i++)
                     BufferOptionMenuString(i);
@@ -612,6 +613,29 @@ static void LoadOptionMenuItemNames(void)
         AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, sOptionMenuItemsNames[i], 
             8, (u8)((displayIndex * (GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT))) + 2) - displayIndex, 
             TEXT_SKIP_DRAW, NULL);    
+    }
+    
+    CopyWindowToVram(1, COPYWIN_FULL);
+}
+
+static void RedrawOptionMenuItemNames(void)
+{
+    u8 i;
+    u8 displayIndex;
+    u8 maxVisibleItems = 7;
+    u8 endIndex;
+    
+    // Don't clear the buffer, just redraw over it
+    // Calculate the range of items to display
+    endIndex = min(sOptionMenuPtr->scrollOffset + maxVisibleItems, MENUITEM_COUNT);
+    
+    for (i = sOptionMenuPtr->scrollOffset, displayIndex = 0; i < endIndex; i++, displayIndex++)
+    {
+        u8 y = (u8)((displayIndex * (GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT))) + 2) - displayIndex;
+        // Clear just the name area for this line
+        FillWindowPixelRect(1, PIXEL_FILL(1), 8, y, 0x70, GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT));
+        AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, sOptionMenuItemsNames[i], 
+            8, y, TEXT_SKIP_DRAW, NULL);    
     }
     
     CopyWindowToVram(1, COPYWIN_FULL);

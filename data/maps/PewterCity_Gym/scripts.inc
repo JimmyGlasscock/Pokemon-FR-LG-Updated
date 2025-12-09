@@ -3,9 +3,56 @@ PewterCity_Gym_MapScripts::
 
 PewterCity_Gym_EventScript_Brock::
 	famechecker FAMECHECKER_BROCK, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_set FLAG_SYS_GAME_CLEAR, PewterCity_Gym_EventScript_BrockRematchCheck
 	trainerbattle_single TRAINER_LEADER_BROCK, PewterCity_Gym_Text_BrockIntro, PewterCity_Gym_Text_BrockDefeat, PewterCity_Gym_EventScript_DefeatedBrock, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM39_FROM_BROCK, PewterCity_Gym_EventScript_GiveTM39
 	msgbox PewterCity_Gym_Text_BrockPostBattle
+	release
+	end
+
+PewterCity_Gym_EventScript_BrockRematchCheck::
+	goto_if_set FLAG_TEMP_1, PewterCity_Gym_EventScript_BrockAlreadyBattledThisVisit
+	goto_if_unset FLAG_GOT_HARD_STONE_FROM_BROCK, PewterCity_Gym_EventScript_BrockRematchAsk
+	msgbox PewterCity_Gym_Text_BrockRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, PewterCity_Gym_EventScript_BrockRematchDecline
+	msgbox PewterCity_Gym_Text_BrockRematchAccept
+	trainerbattle_no_intro TRAINER_LEADER_BROCK_REMATCH, PewterCity_Gym_Text_BrockRematchDefeat
+	setflag FLAG_TEMP_1
+	msgbox PewterCity_Gym_Text_BrockRematchAfterReward
+	release
+	end
+
+PewterCity_Gym_EventScript_BrockAlreadyBattledThisVisit::
+	msgbox PewterCity_Gym_Text_BrockRematchAfterReward
+	release
+	end
+
+PewterCity_Gym_EventScript_BrockRematchAsk::
+	msgbox PewterCity_Gym_Text_BrockRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, PewterCity_Gym_EventScript_BrockRematchDecline
+	msgbox PewterCity_Gym_Text_BrockRematchAccept
+	trainerbattle_no_intro TRAINER_LEADER_BROCK_REMATCH, PewterCity_Gym_Text_BrockRematchDefeat
+	setflag FLAG_TEMP_1
+	goto PewterCity_Gym_EventScript_GiveHardStone
+	end
+
+PewterCity_Gym_EventScript_BrockRematchDecline::
+	msgbox PewterCity_Gym_Text_BrockRematchDecline
+	release
+	end
+
+PewterCity_Gym_EventScript_GiveHardStone::
+	msgbox PewterCity_Gym_Text_BrockRematchPostBattle
+	checkitemspace ITEM_HARD_STONE
+	goto_if_eq VAR_RESULT, FALSE, PewterCity_Gym_EventScript_NoRoomForHardStone
+	giveitem_msg PewterCity_Gym_Text_ReceivedHardStoneFromBrock, ITEM_HARD_STONE
+	setflag FLAG_GOT_HARD_STONE_FROM_BROCK
+	msgbox PewterCity_Gym_Text_ExplainHardStone
+	release
+	end
+
+PewterCity_Gym_EventScript_NoRoomForHardStone::
+	msgbox PewterCity_Gym_Text_DontHaveRoomForThis
 	release
 	end
 

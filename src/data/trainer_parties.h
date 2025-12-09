@@ -5616,6 +5616,39 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderBrock[] = {
     },
 };
 
+static const struct TrainerMonItemDefaultMoves sParty_LeaderBrockRematch[] = {
+    {
+        .iv = 200,
+        .lvl = 62,
+        .species = SPECIES_GOLEM,
+        .heldItem = ITEM_HARD_STONE,
+    },
+    {
+        .iv = 200,
+        .lvl = 63,
+        .species = SPECIES_RHYDON,
+        .heldItem = ITEM_HARD_STONE,
+    },
+    {
+        .iv = 200,
+        .lvl = 64,
+        .species = SPECIES_OMASTAR,
+        .heldItem = ITEM_HARD_STONE,
+    },
+    {
+        .iv = 200,
+        .lvl = 65,
+        .species = SPECIES_KABUTOPS,
+        .heldItem = ITEM_HARD_STONE,
+    },
+    {
+        .iv = 200,
+        .lvl = 67,
+        .species = SPECIES_AERODACTYL,
+        .heldItem = ITEM_HARD_STONE,
+    },
+};
+
 static const struct TrainerMonNoItemCustomMoves sParty_LeaderMisty[] = {
     {
         .iv = 0,

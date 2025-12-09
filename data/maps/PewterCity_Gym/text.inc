@@ -120,3 +120,44 @@ PewterCity_Gym_Text_GymStatuePlayerWon::
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"
 
+PewterCity_Gym_Text_BrockRematchIntro::
+    .string "So, you're back.\n"
+    .string "You've grown as a TRAINER.\p"
+    .string "My rock-hard POKéMON have also\n"
+    .string "gotten tougher through training.\p"
+    .string "Do you want a rematch?$"
+
+PewterCity_Gym_Text_BrockRematchAccept::
+    .string "Show me the true-grit determination\n"
+    .string "you've gained on your journey!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+
+PewterCity_Gym_Text_BrockRematchDecline::
+    .string "Come back when you're ready to\n"
+    .string "test your strength.$"
+
+PewterCity_Gym_Text_BrockRematchDefeat::
+    .string "Your strength is as solid as a rock!\n"
+    .string "You've truly mastered your skills!$"
+
+PewterCity_Gym_Text_BrockRematchPostBattle::
+    .string "Incredible!\n"
+    .string "You've become a true champion.\p"
+    .string "Your POKéMON are rock solid!\n"
+    .string "Here, take this as a reward.$"
+
+PewterCity_Gym_Text_ReceivedHardStoneFromBrock::
+    .string "{PLAYER} received a HARD STONE\n"
+    .string "from BROCK!$"
+
+PewterCity_Gym_Text_ExplainHardStone::
+    .string "The HARD STONE is a hold item.\p"
+    .string "When held by a POKéMON, it boosts\n"
+    .string "the power of ROCK-type moves.\p"
+    .string "Keep training and stay true to\n"
+    .string "your path, just like a rock!$"
+
+PewterCity_Gym_Text_BrockRematchAfterReward::
+    .string "You can challenge me again anytime.\p"
+    .string "My POKéMON and I are always ready\n"
+    .string "to battle strong TRAINERS like you!$"
+

@@ -3144,6 +3144,8 @@ static void Cmd_getexp(void)
         {
             u16 calculatedExp;
             s32 viaSentIn;
+            s32 nonBattlers;
+            bool8 modernExpShareMode = (gSaveBlock2Ptr->optionsExpShareMode == 1 && gSaveBlock2Ptr->modernExpShareEnabled == 1);
 
             for (viaSentIn = 0, i = 0; i < PARTY_SIZE; i++)
             {
@@ -3152,20 +3154,50 @@ static void Cmd_getexp(void)
                 if (gBitTable[i] & sentIn)
                     viaSentIn++;
 
-                item = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+                // Only check for classic mode EXP Share
+                if (!modernExpShareMode)
+                {
+                    item = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
-                if (item == ITEM_ENIGMA_BERRY)
-                    holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
-                else
-                    holdEffect = ItemId_GetHoldEffect(item);
+                    if (item == ITEM_ENIGMA_BERRY)
+                        holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+                    else
+                        holdEffect = ItemId_GetHoldEffect(item);
 
-                if (holdEffect == HOLD_EFFECT_EXP_SHARE)
-                    viaExpShare++;
+                    if (holdEffect == HOLD_EFFECT_EXP_SHARE)
+                        viaExpShare++;
+                }
             }
 
             calculatedExp = gSpeciesInfo[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
 
-            if (viaExpShare) // at least one mon is getting exp via exp share
+            if (modernExpShareMode)
+            {
+                // Modern mode: battling Pokemon gets 100% exp, rest of party gets 50% divided among them
+                *exp = calculatedExp; // Full exp for battler
+                
+                // Calculate how many non-battling Pokemon are alive
+                nonBattlers = 0;
+                for (i = 0; i < PARTY_SIZE; i++)
+                {
+                    if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE || GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0)
+                        continue;
+                    if (!(gBitTable[i] & sentIn))
+                        nonBattlers++;
+                }
+                
+                if (nonBattlers > 0)
+                {
+                    gExpShareExp = calculatedExp / 2 / nonBattlers;
+                    if (gExpShareExp == 0)
+                        gExpShareExp = 1;
+                }
+                else
+                {
+                    gExpShareExp = 0;
+                }
+            }
+            else if (viaExpShare) // Classic mode: at least one mon is getting exp via exp share
             {
                 *exp = SAFE_DIV(calculatedExp / 2, viaSentIn);
                 if (*exp == 0)
@@ -3191,6 +3223,9 @@ static void Cmd_getexp(void)
     case 2: // set exp value to the poke in expgetter_id and print message
         if (gBattleControllerExecFlags == 0)
         {
+            bool8 modernExpShareMode = (gSaveBlock2Ptr->optionsExpShareMode == 1 && gSaveBlock2Ptr->modernExpShareEnabled == 1);
+            bool8 receivesModernExpShare = FALSE;
+            
             item = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HELD_ITEM);
 
             if (item == ITEM_ENIGMA_BERRY)
@@ -3198,7 +3233,14 @@ static void Cmd_getexp(void)
             else
                 holdEffect = ItemId_GetHoldEffect(item);
 
-            if (holdEffect != HOLD_EFFECT_EXP_SHARE && !(gBattleStruct->sentInPokes & 1))
+            // In modern mode, check if this Pokemon is a non-battler
+            // Use the bit at expGetterMonId position since we're not shifting in modern mode
+            if (modernExpShareMode && !(gBattleStruct->sentInPokes & gBitTable[gBattleStruct->expGetterMonId]))
+            {
+                receivesModernExpShare = TRUE;
+            }
+
+            if (!modernExpShareMode && holdEffect != HOLD_EFFECT_EXP_SHARE && !(gBattleStruct->sentInPokes & 1))
             {
                 *(&gBattleStruct->sentInPokes) >>= 1;
                 gBattleScripting.getexpState = 5;
@@ -3206,7 +3248,9 @@ static void Cmd_getexp(void)
             }
             else if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) == MAX_LEVEL)
             {
-                *(&gBattleStruct->sentInPokes) >>= 1;
+                // Only shift in classic mode
+                if (!modernExpShareMode)
+                    *(&gBattleStruct->sentInPokes) >>= 1;
                 gBattleScripting.getexpState = 5;
                 gBattleMoveDamage = 0; // used for exp
             }
@@ -3222,13 +3266,23 @@ static void Cmd_getexp(void)
 
                 if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HP))
                 {
-                    if (gBattleStruct->sentInPokes & 1)
+                    // Check if this Pokemon was sent into battle
+                    // In modern mode, check the bit at expGetterMonId; in classic mode, check bit 0 (after shifting)
+                    bool8 wasSentIn = modernExpShareMode 
+                        ? (gBattleStruct->sentInPokes & gBitTable[gBattleStruct->expGetterMonId])
+                        : (gBattleStruct->sentInPokes & 1);
+                    
+                    if (wasSentIn)
                         gBattleMoveDamage = *exp;
                     else
                         gBattleMoveDamage = 0;
 
-                    if (holdEffect == HOLD_EFFECT_EXP_SHARE)
+                    // In modern mode, non-battlers get gExpShareExp
+                    if (modernExpShareMode && receivesModernExpShare)
                         gBattleMoveDamage += gExpShareExp;
+                    else if (holdEffect == HOLD_EFFECT_EXP_SHARE)
+                        gBattleMoveDamage += gExpShareExp;
+                        
                     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
@@ -3268,9 +3322,14 @@ static void Cmd_getexp(void)
                     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
 
                     PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                    
+                    // Modern mode: ALL Pokemon get full EVs
                     MonGainEVs(&gPlayerParty[gBattleStruct->expGetterMonId], gBattleMons[gBattlerFainted].species);
                 }
-                gBattleStruct->sentInPokes >>= 1;
+                // Only shift sentInPokes in classic mode, or for battlers in modern mode
+                // In modern mode, sentInPokes needs to stay aligned with expGetterMonId
+                if (!modernExpShareMode)
+                    gBattleStruct->sentInPokes >>= 1;
                 gBattleScripting.getexpState++;
             }
         }

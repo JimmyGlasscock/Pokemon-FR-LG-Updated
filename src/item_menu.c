@@ -1608,6 +1608,8 @@ static void Task_ItemMenuAction_Give(u8 taskId)
     CopyWindowToVram(0, COPYWIN_MAP);
     if (!IsWritingMailAllowed(itemId))
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_CantWriteMailHere, Task_WaitAButtonAndCloseContextMenu);
+    else if (!IsHoldingItemAllowed(itemId))
+        Task_PrintItemCantBeHeld(taskId);
     else if (ItemId_GetImportance(itemId) == 0)
     {
         if (CalculatePlayerPartyCount() == 0)

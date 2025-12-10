@@ -99,6 +99,9 @@ bool8 IsHoldingItemAllowed(u16 itemId)
        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRADE_CENTER))
        || InUnionRoom() == TRUE))
         return FALSE;
+    // EXP Share can't be held in modern mode
+    else if (itemId == ITEM_EXP_SHARE && gSaveBlock2Ptr->optionsExpShareMode == 1)
+        return FALSE;
     else
         return TRUE;
 }

@@ -10,6 +10,9 @@
 #include "strings.h"
 #include "field_fadetransition.h"
 #include "gba/m4a_internal.h"
+#include "pokemon.h"
+#include "item.h"
+#include "constants/items.h"
 
 // can't include the one in menu_helpers.h since Task_OptionMenu needs bool32 for matching
 bool32 IsActiveOverworldLinkBusy(void);
@@ -24,6 +27,7 @@ enum
     MENUITEM_BUTTONMODE,
     MENUITEM_FRAMETYPE,
     MENUITEM_VERSION,
+    MENUITEM_EXPSHARE,
     MENUITEM_CANCEL,
     MENUITEM_COUNT
 };
@@ -70,6 +74,7 @@ static void DrawOptionMenuBg(void);
 static void LoadOptionMenuItemNames(void);
 static void RedrawOptionMenuItemNames(void);
 static void UpdateSettingSelectionDisplay(u16 selection);
+static void HandleExpShareModeChange(void);
 
 // Data Definitions
 static const struct WindowTemplate sOptionMenuWinTemplates[] =
@@ -136,7 +141,7 @@ static const struct BgTemplate sOptionMenuBgTemplates[] =
 };
 
 static const u16 sOptionMenuPalette[] = INCBIN_U16("graphics/misc/option_menu.gbapal");
-static const u16 sOptionMenuItemCounts[MENUITEM_COUNT] = {3, 2, 2, 2, 3, 10, 2, 0};
+static const u16 sOptionMenuItemCounts[MENUITEM_COUNT] = {3, 2, 2, 2, 3, 10, 2, 2, 0};
 
 static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
 {
@@ -147,6 +152,7 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
     [MENUITEM_BUTTONMODE]  = gText_ButtonMode,
     [MENUITEM_FRAMETYPE]   = gText_Frame,
     [MENUITEM_VERSION]     = gText_VersionEncounters,
+    [MENUITEM_EXPSHARE]    = gText_ExpShareMode,
     [MENUITEM_CANCEL]      = gText_OptionMenuCancel,
 };
 
@@ -188,6 +194,12 @@ static const u8 *const sVersionEncounterOptions[] =
     gText_VersionLeafGreen
 };
 
+static const u8 *const sExpShareModeOptions[] =
+{
+    gText_ExpShareClassic,
+    gText_ExpShareModern
+};
+
 static const u8 sOptionMenuPickSwitchCancelTextColor[] = {TEXT_DYNAMIC_COLOR_6, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY};
 static const u8 sOptionMenuTextColor[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_RED, TEXT_COLOR_RED};
 
@@ -226,6 +238,7 @@ void CB2_OptionsMenuFromStartMenu(void)
     sOptionMenuPtr->option[MENUITEM_BUTTONMODE] = gSaveBlock2Ptr->optionsButtonMode;
     sOptionMenuPtr->option[MENUITEM_FRAMETYPE] = gSaveBlock2Ptr->optionsWindowFrameType;
     sOptionMenuPtr->option[MENUITEM_VERSION] = gSaveBlock2Ptr->optionsVersionEncounters;
+    sOptionMenuPtr->option[MENUITEM_EXPSHARE] = gSaveBlock2Ptr->optionsExpShareMode;
     
     for (i = 0; i < MENUITEM_COUNT - 1; i++)
     {
@@ -540,6 +553,9 @@ static void BufferOptionMenuString(u8 selection)
     case MENUITEM_VERSION:
         AddTextPrinterParameterized3(1, FONT_NORMAL, x, y, dst, -1, sVersionEncounterOptions[sOptionMenuPtr->option[selection]]);
         break;
+    case MENUITEM_EXPSHARE:
+        AddTextPrinterParameterized3(1, FONT_NORMAL, x, y, dst, -1, sExpShareModeOptions[sOptionMenuPtr->option[selection]]);
+        break;
     default:
         break;
     }
@@ -549,6 +565,8 @@ static void BufferOptionMenuString(u8 selection)
 
 static void CloseAndSaveOptionMenu(u8 taskId)
 {
+    u16 oldExpShareMode;
+    
     gFieldCallback = FieldCB_DefaultWarpExit;
     SetMainCallback2(gMain.savedCallback);
     FreeAllWindowBuffers();
@@ -559,6 +577,17 @@ static void CloseAndSaveOptionMenu(u8 taskId)
     gSaveBlock2Ptr->optionsButtonMode = sOptionMenuPtr->option[MENUITEM_BUTTONMODE];
     gSaveBlock2Ptr->optionsWindowFrameType = sOptionMenuPtr->option[MENUITEM_FRAMETYPE];
     gSaveBlock2Ptr->optionsVersionEncounters = sOptionMenuPtr->option[MENUITEM_VERSION];
+    
+    // Handle EXP Share mode change
+    oldExpShareMode = gSaveBlock2Ptr->optionsExpShareMode;
+    gSaveBlock2Ptr->optionsExpShareMode = sOptionMenuPtr->option[MENUITEM_EXPSHARE];
+    
+    // If switching from classic to modern, move EXP Share from Pokemon to bag
+    if (oldExpShareMode == 0 && gSaveBlock2Ptr->optionsExpShareMode == 1)
+    {
+        HandleExpShareModeChange();
+    }
+    
     SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);
     FREE_AND_SET_NULL(sOptionMenuPtr);
     DestroyTask(taskId);
@@ -652,4 +681,29 @@ static void UpdateSettingSelectionDisplay(u16 selection)
     y = displayIndex * (maxLetterHeight - 1) + 0x3A;
     SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(y, y + maxLetterHeight));
     SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(0x10, 0xE0));
+}
+
+static void HandleExpShareModeChange(void)
+{
+    u8 i, j;
+    u16 heldItem;
+    
+    // Go through all party Pokemon and remove EXP Share if held
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+            continue;
+            
+        heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, NULL);
+        
+        if (heldItem == ITEM_EXP_SHARE)
+        {
+            // Remove the item from the Pokemon
+            heldItem = ITEM_NONE;
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
+            
+            // Add it back to the bag
+            AddBagItem(ITEM_EXP_SHARE, 1);
+        }
+    }
 }

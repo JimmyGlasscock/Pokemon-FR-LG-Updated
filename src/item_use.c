@@ -929,3 +929,38 @@ void ItemUse_SetQuestLogEvent(u8 eventId, struct Pokemon *pokemon, u16 itemId, u
     SetQuestLogEvent(eventId, (void *)questLog);
     Free(questLog);
 }
+
+void FieldUseFunc_ExpShare(u8 taskId)
+{
+    // Only works in modern mode
+    if (gSaveBlock2Ptr->optionsExpShareMode == 1)
+    {
+        // Toggle the modern EXP Share
+        gSaveBlock2Ptr->modernExpShareEnabled ^= 1;
+        
+        if (gSaveBlock2Ptr->modernExpShareEnabled)
+            StringExpandPlaceholders(gStringVar4, gText_ExpShareTurnedOn);
+        else
+            StringExpandPlaceholders(gStringVar4, gText_ExpShareTurnedOff);
+        
+        // Check if called from field or bag
+        if (gTasks[taskId].data[3] == 1)
+        {
+            // Called from field (registered item)
+            DisplayItemMessageOnField(taskId, FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
+        }
+        else
+        {
+            // Called from bag
+            DisplayItemMessageInBag(taskId, FONT_NORMAL, gStringVar4, Task_ReturnToBagFromContextMenu);
+        }
+    }
+    else
+    {
+        // In classic mode, it's a hold item - show error message
+        if (gTasks[taskId].data[3] == 1)
+            DisplayItemMessageOnField(taskId, FONT_NORMAL, gText_WontHaveEffect, Task_ItemUse_CloseMessageBoxAndReturnToField);
+        else
+            DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_WontHaveEffect, Task_ReturnToBagFromContextMenu);
+    }
+}

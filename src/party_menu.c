@@ -4277,12 +4277,12 @@ static void CB2_DoUseItemAnim(void)
 {
     if (CheckIfItemIsTMHMOrEvolutionStone(gSpecialVar_ItemId) == 2) // Evolution stone
     {
-        if (MonCanEvolve() == TRUE)
+        struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+        u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_ITEM_USE, gSpecialVar_ItemId);
+        
+        if (targetSpecies != SPECIES_NONE)
         {
             // Skip animation and fade - directly trigger evolution scene
-            struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
-            u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_ITEM_USE, gSpecialVar_ItemId);
-            
             gCB2_AfterEvolution = gPartyMenu.exitCallback;
             ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, &gPlayerParty[gPartyMenu.slotId], gSpecialVar_ItemId, 0xFFFF);
             RemoveBagItem(gSpecialVar_ItemId, 1);

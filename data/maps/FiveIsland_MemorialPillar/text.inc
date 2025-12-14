@@ -122,7 +122,7 @@ FiveIsland_MemorialPillar_Text_JimmyAlreadyBattled::
     .string "CHRONOS ISLE is actually closer to\n"
     .string "HOENN than it is to KANTO.\p"
     .string "Even if there's no legendary,\n"
-    .string "there's bount to be something\l"
+    .string "there's bound to be something\l"
     .string "cool on that island!$"
 
 FiveIsland_MemorialPillar_Text_JimmyReceivedTicket::

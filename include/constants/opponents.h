@@ -515,10 +515,10 @@
 #define TRAINER_YOUNGSTER_CHAD_4                 509
 #define TRAINER_HIKER_FRANKLIN_2                 510
 #define TRAINER_PKMN_PROF_PROF_OAK               511
-#define TRAINER_PLAYER_BRENDAN                   512
-#define TRAINER_PLAYER_MAY                       513
-#define TRAINER_PLAYER_RED                       514
-#define TRAINER_PLAYER_LEAF                      515
+#define TRAINER_LEADER_ERIKA_REMATCH             512
+#define TRAINER_LEADER_KOGA_REMATCH              513
+#define TRAINER_LEADER_SABRINA_REMATCH           514
+#define TRAINER_LEADER_BLAINE_REMATCH            515
 #define TRAINER_TEAM_ROCKET_GRUNT_42             516
 #define TRAINER_PSYCHIC_JACLYN                   517
 #define TRAINER_CRUSH_GIRL_SHARON                518
@@ -771,16 +771,12 @@
 #define TRAINER_LEADER_BROCK_REMATCH             765
 #define TRAINER_LEADER_MISTY_REMATCH             766
 #define TRAINER_LEADER_LT_SURGE_REMATCH          767
-#define TRAINER_LEADER_ERIKA_REMATCH             768
-#define TRAINER_LEADER_KOGA_REMATCH              769
-#define TRAINER_LEADER_SABRINA_REMATCH           770
-#define TRAINER_LEADER_BLAINE_REMATCH            771
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             772
+#define NUM_TRAINERS                             768
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

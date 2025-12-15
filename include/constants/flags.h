@@ -167,8 +167,7 @@
 #define FLAG_HIDE_FOUR_ISLAND_RIVAL                        0x097
 #define FLAG_HIDE_SIX_ISLAND_POKECENTER_RIVAL              0x098
 #define FLAG_HIDE_DEOXYS                                   0x099
-#define FLAG_HIDE_CELEBI                                   0x09A
-#define FLAG_HIDE_BIRTH_ISLAND_METEORITE                   0x09B
+#define FLAG_HIDE_BIRTH_ISLAND_METEORITE                   0x09A
 #define FLAG_HIDE_LUGIA                                    0x09B
 #define FLAG_HIDE_HO_OH                                    0x09C
 #define FLAG_HIDE_POSTGAME_GOSSIPERS                       0x09D
@@ -198,7 +197,6 @@
 #define FLAG_HIDE_VERMILION_CITY_STRANGE_OLD_MAN           0x0B4
 
 // Unused?  
-#define FLAG_0x0B5               0x0B5
 #define FLAG_0x0B5               0x0B5
 #define FLAG_0x0B6               0x0B6
 #define FLAG_0x0B7               0x0B7
@@ -464,7 +462,7 @@
 #define FLAG_HIDE_FUCHSIA_CITY_WARDENS_HOUSE_RARE_CANDY         0x1B9
 #define FLAG_HIDE_TWO_ISLAND_REVIVE                             0x1BA
 #define FLAG_HIDE_THREE_ISLAND_ZINC                             0x1BB
-#define FLAG_0x1BC                                              0x1BC
+#define FLAG_RECEIVED_CHRONOS_TICKET                            0x1BC
 #define FLAG_0x1BD                                              0x1BD
 #define FLAG_HIDE_VIRIDIAN_FOREST_POTION_2                      0x1BE
 #define FLAG_HIDE_MT_MOON_B2F_REVIVE                            0x1BF
@@ -565,8 +563,6 @@
 #define FLAG_HIDE_CHRONOS_BRENDAN                           0x21C
 #define FLAG_DEFEATED_CHRONOS_BRENDAN                       0x21D
 #define FLAG_HIDE_CHRONOS_ISLE_BRENDAN                      0x21E
-#define FLAG_0x21F               0x21F
-#define FLAG_0x21E               0x21E
 #define FLAG_0x21F               0x21F
 #define FLAG_0x220               0x220
 #define FLAG_0x221               0x221
@@ -708,7 +704,6 @@
 #define FLAG_GOT_TEA                                     0x2A6
 #define FLAG_RECEIVED_AURORA_TICKET                      0x2A7
 #define FLAG_RECEIVED_MYSTIC_TICKET                      0x2A8
-#define FLAG_RECEIVED_CHRONOS_TICKET                     0x2A9
 #define FLAG_RECEIVED_OLD_SEA_MAP                        0x2A9
 #define FLAG_WONDER_CARD_UNUSED_1                        0x2AA
 #define FLAG_WONDER_CARD_UNUSED_2                        0x2AB
@@ -772,9 +767,8 @@
 #define FLAG_USED_CUT_ON_RUIN_VALLEY_BRAILLE             0x2E3
 #define FLAG_FOUGHT_DEOXYS                               0x2E4
 #define FLAG_FOUGHT_CELEBI                               0x2E5
-#define FLAG_0x2E6                                       0x2E6
-#define FLAG_0x2E6                                       0x2E6
-#define FLAG_0x2E7                                       0x2E7
+#define FLAG_HIDE_CELEBI                                 0x2E6
+#define FLAG_SHOWN_CHRONOS_TICKET                        0x2E7
 #define FLAG_0x2E8                                       0x2E8
 #define FLAG_0x2E9                                       0x2E9
 #define FLAG_0x2EA                                       0x2EA
@@ -785,7 +779,6 @@
 #define FLAG_GOT_HM06                                    0x2EF
 #define FLAG_SHOWN_MYSTIC_TICKET                         0x2F0
 #define FLAG_SHOWN_AURORA_TICKET                         0x2F1
-#define FLAG_SHOWN_CHRONOS_TICKET                        0x2F2
 #define FLAG_FOUGHT_LUGIA                                0x2F2
 #define FLAG_FOUGHT_HO_OH                                0x2F3
 #define FLAG_OAK_SAW_DEX_COMPLETION                      0x2F4
@@ -1412,13 +1405,13 @@
 #define FLAG_SYS_CAN_LINK_WITH_RS                                   (SYS_FLAGS + 0x44)
 #define FLAG_SYS_SEVII_MAP_123                                      (SYS_FLAGS + 0x45)
 #define FLAG_SYS_SEVII_MAP_4567                                     (SYS_FLAGS + 0x46)
-#define FLAG_SYS_SEVII_MAP_CHRONOS                                  (SYS_FLAGS + 0x4D)
 #define FLAG_SYS_GOT_BERRY_POUCH                                    (SYS_FLAGS + 0x47)
 #define FLAG_SYS_DEOXYS_AWAKENED                                    (SYS_FLAGS + 0x48)
 #define FLAG_SYS_UNLOCKED_TANOBY_RUINS                              (SYS_FLAGS + 0x49)
 #define FLAG_ENABLE_SHIP_NAVEL_ROCK                                 (SYS_FLAGS + 0x4A)
 #define FLAG_ENABLE_SHIP_BIRTH_ISLAND                               (SYS_FLAGS + 0x4B)
 #define FLAG_ENABLE_SHIP_CHRONOS_ISLE                               (SYS_FLAGS + 0x4C)
+#define FLAG_SYS_SEVII_MAP_CHRONOS                                  (SYS_FLAGS + 0x4D)
 
 // World Map Flags
 #define FLAG_WORLD_MAP_PALLET_TOWN                                  (SYS_FLAGS + 0x90)

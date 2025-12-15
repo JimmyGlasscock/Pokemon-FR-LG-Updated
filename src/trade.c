@@ -2881,13 +2881,14 @@ int GetUnionRoomTradeMessageId(struct RfuGameCompatibilityData player, struct Rf
 
     // If partner is not using FRLG, both players must have progressed the story
     // to a certain point (becoming champion in RSE, finishing the Sevii islands in FRLG)
-    if (isNotFRLG)
+    // RESTRICTION REMOVED: Can now trade with Ruby/Sapphire as soon as trading is available
+    /*if (isNotFRLG)
     {
         if (!playerCanLinkNationally)
             return UR_TRADE_MSG_CANT_TRADE_WITH_PARTNER_1;
         else if (!partnerCanLinkNationally)
             return UR_TRADE_MSG_CANT_TRADE_WITH_PARTNER_2;
-    }
+    }*/
 
     // Cannot trade illegitimate Deoxys/Mew
     if (IsDeoxysOrMewUntradable(playerSpecies, isModernFatefulEncounter))

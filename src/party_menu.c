@@ -4476,8 +4476,8 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc func)
     else
     {
         ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, mon, item, 0xFFFF);
-        Task_DoUseItemAnim(taskId);
         gItemUseCB = ItemUseCB_MedicineStep;
+        ItemUseCB_MedicineStep(taskId, func);
     }
 }
 
@@ -4669,8 +4669,8 @@ static void TryUsePPItemOutsideBattle(u8 taskId)
     }
     else
     {
-        Task_DoUseItemAnim(taskId);
         gItemUseCB = ItemUseCB_RestorePP;
+        ItemUseCB_RestorePP(taskId, Task_ClosePartyMenuAfterText);
     }
 }
 
@@ -4805,8 +4805,8 @@ void ItemUseCB_TMHM(u8 taskId, TaskFunc func)
     if (GiveMoveToMon(mon, learnMoveId) != MON_HAS_MAX_MOVES)
     {
         ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, mon, item, 0xFFFF);
-        Task_DoUseItemAnim(taskId);
         gItemUseCB = ItemUseCB_LearnedMove;
+        ItemUseCB_LearnedMove(taskId, func);
     }
     else
     {
